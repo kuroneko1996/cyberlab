@@ -1,8 +1,31 @@
 import pygame as pg
 from settings import *
 
+
 def collide_hit_rect(one, two):
     return one.hit_rect.colliderect(two.rect)
+
+
+def collide_with_map(sprite, group, axis):
+    if axis == 'x':
+        hits = pg.sprite.spritecollide(sprite, group, False, collide_hit_rect)
+        if hits:
+            if sprite.vx > 0:
+                sprite.x = hits[0].rect.left - sprite.hit_rect.width
+            elif sprite.vx < 0:
+                sprite.x = hits[0].rect.right
+            sprite.vx = 0
+            sprite.hit_rect.x = sprite.x
+    elif axis == 'y':
+        hits = pg.sprite.spritecollide(sprite, group, False, collide_hit_rect)
+        if hits:
+            if sprite.vy > 0:
+                sprite.y = hits[0].rect.top - sprite.hit_rect.height
+            elif sprite.vy < 0:
+                sprite.y = hits[0].rect.bottom
+            sprite.vy = 0
+            sprite.hit_rect.y = sprite.y
+
 
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y, img):
@@ -37,25 +60,7 @@ class Player(pg.sprite.Sprite):
             self.vx *= 0.707
             self.vy *= 0.707
 
-    def collide_with_map(self, axis):
-        if axis == 'x':
-            hits = pg.sprite.spritecollide(self, self.game.walls, False, collide_hit_rect)
-            if hits:
-                if self.vx > 0:
-                    self.x = hits[0].rect.left - self.hit_rect.width
-                elif self.vx < 0:
-                    self.x = hits[0].rect.right
-                self.vx = 0
-                self.hit_rect.x = self.x
-        elif axis == 'y':
-            hits = pg.sprite.spritecollide(self, self.game.walls, False, collide_hit_rect)
-            if hits:
-                if self.vy > 0:
-                    self.y = hits[0].rect.top - self.hit_rect.height
-                elif self.vy < 0:
-                    self.y = hits[0].rect.bottom
-                self.vy = 0
-                self.hit_rect.y = self.y
+
 
     def update(self, dt):
         self.input()
@@ -64,10 +69,10 @@ class Player(pg.sprite.Sprite):
         self.y += self.vy * dt
         # move on x
         self.hit_rect.x = self.x
-        self.collide_with_map('x')
+        collide_with_map(self, self.game.walls, 'x')
         # move on y
         self.hit_rect.y = self.y
-        self.collide_with_map('y')
+        collide_with_map(self, self.game.walls, 'y')
         # update image rect
         self.rect.center = self.hit_rect.center
 
