@@ -2,6 +2,7 @@ import sys
 from os import path
 import pygame as pg
 from settings import *
+from spritesheet import Spritesheet
 from sprites import *
 from camera import *
 from map import *
@@ -19,8 +20,10 @@ class Game():
         assets_folder = path.join(path.dirname(__file__), 'assets')
         self.map = Map(path.join(assets_folder, 'maps/map1.txt'))
 
-        wall_img = pg.image.load(path.join(assets_folder, 'wall.png'))
-        player_img = pg.image.load(path.join(assets_folder, 'player.png'))
+        self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'))
+        wall_img = self.spritesheet.get_image(0, 0, 32, 32)
+        player_img = self.spritesheet.get_image(32, 0, 32, 32)
+        player_img.set_colorkey((0,0,0)) # black is transparent
 
         for row, tiles in enumerate(self.map.data):
             for col, tile in enumerate(tiles):
