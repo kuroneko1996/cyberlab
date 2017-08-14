@@ -7,7 +7,7 @@ class Map:
             for line in f:
                 self.data.append(line.strip())
 
-        self.width = len(self.data[0])
+        self.width = max(map(len, self.data))
         self.height = len(self.data)
         self.on_update_screen()
 
