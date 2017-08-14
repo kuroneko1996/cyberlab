@@ -18,19 +18,18 @@ class Game():
         self.walls = pg.sprite.Group()
 
         assets_folder = path.join(path.dirname(__file__), 'assets')
-        self.map = Map(path.join(assets_folder, 'maps/map1.txt'))
+        self.map = Map(path.join(assets_folder, 'maps/map1.json'))
 
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'))
         wall_img = self.spritesheet.get_image(0, 0, 32, 32)
         player_img = self.spritesheet.get_image(32, 0, 32, 32)
         player_img.set_colorkey((0,0,0)) # black is transparent
 
-        for row, tiles in enumerate(self.map.data):
-            for col, tile in enumerate(tiles):
-                if tile == '1':
-                    Wall(self, col, row, wall_img)
-                elif tile == 'P':
-                    self.player = Player(self, col, row, player_img)
+        for node in self.map.data:
+            if node["name"] == 'WALL':
+                Wall(self, node["x"], node["y"], wall_img)
+            elif node["name"] == 'PLAYER':
+                self.player = Player(self, node["x"], node["y"], player_img)
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 

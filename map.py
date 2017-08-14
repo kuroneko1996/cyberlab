@@ -1,14 +1,16 @@
+import json
 from settings import *
+
 
 class Map:
     def __init__(self, filename):
-        self.data = []
         with open(filename, 'rt') as f:
-            for line in f:
-                self.data.append(line.strip())
+            self.data = json.loads(f.read())
 
-        self.width = max(map(len, self.data))
-        self.height = len(self.data)
+        self.width = max(map(lambda node: node["x"], self.data)) + 1 \
+                     - min(map(lambda node: node["x"], self.data))
+        self.height = max(map(lambda node: node["y"], self.data)) + 1 \
+                      - min(map(lambda node: node["y"], self.data))
         self.on_update_screen()
 
     def on_update_screen(self):
