@@ -4,6 +4,10 @@ Requirements: python 3, pygame.
 
 **$python main.py**
 
+## Controls:
+* Arrow keys for movement
+* F11 toggles fullscreen
+
 ## Editing tools:
 
 **$python util/tiled2json.py**
