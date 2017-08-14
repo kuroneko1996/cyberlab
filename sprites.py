@@ -1,5 +1,6 @@
 import pygame as pg
 from settings import *
+from animation import Animation, PlayMode
 
 
 def collide_hit_rect(one, two):
@@ -28,12 +29,14 @@ def collide_with_map(sprite, group, axis):
 
 
 class Player(pg.sprite.Sprite):
-    def __init__(self, game, x, y, img):
+    def __init__(self, game, x, y):
         self.game = game
         self.groups = game.all_sprites
         pg.sprite.Sprite.__init__(self, self.groups)
-        self.image = img
 
+        self.idle_image = game.spritesheet.get_image_alpha(32, 0, 32, 32)
+
+        self.image = self.idle_image
         self.rect = self.image.get_rect()
         self.hit_rect = pg.Rect(0, 0, 16, 30)
         self.hit_rect.center = self.rect.center
@@ -42,6 +45,11 @@ class Player(pg.sprite.Sprite):
         self.y = y * TILE_SIZE
         self.vx, self.vy = 0, 0
         self.spd = 200
+
+        self.animation_timer = 0.0
+        self.walking_animation = Animation(0.25, PlayMode.LOOP,
+                                           game.spritesheet.get_image_alpha(32, 0, 32, 32),
+                                           game.spritesheet.get_image_alpha(32, 0, 32, 32))
 
     def input(self):
         self.vx, self.vy = 0, 0
@@ -60,8 +68,6 @@ class Player(pg.sprite.Sprite):
             self.vx *= 0.707
             self.vy *= 0.707
 
-
-
     def update(self, dt):
         self.input()
 
@@ -75,6 +81,18 @@ class Player(pg.sprite.Sprite):
         collide_with_map(self, self.game.walls, 'y')
         # update image rect
         self.rect.center = self.hit_rect.center
+
+        self.update_animation(dt)
+
+    def update_animation(self, dt):
+        self.image = self.idle_image
+        if self.vx != 0 or self.vx != 0:
+           self.image = self.walking_animation.get_key_frame(self.animation_timer)
+
+        self.animation_timer += dt
+        if self.animation_timer >= 60:
+            self.animation_timer = 0.0
+
 
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y, img):
