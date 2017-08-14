@@ -7,11 +7,21 @@ from sprites import *
 from camera import *
 from map import *
 
-class Game():
+
+class Game:
     def __init__(self):
         self.display = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
+
+        self.all_sprites = None
+        self.spritesheet = None
+        self.walls = None
+        self.map = None
+        self.player = None
+        self.camera = None
+        self.playing = False
+        self.dt = 0.0
 
     def load(self):
         self.all_sprites = pg.sprite.Group()
@@ -22,15 +32,13 @@ class Game():
 
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'))
         wall_img = self.spritesheet.get_image(0, 0, 32, 32)
-        player_img = self.spritesheet.get_image(32, 0, 32, 32)
-        player_img.set_colorkey((0,0,0)) # black is transparent
 
         for row, tiles in enumerate(self.map.data):
             for col, tile in enumerate(tiles):
                 if tile == '1':
                     Wall(self, col, row, wall_img)
                 elif tile == 'P':
-                    self.player = Player(self, col, row, player_img)
+                    self.player = Player(self, col, row)
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
