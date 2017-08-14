@@ -34,7 +34,7 @@ class Player(pg.sprite.Sprite):
         self.groups = game.all_sprites
         pg.sprite.Sprite.__init__(self, self.groups)
 
-        self.idle_image = game.spritesheet.get_image_alpha(32, 0, 32, 32)
+        self.idle_image = game.spritesheet.get_image_alpha(0, 32, 32, 32)
 
         self.image = self.idle_image
         self.rect = self.image.get_rect()
@@ -47,9 +47,13 @@ class Player(pg.sprite.Sprite):
         self.spd = 200
 
         self.animation_timer = 0.0
-        self.walking_animation = Animation(0.25, PlayMode.LOOP,
-                                           game.spritesheet.get_image_alpha(32, 0, 32, 32),
-                                           game.spritesheet.get_image_alpha(32, 0, 32, 32))
+        self.idling_animation = Animation(0.50, PlayMode.LOOP,
+                                        game.spritesheet.get_image_alpha(0, 32, 32, 32),
+                                        game.spritesheet.get_image_alpha(32, 32, 32, 32))
+        self.walking_animation = Animation(0.10, PlayMode.LOOP,
+                                        game.spritesheet.get_image_alpha(64, 32, 32, 32),
+                                        game.spritesheet.get_image_alpha(96, 32, 32, 32),
+                                        game.spritesheet.get_image_alpha(128, 32, 32, 32))
 
     def input(self):
         self.vx, self.vy = 0, 0
@@ -85,9 +89,9 @@ class Player(pg.sprite.Sprite):
         self.update_animation(dt)
 
     def update_animation(self, dt):
-        self.image = self.idle_image
-        if self.vx != 0 or self.vx != 0:
-           self.image = self.walking_animation.get_key_frame(self.animation_timer)
+        self.image = self.idling_animation.get_key_frame(self.animation_timer)
+        if self.vx != 0 or self.vy != 0:
+            self.image = self.walking_animation.get_key_frame(self.animation_timer)
 
         self.animation_timer += dt
         if self.animation_timer >= 60:
