@@ -3,7 +3,8 @@ from os import path
 import pygame as pg
 from settings import *
 from spritesheet import Spritesheet
-from sprites import *
+from sprites.player import Player
+from sprites.wall import Wall
 from camera import *
 from map import *
 

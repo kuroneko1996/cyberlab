@@ -1,31 +1,7 @@
 import pygame as pg
 from settings import *
 from animation import Animation, PlayMode
-
-
-def collide_hit_rect(one, two):
-    return one.hit_rect.colliderect(two.rect)
-
-
-def collide_with_map(sprite, group, axis):
-    if axis == 'x':
-        hits = pg.sprite.spritecollide(sprite, group, False, collide_hit_rect)
-        if hits:
-            if sprite.vx > 0:
-                sprite.x = hits[0].rect.left - sprite.hit_rect.width
-            elif sprite.vx < 0:
-                sprite.x = hits[0].rect.right
-            sprite.vx = 0
-            sprite.hit_rect.x = sprite.x
-    elif axis == 'y':
-        hits = pg.sprite.spritecollide(sprite, group, False, collide_hit_rect)
-        if hits:
-            if sprite.vy > 0:
-                sprite.y = hits[0].rect.top - sprite.hit_rect.height
-            elif sprite.vy < 0:
-                sprite.y = hits[0].rect.bottom
-            sprite.vy = 0
-            sprite.hit_rect.y = sprite.y
+from .collision import *
 
 
 class Player(pg.sprite.Sprite):
@@ -146,16 +122,3 @@ class Player(pg.sprite.Sprite):
         self.animation_timer += dt
         if self.animation_timer >= 60:
             self.animation_timer = 0.0
-
-
-class Wall(pg.sprite.Sprite):
-    def __init__(self, game, x, y, img):
-        self.game = game
-        self.groups = game.all_sprites, game.walls
-        pg.sprite.Sprite.__init__(self, self.groups)
-        self.image = img
-        self.rect = self.image.get_rect()
-        self.x = x
-        self.y = y
-        self.rect.x = x * TILE_SIZE
-        self.rect.y = y * TILE_SIZE
