@@ -35,7 +35,7 @@ class Player(pg.sprite.Sprite):
         self.image = img
 
         self.rect = self.image.get_rect()
-        self.hit_rect = pg.Rect(0, 0, 16, 32)
+        self.hit_rect = pg.Rect(0, 0, 16, 30)
         self.hit_rect.center = self.rect.center
 
         self.x = x * TILE_SIZE
