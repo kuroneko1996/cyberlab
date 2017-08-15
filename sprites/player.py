@@ -4,6 +4,8 @@ from animation import Animation, PlayMode
 from container import Container
 from .collision import *
 
+HITBOX_DOWN_SHIFT = -8
+
 
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y):
@@ -12,12 +14,13 @@ class Player(pg.sprite.Sprite):
         groups = game.all_sprites
         pg.sprite.Sprite.__init__(self, groups)
 
-        self.idle_image = game.spritesheet.get_image_alpha(0, 32, 32, 32)
+        self.idle_image = game.spritesheet.get_image_alpha(0, TILE_SIZE, TILE_SIZE, TILE_SIZE)
 
         self.image = self.idle_image
         self.rect = self.image.get_rect()
-        self.hit_rect = pg.Rect(0, 0, 16, 30)
-        self.hit_rect.center = self.rect.center
+        self.hit_rect = pg.Rect(0, 0, TILE_SIZE/2, TILE_SIZE/2)
+        #self.hit_rect.center = self.rect.center
+        #self.hit_rect = self.hit_rect.move(0, TILE_SIZE/2)
 
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE
@@ -105,6 +108,7 @@ class Player(pg.sprite.Sprite):
         collide_with_map(self, self.game.solid, 'y')
         # update image rect
         self.rect.center = self.hit_rect.center
+        self.rect = self.rect.move(0, HITBOX_DOWN_SHIFT)
 
         if self.vx != 0 or self.vy != 0:
             self.moving = True
