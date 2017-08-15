@@ -6,9 +6,11 @@ from spritesheet import Spritesheet
 from sprites.player import Player
 from sprites.wall import Wall
 from sprites.item import Item
+from sprites.door import Door
 from pickable import Pickable
 from camera import *
 from map import *
+
 
 class Game:
     def __init__(self, display):
@@ -20,6 +22,10 @@ class Game:
         self.spritesheet = None
         self.walls = None
         self.items_on_floor = None
+        self.walls = None
+        self.doors = None
+
+        self.spritesheet = None
         self.map = None
         self.player = None
         self.camera = None
@@ -29,16 +35,31 @@ class Game:
 
     def load(self):
         self.all_sprites = pg.sprite.Group()
-        self.walls = pg.sprite.Group()
+        self.solid = pg.sprite.Group()
         self.items_on_floor = pg.sprite.Group()
+        self.walls = pg.sprite.Group()
+        self.doors = pg.sprite.Group()
+
+        self.textBox = pg.image.load("assets/textBox.png").convert_alpha()
+        self.font = pg.font.Font("assets/fonts/Arcon.otf", 20)
+        self.fontSpace = pg.font.Font("assets/fonts/Arcon.otf", 14)
+        self.showTextBox = False
+        self.text = None
 
         assets_folder = path.join(path.dirname(__file__), 'assets')
         self.map = Map(path.join(assets_folder, 'maps/map1.json'))
 
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'))
-        wall_img = self.spritesheet.get_image(0, 0, 32, 32)
-        apple_img = self.spritesheet.get_image(32, 0, 32, 32)
-        
+        wall_img = self.get_image_at_row_col(0, 0)
+        apple_img = self.get_image_at_row_col(1, 0)
+
+        door_img = {
+            "up": self.get_image_at_row_col(2, 0),
+            "right": self.get_image_at_row_col(3, 0),
+            "down": self.get_image_at_row_col(4, 0),
+            "left": self.get_image_at_row_col(5, 0)
+        }
+
         for node in self.map.data:
             if node["name"] == 'WALL':
                 Wall(self, node["x"], node["y"], wall_img)
@@ -47,14 +68,13 @@ class Game:
             elif node["name"] == 'APPLE':
                 item = Item(self, node['x'], node['y'], apple_img)
                 item.pickable = Pickable(item, 'apple', False, 1, False)
+            elif node["name"] == "DOOR":
+                Door(self, node["x"], node["y"], door_img[node["dir"]], node["dir"])
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
-        self.textBox = pg.image.load("assets/textBox.png").convert_alpha()
-        self.font = pg.font.Font("assets/fonts/Arcon.otf", 20)
-        self.fontSpace = pg.font.Font("assets/fonts/Arcon.otf", 14)
-        self.showTextBox = False
-        self.text = None
+    def get_image_at_row_col(self, col, row):
+        return self.spritesheet.get_image(col * 32, row * 32, 32, 32)
 
     def update(self):
         for sprite in self.all_sprites:
@@ -76,7 +96,6 @@ class Game:
 
         # pg.draw.rect(self.display, (0,255,0), self.player.hit_rect, 1)
         # pg.draw.rect(self.display, (255, 255, 255), self.player.rect, 1)
-        
         pg.display.flip()
 
     def run(self):
@@ -132,9 +151,10 @@ class Game:
         if key in self.keys_just_pressed:
             return True
         return False
+
     def botMessage(self, text):
-        self.display.blit(self.textBox, (0,360))
-        self.display.blit(self.font.render(text, True, (255,255,255)), (150,390))
-        self.display.blit(self.fontSpace.render("[SPACE]", True, (255,255,255)), (560,440))
+        self.display.blit(self.textBox, (0, 360))
+        self.display.blit(self.font.render(text, True, (255, 255, 255)), (150, 390))
+        self.display.blit(self.fontSpace.render("[SPACE]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()
-        
+

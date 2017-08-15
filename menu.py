@@ -8,15 +8,17 @@ OPTION_COLOR = (231, 100, 240)
 SELECTED_OPTION_COLOR = (255, 100, 30)
 
 INITIAL_V_GAP = 30
+
 V_SPACING = 5
 
+display = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 class Menu:
-    def __init__(self, menu):
+    def __init__(self, menu, display):
         self.clock = pg.time.Clock()
         self.dt = self.clock.tick(FPS) / 1000
         self.playing = True
-        self.display = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        self.display = display
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
 
@@ -115,4 +117,11 @@ main_menu = Menu({
             "func": quit_game
         },
     ]
-})
+}, display)
+
+settings = Menu({
+    "selected_option": 0,
+    "options": [
+        # TODO: finish
+    ]
+}, display)

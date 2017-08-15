@@ -5,7 +5,7 @@ from settings import *
 class Wall(pg.sprite.Sprite):
     def __init__(self, game, x, y, img):
         self.game = game
-        self.groups = game.all_sprites, game.walls
+        self.groups = game.all_sprites, game.walls, game.solid
         pg.sprite.Sprite.__init__(self, self.groups)
         self.image = img
         self.rect = self.image.get_rect()

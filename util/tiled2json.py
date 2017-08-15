@@ -14,6 +14,7 @@ def move_to_visible_area(out_map):
         node["x"] = node["x"] - min_x
         node["y"] = node["y"] - min_y
 
+
 def main():
     if len(sys.argv) < 3:
         print_usage()
@@ -37,6 +38,18 @@ def main():
         if tile == 1:
             out_map.append({"x": col, "y": row, "name": "WALL"})
         elif tile == 2:
+            out_map.append({"x": col, "y": row, "name": "APPLE"})
+
+        elif tile == 3:
+            out_map.append({"x": col, "y": row, "name": "DOOR", "dir": "up"})
+        elif tile == 4:
+            out_map.append({"x": col, "y": row, "name": "DOOR", "dir": "right"})
+        elif tile == 5:
+            out_map.append({"x": col, "y": row, "name": "DOOR", "dir": "down"})
+        elif tile == 6:
+            out_map.append({"x": col, "y": row, "name": "DOOR", "dir": "left"})
+
+        elif 9 <= tile <= 16 or 19 <= tile <= 24:
             out_map.append({"x": col, "y": row, "name": "PLAYER"})
 
     move_to_visible_area(out_map)
