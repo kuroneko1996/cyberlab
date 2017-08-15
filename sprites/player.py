@@ -8,8 +8,9 @@ from .collision import *
 class Player(pg.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
-        self.groups = game.all_sprites
-        pg.sprite.Sprite.__init__(self, self.groups)
+
+        groups = game.all_sprites
+        pg.sprite.Sprite.__init__(self, groups)
 
         self.idle_image = game.spritesheet.get_image_alpha(0, 32, 32, 32)
 
@@ -91,7 +92,6 @@ class Player(pg.sprite.Sprite):
         if self.game.key_just_pressed(pg.K_SPACE):
             self.game.showTextBox = False
 
-
     def update(self, dt):
         self.input()
 
@@ -141,9 +141,9 @@ class Player(pg.sprite.Sprite):
                 print("picked up:", item.pickable.id, "x", item.pickable.amount)
                 self.game.text = "Picking up "+item.pickable.id+" ..."
                 self.game.showTextBox = True
+                # TODO move to pickable.py?
                 self.container.add(item.pickable)
-                self.game.all_sprites.remove(item)  # TODO move to pickable.py?
-                self.game.items_on_floor.remove(item)
+                item.remove(self.game.all_sprites, self.game.items_on_floor)
 
     def drop_item(self):
         # drops first existing item
@@ -152,8 +152,7 @@ class Player(pg.sprite.Sprite):
             self.container.remove(pickable)
             item = pickable.owner
             item.set_position(self.x, self.y)
-            self.game.all_sprites.add(item)
-            self.game.items_on_floor.add(item)
+            item.add(self.game.all_sprites, self.game.items_on_floor)
             print("dropped:", item.pickable.id, "x", item.pickable.amount)
             self.game.text = "Dropping "+item.pickable.id+" ..."
             self.game.showTextBox = True
