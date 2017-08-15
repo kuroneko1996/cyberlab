@@ -9,8 +9,6 @@ from sprites.item import Item
 from pickable import Pickable
 from camera import *
 from map import *
-from message import *
-
 
 class Game:
     def __init__(self, display):
@@ -40,20 +38,23 @@ class Game:
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'))
         wall_img = self.spritesheet.get_image(0, 0, 32, 32)
         apple_img = self.spritesheet.get_image(32, 0, 32, 32)
-
-        self.message = Message(self.display)
         
         for node in self.map.data:
             if node["name"] == 'WALL':
                 Wall(self, node["x"], node["y"], wall_img)
             elif node["name"] == 'PLAYER':
-                self.player = Player(self, node["x"], node["y"],self.message)
+                self.player = Player(self, node["x"], node["y"])
             elif node["name"] == 'APPLE':
                 item = Item(self, node['x'], node['y'], apple_img)
                 item.pickable = Pickable(item, 'apple', False, 1, False)
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
-        
+
+        self.textBox = pg.image.load("assets/textBox.png").convert_alpha()
+        self.font = pg.font.Font("assets/fonts/Arcon.otf", 20)
+        self.fontSpace = pg.font.Font("assets/fonts/Arcon.otf", 14)
+        self.showTextBox = False
+        self.text = None
 
     def update(self):
         for sprite in self.all_sprites:
@@ -70,6 +71,8 @@ class Game:
                 self.display.blit(sprite.image, self.camera.transform(sprite))
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
+        if (self.showTextBox == True):
+            self.botMessage(self.text)
 
         # pg.draw.rect(self.display, (0,255,0), self.player.hit_rect, 1)
         # pg.draw.rect(self.display, (255, 255, 255), self.player.rect, 1)
@@ -129,3 +132,9 @@ class Game:
         if key in self.keys_just_pressed:
             return True
         return False
+    def botMessage(self, text):
+        self.display.blit(self.textBox, (0,360))
+        self.display.blit(self.font.render(text, True, (255,255,255)), (150,390))
+        self.display.blit(self.fontSpace.render("[SPACE]", True, (255,255,255)), (560,440))
+        pg.display.flip()
+        

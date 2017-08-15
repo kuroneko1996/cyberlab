@@ -6,7 +6,7 @@ from .collision import *
 
 
 class Player(pg.sprite.Sprite):
-    def __init__(self, game, x, y,message):
+    def __init__(self, game, x, y):
         self.game = game
         self.groups = game.all_sprites
         pg.sprite.Sprite.__init__(self, self.groups)
@@ -59,8 +59,6 @@ class Player(pg.sprite.Sprite):
 
         self.container = Container(self, 16)
 
-        self.message = message
-
     def input(self):
         self.vx, self.vy = 0, 0
         keys = pg.key.get_pressed()
@@ -90,6 +88,8 @@ class Player(pg.sprite.Sprite):
             self.drop_item()
         elif self.game.key_just_pressed(pg.K_g) or self.game.key_just_pressed(pg.K_e):
             self.pickup_items()
+        if self.game.key_just_pressed(pg.K_SPACE):
+            self.game.showTextBox = False
 
 
     def update(self, dt):
@@ -139,7 +139,8 @@ class Player(pg.sprite.Sprite):
                 if auto_pick is True and item.pickable.auto_pick is False:
                     continue
                 print("picked up:", item.pickable.id, "x", item.pickable.amount)
-                self.message.botMessage("You pick something")
+                self.game.text = "I finded "+item.pickable.id+" !"
+                self.game.showTextBox = True
                 self.container.add(item.pickable)
                 self.game.all_sprites.remove(item)  # TODO move to pickable.py?
                 self.game.items_on_floor.remove(item)
@@ -154,3 +155,5 @@ class Player(pg.sprite.Sprite):
             self.game.all_sprites.add(item)
             self.game.items_on_floor.add(item)
             print("dropped:", item.pickable.id, "x", item.pickable.amount)
+            self.game.text = "I droped "+item.pickable.id+" !"
+            self.game.showTextBox = True
