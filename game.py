@@ -26,6 +26,7 @@ class Game:
         self.camera = None
         self.playing = False
         self.dt = 0.0
+        self.keys_just_pressed = {}
 
     def load(self):
         self.all_sprites = pg.sprite.Group()
@@ -46,7 +47,7 @@ class Game:
                 self.player = Player(self, node["x"], node["y"])
             elif node["name"] == 'APPLE':
                 item = Item(self, node['x'], node['y'], apple_img)
-                item.pickable = Pickable(item, 'apple')
+                item.pickable = Pickable(item, 'apple', False, 1, False)
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
@@ -83,10 +84,12 @@ class Game:
         sys.exit()
 
     def events(self):
+        self.keys_just_pressed.clear()
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.quit()
             if event.type == pg.KEYDOWN:
+                self.keys_just_pressed[event.key] = True
                 if event.key == pg.K_ESCAPE:
                     self.quit()
                 if event.key == pg.K_F11:
@@ -116,3 +119,8 @@ class Game:
         pg.mouse.set_cursor(*cursor)
 
         return screen
+
+    def key_just_pressed(self, key):
+        if key in self.keys_just_pressed:
+            return True
+        return False

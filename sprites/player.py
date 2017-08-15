@@ -84,6 +84,11 @@ class Player(pg.sprite.Sprite):
             self.vx *= 0.707
             self.vy *= 0.707
 
+        if self.game.key_just_pressed(pg.K_q):
+            self.drop_item()
+        elif self.game.key_just_pressed(pg.K_g) or self.game.key_just_pressed(pg.K_e):
+            self.pickup_items()
+
     def update(self, dt):
         self.input()
 
@@ -103,7 +108,7 @@ class Player(pg.sprite.Sprite):
         else:
             self.moving = False
 
-        self.auto_pick_up_items()
+        self.pickup_items(True)
         self.update_animation(dt)
 
     def update_animation(self, dt):
@@ -124,11 +129,24 @@ class Player(pg.sprite.Sprite):
         if self.animation_timer >= 60:
             self.animation_timer = 0.0
 
-    def auto_pick_up_items(self):
+    def pickup_items(self, auto_pick=False):
         items = pg.sprite.spritecollide(self, self.game.items_on_floor, False)
         for item in items:
             if item.pickable is not None:
+                if auto_pick is True and item.pickable.auto_pick is False:
+                    continue
                 print("picked up:", item.pickable.id, "x", item.pickable.amount)
                 self.container.add(item.pickable)
                 self.game.all_sprites.remove(item)  # TODO move to pickable.py?
                 self.game.items_on_floor.remove(item)
+
+    def drop_item(self):
+        # drops first existing item
+        pickable = next((value for value in self.container.inventory if value is not None), None)
+        if pickable is not None:
+            self.container.remove(pickable)
+            item = pickable.owner
+            item.set_position(self.x, self.y)
+            self.game.all_sprites.add(item)
+            self.game.items_on_floor.add(item)
+            print("dropped:", item.pickable.id, "x", item.pickable.amount)

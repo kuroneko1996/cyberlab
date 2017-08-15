@@ -17,3 +17,9 @@ class Item(pg.sprite.Sprite):
         self.rect.y = y * TILE_SIZE
 
         self.pickable = None
+
+    def set_position(self, x, y):
+        self.x = x
+        self.y = y
+        self.rect.x = x
+        self.rect.y = y

@@ -6,6 +6,7 @@ Requirements: python 3, pygame.
 
 ## Controls:
 * Arrow keys for movement
+* E or G to pickup items, Q to drop
 * F11 toggles fullscreen
 
 ## Editing tools:

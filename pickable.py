@@ -1,5 +1,5 @@
 class Pickable:
-    def __init__(self, owner, id, stackable=False, amount=1, auto_pick=True):
+    def __init__(self, owner, id, stackable=False, amount=1, auto_pick=False):
         """
         :param owner: object with attached behavior
         :param id: string
