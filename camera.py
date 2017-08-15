@@ -17,10 +17,10 @@ class Camera:
         y = -target.rect.y + int(SCREEN_HEIGHT / 2)
 
         # limit scrolling near borders of map
-        x = min(0, x) # left
-        y = min(0, y) # top
-        x = max(SCREEN_WIDTH - self.width, x) # right
-        y = max(SCREEN_HEIGHT - self.height, y) # height
+        x = min(0, x)  # left
+        y = min(0, y)  # top
+        x = max(SCREEN_WIDTH - self.width, x)  # right
+        y = max(SCREEN_HEIGHT - self.height, y)  # height
 
         self.rect.x = x
         self.rect.y = y

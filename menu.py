@@ -13,6 +13,7 @@ V_SPACING = 5
 
 display = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+
 class Menu:
     def __init__(self, menu, display):
         self.clock = pg.time.Clock()

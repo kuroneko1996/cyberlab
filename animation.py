@@ -17,6 +17,9 @@ class Animation:
     def get_key_frame(self, time):
         return self.key_frames[self.get_key_frame_index(time)]
 
+    def get_key_frame_by_index(self, index):
+        return self.key_frames[index]
+
     def get_key_frame_index(self, time):
         if len(self.key_frames) == 1:
             return 0

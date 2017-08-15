@@ -23,7 +23,7 @@ Requirements: python 3, pygame.
 Imports map from [Tiled](http://www.mapeditor.org/)
 
 Usage:
-* Load the tileset using *assets/spritesheet.ong*
+* Load the tileset using *assets/spritesheet.png*
 * Make a new map
 * Save the map as .json
 * Run the script to convert in the internal map format

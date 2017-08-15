@@ -20,9 +20,8 @@ class Game:
 
         self.all_sprites = None
         self.spritesheet = None
-        self.walls = None
         self.items_on_floor = None
-        self.walls = None
+        self.solid = None
         self.doors = None
 
         self.spritesheet = None
@@ -37,7 +36,6 @@ class Game:
         self.all_sprites = pg.sprite.Group()
         self.solid = pg.sprite.Group()
         self.items_on_floor = pg.sprite.Group()
-        self.walls = pg.sprite.Group()
         self.doors = pg.sprite.Group()
 
         self.textBox = pg.image.load("assets/textBox.png").convert_alpha()
@@ -91,8 +89,8 @@ class Game:
                 self.display.blit(sprite.image, self.camera.transform(sprite))
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
-        if (self.showTextBox == True):
-            self.botMessage(self.text)
+        if self.showTextBox is True:
+            self.bot_message(self.text)
 
         # pg.draw.rect(self.display, (0,255,0), self.player.hit_rect, 1)
         # pg.draw.rect(self.display, (255, 255, 255), self.player.rect, 1)
@@ -152,9 +150,8 @@ class Game:
             return True
         return False
 
-    def botMessage(self, text):
+    def bot_message(self, text):
         self.display.blit(self.textBox, (0, 360))
         self.display.blit(self.font.render(text, True, (255, 255, 255)), (150, 390))
         self.display.blit(self.fontSpace.render("[SPACE]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()
-
