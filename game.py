@@ -89,3 +89,30 @@ class Game:
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_ESCAPE:
                     self.quit()
+                if event.key == pg.K_F11:
+                    self.toggle_fullscreen()
+
+    def toggle_fullscreen(self):
+        """Taken from http://pygame.org/wiki/toggle_fullscreen"""
+
+        screen = pg.display.get_surface()
+        tmp = screen.convert()
+        caption = pg.display.get_caption()
+        cursor = pg.mouse.get_cursor()
+
+        w, h = screen.get_width(), screen.get_height()
+        flags = screen.get_flags()
+        bits = screen.get_bitsize()
+
+        pg.display.quit()
+        pg.display.init()
+
+        self.display = pg.display.set_mode((w, h), flags ^ pg.FULLSCREEN, bits)
+        self.display.blit(tmp, (0, 0))
+        pg.display.set_caption(*caption)
+
+        pg.key.set_mods(0)
+
+        pg.mouse.set_cursor(*cursor)
+
+        return screen
