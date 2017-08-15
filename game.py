@@ -12,8 +12,8 @@ from map import *
 
 
 class Game:
-    def __init__(self):
-        self.display = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    def __init__(self, display):
+        self.display = display
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
 

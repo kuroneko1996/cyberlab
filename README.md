@@ -5,6 +5,14 @@ Requirements: python 3, pygame.
 **$python main.py**
 
 ## Controls:
+
+### Menu:
+
+* Up/Down keys to select option
+* Enter to choose option
+
+### Game:
+
 * Arrow keys for movement
 * E or G to pickup items, Q to drop
 * F11 toggles fullscreen

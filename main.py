@@ -1,9 +1,15 @@
-from game import Game
+# from game import Game
+import pygame
+from menu import main_menu
+
 
 def main():
-    game = Game()
-    game.load()
-    game.run()
+    pygame.init()
+    main_menu.run()
+
+    # game = Game()
+    # game.load()
+    # game.run()
 
 
 if __name__ == '__main__':
