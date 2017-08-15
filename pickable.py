@@ -11,7 +11,7 @@ class Pickable:
         self.id = id
         self.stackable = stackable
         self.amount = int(amount)
-        self.auto_pick = True
+        self.auto_pick = auto_pick
 
     def pick(self, wearer):
         if wearer.container is not None and wearer.container.add(self.owner):

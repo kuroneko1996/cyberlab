@@ -1,6 +1,7 @@
 import pygame as pg
 from settings import *
 from animation import Animation, PlayMode
+from container import Container
 from .collision import *
 
 
@@ -37,27 +38,26 @@ class Player(pg.sprite.Sprite):
             game.spritesheet.get_image_alpha(96, 32, 32, 32),
             game.spritesheet.get_image_alpha(128, 32, 32, 32)
         )
-
         self.walking_animation_down = Animation(
             0.10, PlayMode.LOOP,
             game.spritesheet.get_image_alpha(160, 32, 32, 32),
             game.spritesheet.get_image_alpha(192, 32, 32, 32),
             game.spritesheet.get_image_alpha(224, 32, 32, 32)
         )
-
         self.walking_animation_left = Animation(
             0.10, PlayMode.LOOP,
             game.spritesheet.get_image_alpha(64, 64, 32, 32),
             game.spritesheet.get_image_alpha(96, 64, 32, 32),
             game.spritesheet.get_image_alpha(128, 64, 32, 32)
         )
-
         self.walking_animation_right = Animation(
             0.10, PlayMode.LOOP,
             game.spritesheet.get_image_alpha(160, 64, 32, 32),
             game.spritesheet.get_image_alpha(192, 64, 32, 32),
             game.spritesheet.get_image_alpha(224, 64, 32, 32)
         )
+
+        self.container = Container(self, 16)
 
     def input(self):
         self.vx, self.vy = 0, 0
@@ -103,6 +103,7 @@ class Player(pg.sprite.Sprite):
         else:
             self.moving = False
 
+        self.auto_pick_up_items()
         self.update_animation(dt)
 
     def update_animation(self, dt):
@@ -122,3 +123,12 @@ class Player(pg.sprite.Sprite):
         self.animation_timer += dt
         if self.animation_timer >= 60:
             self.animation_timer = 0.0
+
+    def auto_pick_up_items(self):
+        items = pg.sprite.spritecollide(self, self.game.items_on_floor, False)
+        for item in items:
+            if item.pickable is not None:
+                print("picked up:", item.pickable.id, "x", item.pickable.amount)
+                self.container.add(item.pickable)
+                self.game.all_sprites.remove(item)  # TODO move to pickable.py?
+                self.game.items_on_floor.remove(item)

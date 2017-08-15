@@ -5,6 +5,8 @@ from settings import *
 from spritesheet import Spritesheet
 from sprites.player import Player
 from sprites.wall import Wall
+from sprites.item import Item
+from pickable import Pickable
 from camera import *
 from map import *
 
@@ -18,6 +20,7 @@ class Game:
         self.all_sprites = None
         self.spritesheet = None
         self.walls = None
+        self.items_on_floor = None
         self.map = None
         self.player = None
         self.camera = None
@@ -27,18 +30,23 @@ class Game:
     def load(self):
         self.all_sprites = pg.sprite.Group()
         self.walls = pg.sprite.Group()
+        self.items_on_floor = pg.sprite.Group()
 
         assets_folder = path.join(path.dirname(__file__), 'assets')
         self.map = Map(path.join(assets_folder, 'maps/map1.json'))
 
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'))
         wall_img = self.spritesheet.get_image(0, 0, 32, 32)
+        apple_img = self.spritesheet.get_image(32, 0, 32, 32)
 
         for node in self.map.data:
             if node["name"] == 'WALL':
                 Wall(self, node["x"], node["y"], wall_img)
             elif node["name"] == 'PLAYER':
                 self.player = Player(self, node["x"], node["y"])
+            elif node["name"] == 'APPLE':
+                item = Item(self, node['x'], node['y'], apple_img)
+                item.pickable = Pickable(item, 'apple')
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
@@ -51,8 +59,12 @@ class Game:
     def draw(self):
         self.display.fill(BG_COLOR)
 
+        # TODO layering
         for sprite in self.all_sprites:
-            self.display.blit(sprite.image, self.camera.transform(sprite))
+            if sprite != self.player:
+                self.display.blit(sprite.image, self.camera.transform(sprite))
+
+        self.display.blit(self.player.image, self.camera.transform(self.player))
 
         # pg.draw.rect(self.display, (0,255,0), self.player.hit_rect, 1)
         # pg.draw.rect(self.display, (255, 255, 255), self.player.rect, 1)
