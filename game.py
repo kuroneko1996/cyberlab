@@ -9,6 +9,7 @@ from sprites.item import Item
 from pickable import Pickable
 from camera import *
 from map import *
+from message import *
 
 
 class Game:
@@ -40,16 +41,19 @@ class Game:
         wall_img = self.spritesheet.get_image(0, 0, 32, 32)
         apple_img = self.spritesheet.get_image(32, 0, 32, 32)
 
+        self.message = Message(self.display)
+        
         for node in self.map.data:
             if node["name"] == 'WALL':
                 Wall(self, node["x"], node["y"], wall_img)
             elif node["name"] == 'PLAYER':
-                self.player = Player(self, node["x"], node["y"])
+                self.player = Player(self, node["x"], node["y"],self.message)
             elif node["name"] == 'APPLE':
                 item = Item(self, node['x'], node['y'], apple_img)
                 item.pickable = Pickable(item, 'apple', False, 1, False)
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
+        
 
     def update(self):
         for sprite in self.all_sprites:
@@ -69,6 +73,7 @@ class Game:
 
         # pg.draw.rect(self.display, (0,255,0), self.player.hit_rect, 1)
         # pg.draw.rect(self.display, (255, 255, 255), self.player.rect, 1)
+        
         pg.display.flip()
 
     def run(self):
