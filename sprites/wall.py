@@ -11,6 +11,7 @@ class Wall(pg.sprite.Sprite):
 
         self.image = img
         self.rect = self.image.get_rect()
+        self.hit_rect = self.rect
         self.x = x
         self.y = y
         self.rect.x = x * TILE_SIZE

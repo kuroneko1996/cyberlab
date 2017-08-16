@@ -32,17 +32,17 @@ class Game:
         self.dt = 0.0
         self.keys_just_pressed = {}
 
-    def load(self):
-        self.all_sprites = pg.sprite.Group()
-        self.solid = pg.sprite.Group()
-        self.items_on_floor = pg.sprite.Group()
-        self.doors = pg.sprite.Group()
-
         self.textBox = pg.image.load("assets/textBox.png").convert_alpha()
         self.font = pg.font.Font("assets/fonts/Arcon.otf", 20)
         self.fontSpace = pg.font.Font("assets/fonts/Arcon.otf", 14)
         self.showTextBox = False
         self.text = None
+
+    def load(self):
+        self.all_sprites = pg.sprite.Group()
+        self.solid = pg.sprite.Group()
+        self.items_on_floor = pg.sprite.Group()
+        self.doors = pg.sprite.Group()
 
         assets_folder = path.join(path.dirname(__file__), 'assets')
         self.map = Map(path.join(assets_folder, 'maps/map1.json'))

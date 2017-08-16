@@ -15,19 +15,22 @@ class Door(pg.sprite.Sprite):
         self.groups = game.all_sprites, game.doors, game.solid
         pg.sprite.Sprite.__init__(self, self.groups)
         self.image = img
+        self.rect = self.image.get_rect()
         if dir == "left":
-            self.rect = pg.Rect(0, 0, DOOR_THICKNESS, TILE_SIZE)
+            self.hit_rect = pg.Rect(0, 0, DOOR_THICKNESS, TILE_SIZE)
         elif dir == "right":
-            self.rect = pg.Rect(0, 0, DOOR_THICKNESS, TILE_SIZE)
+            self.hit_rect = pg.Rect(TILE_SIZE - DOOR_THICKNESS, 0, DOOR_THICKNESS, TILE_SIZE)
         elif dir == "up":
-            self.rect = pg.Rect(0, 0, TILE_SIZE, DOOR_THICKNESS)
+            self.hit_rect = pg.Rect(0, 0, TILE_SIZE, DOOR_THICKNESS)
         elif dir == "down":
-            self.rect = pg.Rect(0, 0, TILE_SIZE, DOOR_THICKNESS)
+            self.hit_rect = pg.Rect(0, TILE_SIZE - DOOR_THICKNESS, TILE_SIZE, DOOR_THICKNESS)
         else:
-            print("unexpected value")
+            print("unexpected door direction")
             assert False
 
         self.x = x
         self.y = y
         self.rect.x = x * TILE_SIZE
         self.rect.y = y * TILE_SIZE
+        self.hit_rect.x += x * TILE_SIZE
+        self.hit_rect.y += y * TILE_SIZE
