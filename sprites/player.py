@@ -10,7 +10,7 @@ HITBOX_DOWN_SHIFT = -8
 
 class Player(Sprite):
     def __init__(self, game, x, y):
-        self.idle_image = game.spritesheet.get_image_alpha(0, TILE_SIZE, TILE_SIZE, TILE_SIZE)
+        self.idle_image = game.spritesheet.get_image_alpha_at_row_col(0, 1)
         self.image = self.idle_image
         super().__init__(game, x, y, self.image)
 
@@ -28,32 +28,32 @@ class Player(Sprite):
         self.animation_timer = 0.0
         self.idling_animation = Animation(
             0.50, PlayMode.LOOP,
-            game.spritesheet.get_image_alpha(0, 32, 32, 32),
-            game.spritesheet.get_image_alpha(32, 32, 32, 32)
+            game.spritesheet.get_image_alpha_at_row_col(0, 1),
+            game.spritesheet.get_image_alpha_at_row_col(1, 1)
         )
         self.walking_animation_up = Animation(
             0.10, PlayMode.LOOP,
-            game.spritesheet.get_image_alpha(64, 32, 32, 32),
-            game.spritesheet.get_image_alpha(96, 32, 32, 32),
-            game.spritesheet.get_image_alpha(128, 32, 32, 32)
+            game.spritesheet.get_image_alpha_at_row_col(2, 1),
+            game.spritesheet.get_image_alpha_at_row_col(3, 1),
+            game.spritesheet.get_image_alpha_at_row_col(4, 1)
         )
         self.walking_animation_down = Animation(
             0.10, PlayMode.LOOP,
-            game.spritesheet.get_image_alpha(160, 32, 32, 32),
-            game.spritesheet.get_image_alpha(192, 32, 32, 32),
-            game.spritesheet.get_image_alpha(224, 32, 32, 32)
+            game.spritesheet.get_image_alpha_at_row_col(5, 1),
+            game.spritesheet.get_image_alpha_at_row_col(6, 1),
+            game.spritesheet.get_image_alpha_at_row_col(7, 1)
         )
         self.walking_animation_left = Animation(
             0.10, PlayMode.LOOP,
-            game.spritesheet.get_image_alpha(64, 64, 32, 32),
-            game.spritesheet.get_image_alpha(96, 64, 32, 32),
-            game.spritesheet.get_image_alpha(128, 64, 32, 32)
+            game.spritesheet.get_image_alpha_at_row_col(2, 2),
+            game.spritesheet.get_image_alpha_at_row_col(3, 2),
+            game.spritesheet.get_image_alpha_at_row_col(4, 2)
         )
         self.walking_animation_right = Animation(
             0.10, PlayMode.LOOP,
-            game.spritesheet.get_image_alpha(160, 64, 32, 32),
-            game.spritesheet.get_image_alpha(192, 64, 32, 32),
-            game.spritesheet.get_image_alpha(224, 64, 32, 32)
+            game.spritesheet.get_image_alpha_at_row_col(5, 2),
+            game.spritesheet.get_image_alpha_at_row_col(6, 2),
+            game.spritesheet.get_image_alpha_at_row_col(7, 2)
         )
 
         self.container = Container(self, 16)
