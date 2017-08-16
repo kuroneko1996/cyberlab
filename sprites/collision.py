@@ -22,3 +22,9 @@ def collide_with_map(sprite, group, axis):
                 sprite.y = hits[0].hit_rect.bottom
             sprite.vy = 0
             sprite.hit_rect.y = sprite.y
+
+
+def collide_with_triggers(sprite, triggers):
+    hits = [s for s in triggers if sprite.hit_rect.colliderect(s.hit_rect)]
+    for hit in hits:
+        hit.on_hit()

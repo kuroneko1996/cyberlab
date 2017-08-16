@@ -36,8 +36,7 @@ class Door(Sprite):
         self.door_open = False
 
     def on_hit(self):
-        if pg.K_RETURN in self.game.keys_just_pressed:
-            self.switch_door()
+        pass
 
     def switch_door(self):
         if self.door_open:
@@ -60,6 +59,8 @@ class Door(Sprite):
         else:
             assert False
 
+        self.add(self.game.solid)
+
     def open_door(self):
         self.door_open = True
 
@@ -73,6 +74,8 @@ class Door(Sprite):
             self.set_dir("right")
         else:
             assert False
+
+        self.remove(self.game.solid)
 
     def set_dir(self, dir):
         self.dir = dir

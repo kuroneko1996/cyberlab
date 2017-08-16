@@ -8,6 +8,7 @@ from sprites.wall import Wall
 from sprites.item import Item
 from sprites.door import Door
 from pickable import Pickable
+from triggers.trigger import *
 from camera import *
 from map import *
 
@@ -18,12 +19,13 @@ class Game:
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
 
+        # sprite groups
         self.all_sprites = None
-        self.spritesheet = None
         self.items_on_floor = None
         self.solid = None
         self.doors = None
 
+        self.triggers = []
         self.spritesheet = None
         self.map = None
         self.player = None
@@ -60,7 +62,9 @@ class Game:
                 item = Item(self, node['x'], node['y'], apple_img)
                 item.pickable = Pickable(item, 'apple', False, 1, False)
             elif node["name"] == "DOOR":
-                Door(self, node["x"], node["y"], node["dir"])
+                door = Door(self, node["x"], node["y"], node["dir"])
+                trigger = KeyButtonTrigger(self, door.rect.inflate(20, 20), door.switch_door, pg.K_RETURN)
+                self.triggers.append(trigger)
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
