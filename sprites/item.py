@@ -1,20 +1,9 @@
-import pygame as pg
-from settings import *
+from sprites import Sprite
 
 
-class Item(pg.sprite.Sprite):
+class Item(Sprite):
     def __init__(self, game, x, y, img):
-        self.game = game
-
-        groups = game.all_sprites, game.items_on_floor
-        pg.sprite.Sprite.__init__(self, groups)
-
-        self.image = img
-        self.rect = self.image.get_rect()
-        self.x = x
-        self.y = y
-        self.rect.x = x * TILE_SIZE
-        self.rect.y = y * TILE_SIZE
+        super().__init__(game, x, y, img, game.items_on_floor)
 
         self.pickable = None
 

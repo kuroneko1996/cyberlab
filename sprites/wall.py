@@ -1,18 +1,8 @@
 import pygame as pg
 from settings import *
+from sprites import Sprite
 
 
-class Wall(pg.sprite.Sprite):
+class Wall(Sprite):
     def __init__(self, game, x, y, img):
-        self.game = game
-
-        groups = game.all_sprites, game.solid
-        pg.sprite.Sprite.__init__(self, groups)
-
-        self.image = img
-        self.rect = self.image.get_rect()
-        self.hit_rect = self.rect
-        self.x = x
-        self.y = y
-        self.rect.x = x * TILE_SIZE
-        self.rect.y = y * TILE_SIZE
+        super().__init__(game, x, y, img, game.solid)

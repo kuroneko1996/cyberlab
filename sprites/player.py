@@ -3,22 +3,19 @@ from settings import *
 from animation import Animation, PlayMode
 from container import Container
 from .collision import *
+from sprites import Sprite
 
 HITBOX_DOWN_SHIFT = -8
 
 
-class Player(pg.sprite.Sprite):
+class Player(Sprite):
     def __init__(self, game, x, y):
-        self.game = game
-
-        groups = game.all_sprites
-        pg.sprite.Sprite.__init__(self, groups)
-
         self.idle_image = game.spritesheet.get_image_alpha(0, TILE_SIZE, TILE_SIZE, TILE_SIZE)
-
         self.image = self.idle_image
-        self.rect = self.image.get_rect()
-        self.hit_rect = pg.Rect(0, 0, TILE_SIZE/2, TILE_SIZE/2)
+        super().__init__(game, x, y, self.image)
+
+        self.hit_rect.width = TILE_SIZE/2
+        self.hit_rect.height = TILE_SIZE / 2
 
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE
