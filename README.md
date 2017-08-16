@@ -14,6 +14,7 @@ Requirements: python 3, pygame.
 ### Game:
 
 * Arrow keys for movement
+* Look at the door and press Enter to open/close it
 * E or G to pickup items, Q to drop
 * F11 toggles fullscreen
 

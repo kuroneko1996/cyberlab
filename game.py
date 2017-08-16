@@ -51,13 +51,6 @@ class Game:
         wall_img = self.spritesheet.get_image_at_row_col(0, 0)
         apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
 
-        door_img = {
-            "up": self.spritesheet.get_image_alpha_at_row_col(2, 0),
-            "right": self.spritesheet.get_image_alpha_at_row_col(3, 0),
-            "down": self.spritesheet.get_image_alpha_at_row_col(4, 0),
-            "left": self.spritesheet.get_image_alpha_at_row_col(5, 0)
-        }
-
         for node in self.map.data:
             if node["name"] == 'WALL':
                 Wall(self, node["x"], node["y"], wall_img)
@@ -67,7 +60,7 @@ class Game:
                 item = Item(self, node['x'], node['y'], apple_img)
                 item.pickable = Pickable(item, 'apple', False, 1, False)
             elif node["name"] == "DOOR":
-                Door(self, node["x"], node["y"], door_img[node["dir"]], node["dir"])
+                Door(self, node["x"], node["y"], node["dir"])
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
