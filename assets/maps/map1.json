@@ -267,6 +267,12 @@
         "y": 6
     },
     {
+        "dir": "right",
+        "name": "DOOR",
+        "x": 18,
+        "y": 6
+    },
+    {
         "name": "WALL",
         "x": 25,
         "y": 6
@@ -488,8 +494,32 @@
         "y": 10
     },
     {
+        "dir": "up",
+        "name": "DOOR",
+        "x": 12,
+        "y": 10
+    },
+    {
+        "dir": "left",
+        "name": "DOOR",
+        "x": 15,
+        "y": 10
+    },
+    {
+        "dir": "right",
+        "name": "DOOR",
+        "x": 17,
+        "y": 10
+    },
+    {
         "name": "APPLE",
         "x": 19,
+        "y": 10
+    },
+    {
+        "dir": "down",
+        "name": "DOOR",
+        "x": 21,
         "y": 10
     },
     {

@@ -19,8 +19,6 @@ class Player(pg.sprite.Sprite):
         self.image = self.idle_image
         self.rect = self.image.get_rect()
         self.hit_rect = pg.Rect(0, 0, TILE_SIZE/2, TILE_SIZE/2)
-        #self.hit_rect.center = self.rect.center
-        #self.hit_rect = self.hit_rect.move(0, TILE_SIZE/2)
 
         self.x = x * TILE_SIZE
         self.y = y * TILE_SIZE
