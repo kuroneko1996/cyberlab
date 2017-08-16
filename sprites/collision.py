@@ -1,12 +1,8 @@
 import pygame as pg
 
 
-def collide_hit_rect(one, two):
-    return one.hit_rect.colliderect(two.hit_rect)
-
-
 def collide_with_map(sprite, group, axis):
-    hits = pg.sprite.spritecollide(sprite, group, False, collide_hit_rect)
+    hits = [s for s in group if sprite.hit_rect.colliderect(s.hit_rect)]
 
     for hit in hits:
         hit.on_hit()

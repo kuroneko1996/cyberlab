@@ -14,7 +14,7 @@ class Player(Sprite):
         self.image = self.idle_image
         super().__init__(game, x, y, self.image)
 
-        self.hit_rect.width = TILE_SIZE/2
+        self.hit_rect.width = TILE_SIZE / 2
         self.hit_rect.height = TILE_SIZE / 2
 
         self.x = x * TILE_SIZE
