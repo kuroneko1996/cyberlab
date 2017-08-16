@@ -48,14 +48,14 @@ class Game:
         self.map = Map(path.join(assets_folder, 'maps/map1.json'))
 
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'))
-        wall_img = self.get_image_at_row_col(0, 0)
-        apple_img = self.get_image_at_row_col(1, 0)
+        wall_img = self.spritesheet.get_image_at_row_col(0, 0)
+        apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
 
         door_img = {
-            "up": self.get_image_at_row_col(2, 0),
-            "right": self.get_image_at_row_col(3, 0),
-            "down": self.get_image_at_row_col(4, 0),
-            "left": self.get_image_at_row_col(5, 0)
+            "up": self.spritesheet.get_image_alpha_at_row_col(2, 0),
+            "right": self.spritesheet.get_image_alpha_at_row_col(3, 0),
+            "down": self.spritesheet.get_image_alpha_at_row_col(4, 0),
+            "left": self.spritesheet.get_image_alpha_at_row_col(5, 0)
         }
 
         for node in self.map.data:
@@ -70,9 +70,6 @@ class Game:
                 Door(self, node["x"], node["y"], door_img[node["dir"]], node["dir"])
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
-
-    def get_image_at_row_col(self, col, row):
-        return self.spritesheet.get_image(col * 32, row * 32, 32, 32)
 
     def update(self):
         for sprite in self.all_sprites:

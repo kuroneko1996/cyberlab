@@ -459,6 +459,12 @@
         "y": 9
     },
     {
+        "dir": "right",
+        "name": "DOOR",
+        "x": 16,
+        "y": 9
+    },
+    {
         "name": "WALL",
         "x": 25,
         "y": 9
@@ -494,32 +500,13 @@
         "y": 10
     },
     {
-        "dir": "up",
-        "name": "DOOR",
-        "x": 12,
-        "y": 10
-    },
-    {
-        "dir": "left",
-        "name": "DOOR",
-        "x": 15,
-        "y": 10
-    },
-    {
-        "dir": "right",
-        "name": "DOOR",
-        "x": 17,
+        "name": "WALL",
+        "x": 10,
         "y": 10
     },
     {
         "name": "APPLE",
         "x": 19,
-        "y": 10
-    },
-    {
-        "dir": "down",
-        "name": "DOOR",
-        "x": 21,
         "y": 10
     },
     {
