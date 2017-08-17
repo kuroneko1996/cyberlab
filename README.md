@@ -20,6 +20,8 @@ Requirements: python 3, pygame.
 
 ## Editing tools:
 
+### Tiled
+
 **$python util/tiled2json.py**
 Imports map from [Tiled](http://www.mapeditor.org/)
 
@@ -28,6 +30,14 @@ Usage:
 * Make a new map
 * Save the map as .json
 * Run the script to convert in the internal map format
+
+#### How to add story triggers
+* Add a new objects layer
+* Selects a rectangular area
+* Add a custom property called text
+* The value of that property would be the displayed text
+
+### Plain old ascii art
 
 **$python util/txt2json.py**
 Converts the map in readable txt format to json format

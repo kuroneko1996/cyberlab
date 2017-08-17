@@ -53,7 +53,7 @@ class Game:
         wall_img = self.spritesheet.get_image_at_row_col(0, 0)
         apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
 
-        for node in self.map.data:
+        for node in self.map.objects:
             if node["name"] == 'WALL':
                 Wall(self, node["x"], node["y"], wall_img)
             elif node["name"] == 'PLAYER':
@@ -64,6 +64,11 @@ class Game:
             elif node["name"] == "DOOR":
                 door = Door(self, node["x"], node["y"], node["dir"])
                 KeyButtonTrigger(self, door.rect.inflate(20, 20), door.switch_door, pg.K_RETURN)
+
+        for trigger in self.map.triggers:
+            TextTrigger(self,
+                        pg.Rect(trigger["x"], trigger["y"], trigger["width"], trigger["height"]),
+                        trigger["text"])
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
