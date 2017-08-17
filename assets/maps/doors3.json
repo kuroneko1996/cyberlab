@@ -10,9 +10,46 @@
          "width":100,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "name":"story",
+         "objects":[
+                {
+                 "height":114,
+                 "id":5,
+                 "name":"dark_room",
+                 "properties":
+                    {
+                     "text":"You entered a dark room."
+                    },
+                 "propertytypes":
+                    {
+                     "text":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":202,
+                 "x":1566,
+                 "y":2297
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextobjectid":1,
+ "nextobjectid":9,
  "orientation":"orthogonal",
+ "properties":
+    {
+     "say_something":"hello"
+    },
+ "propertytypes":
+    {
+     "say_something":"string"
+    },
  "renderorder":"right-down",
  "tiledversion":"1.0.2",
  "tileheight":32,

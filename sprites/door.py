@@ -35,9 +35,6 @@ class Door(Sprite):
 
         self.door_open = False
 
-    def on_hit(self):
-        pass
-
     def switch_door(self):
         if self.door_open:
             if not self.rect.colliderect(self.game.player.hit_rect.inflate(-10, -10)):

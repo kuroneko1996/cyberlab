@@ -18,6 +18,7 @@ class Trigger:
 class KeyButtonTrigger(Trigger):
     def __init__(self, game, hit_rect, callback, *keys):
         self.keys = keys
+        game.triggers.append(self)
         super().__init__(game, hit_rect, callback)
 
     def on_hit(self):

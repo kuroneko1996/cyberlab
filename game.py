@@ -63,8 +63,7 @@ class Game:
                 item.pickable = Pickable(item, 'apple', False, 1, False)
             elif node["name"] == "DOOR":
                 door = Door(self, node["x"], node["y"], node["dir"])
-                trigger = KeyButtonTrigger(self, door.rect.inflate(20, 20), door.switch_door, pg.K_RETURN)
-                self.triggers.append(trigger)
+                KeyButtonTrigger(self, door.rect.inflate(20, 20), door.switch_door, pg.K_RETURN)
 
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
