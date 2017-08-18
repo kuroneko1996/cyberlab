@@ -49,7 +49,7 @@ class Game:
         assets_folder = path.join(path.dirname(__file__), 'assets')
         self.map = Map(path.join(assets_folder, 'maps/map1.json'))
 
-        self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'))
+        self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'), 32)
         wall_img = self.spritesheet.get_image_at_row_col(0, 0)
         apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
 
