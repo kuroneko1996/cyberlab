@@ -126,3 +126,10 @@ settings = Menu({
         # TODO: finish
     ]
 }, display)
+
+pause = Menu({
+    "selected_option": 0,
+    "options": [
+        # TODO: finish
+    ]
+}, display)
