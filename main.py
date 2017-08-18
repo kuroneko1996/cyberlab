@@ -4,6 +4,7 @@ from menu import main_menu
 
 def main():
     pygame.init()
+    pygame.joystick.init()
     main_menu.run()
 
 

@@ -19,6 +19,12 @@ class Game:
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
 
+        self.joysticks = [pg.joystick.Joystick(x) for x in range(pg.joystick.get_count())]
+        self.joystick = None
+        if len(self.joysticks) > 0:
+            self.joystick = self.joysticks[0]
+            self.joystick.init()
+
         # sprite groups
         self.all_sprites = None
         self.items_on_floor = None
@@ -147,6 +153,11 @@ class Game:
         if key in self.keys_just_pressed:
             return True
         return False
+
+    def get_axis(self, number):
+        if self.joystick is not None:
+            return self.joystick.get_axis(number)
+        return 0.0
 
     def bot_message(self, text):
         self.display.blit(self.textBox, (0, 360))

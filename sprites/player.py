@@ -1,4 +1,5 @@
 import pygame as pg
+import math
 from settings import *
 from animation import Animation, PlayMode
 from container import Container
@@ -64,30 +65,35 @@ class Player(Sprite):
         player_moved = False
 
         self.vx, self.vy = 0, 0
+
         keys = pg.key.get_pressed()
+
+        x_axis = self.game.get_axis(0)
+        if abs(x_axis) < JOYSTICK_THRESHOLD:
+            x_axis = 0
+        y_axis = self.game.get_axis(1)
+        if abs(y_axis) < JOYSTICK_THRESHOLD:
+            y_axis = 0
+
         if keys[pg.K_LEFT] or keys[pg.K_a]:
-            self.vx = -self.spd
-            self.last_movex = -1
-            self.last_movey = 0
-
-            player_moved = True
-        if keys[pg.K_RIGHT] or keys[pg.K_d]:
-            self.vx = self.spd
-            self.last_movex = 1
-            self.last_movey = 0
-
-            player_moved = True
+            x_axis = -1
+        elif keys[pg.K_RIGHT] or keys[pg.K_d]:
+            x_axis = 1
         if keys[pg.K_UP] or keys[pg.K_w]:
-            self.vy = -self.spd
-            self.last_movey = -1
-            self.last_movex = 0
+            y_axis = -1
+        elif keys[pg.K_DOWN] or keys[pg.K_s]:
+            y_axis = 1
 
+        self.vx = self.spd * x_axis
+        self.vy = self.spd * y_axis
+
+        if y_axis != 0:
+            self.last_movey = y_axis
+            self.last_movex = 0
             player_moved = True
-        if keys[pg.K_DOWN] or keys[pg.K_s]:
-            self.vy = self.spd
-            self.last_movey = 1
-            self.last_movex = 0
-
+        elif x_axis != 0:
+            self.last_movex = x_axis
+            self.last_movey = 0
             player_moved = True
 
         # diagonals
