@@ -1,4 +1,16 @@
+from settings import TILE_SIZE, SLITHER_SPEED
+
+
 def collide_with_map(sprite, group, axis):
+    """
+    Check for collisions and align the sprite so that
+    it does not overlap with other sprites in the group
+    :param sprite: sprite to be aligned
+    :param group: other sprites
+    :param axis: about which axis to check for collisions
+    :return: if there is a collision, return the sprite
+     with which this sprite could have collided, false otherwise
+    """
     hits = [s for s in group if sprite.hit_rect.colliderect(s.hit_rect)]
 
     for hit in hits:
@@ -8,38 +20,38 @@ def collide_with_map(sprite, group, axis):
         hit = hits[0]
         if axis == 'x':
             if sprite.vx > 0:
-                sprite.x = hit.hit_rect.left - sprite.hit_rect.width
+                sprite.x = (hit.hit_rect.left - sprite.hit_rect.width) / TILE_SIZE
             elif sprite.vx < 0:
-                sprite.x = hit.hit_rect.right
-
-            slither(group, hit, sprite, "y")
+                sprite.x = hit.hit_rect.right / TILE_SIZE
 
             sprite.vx = 0
-            sprite.hit_rect.x = sprite.x
+            sprite.hit_rect.x = sprite.x * TILE_SIZE
         elif axis == 'y':
             if sprite.vy > 0:
-                sprite.y = hit.hit_rect.top - sprite.hit_rect.height
+                sprite.y = (hit.hit_rect.top - sprite.hit_rect.height) / TILE_SIZE
             elif sprite.vy < 0:
-                sprite.y = hit.hit_rect.bottom
-
-            slither(group, hit, sprite, "x")
+                sprite.y = hit.hit_rect.bottom / TILE_SIZE
 
             sprite.vy = 0
-            sprite.hit_rect.y = sprite.y
+            sprite.hit_rect.y = sprite.y * TILE_SIZE
+
+        return hit
+    else:
+        return False
 
 
-def slither(group, hit, sprite, axis):
+def slither(group, hit, sprite, axis, do_slither = True):
     """Slithers the sprite along the hit in the direction with an opening"""
     if axis == "x":
         if there_is_space(hit, group, "right"):
-            sprite.x += 1
+            sprite.move(SLITHER_SPEED, 0, do_slither)
         elif there_is_space(hit, group, "left"):
-            sprite.x -= 1
+            sprite.move(-SLITHER_SPEED, 0, do_slither)
     elif axis == "y":
         if there_is_space(hit, group, "down"):
-            sprite.y += 1
+            sprite.move(0, SLITHER_SPEED, do_slither)
         elif there_is_space(hit, group, "up"):
-            sprite.y -= 1
+            sprite.move(0, -SLITHER_SPEED, do_slither)
     else:
         assert False
 
@@ -66,3 +78,17 @@ def collide_with_triggers(sprite, triggers):
     hits = [s for s in triggers if sprite.hit_rect.colliderect(s.hit_rect)]
     for hit in hits:
         hit.on_hit()
+
+
+def can_walk(sprite, group, dx, dy):
+    """
+    Produces true if the sprite can be moved by (dx,dy)
+    :param sprite: sprite that is being moved
+    :param group: clipping group
+    :param dx: x shift
+    :param dy: y shift
+    :return: true if the sprite can be moved, false otherwise
+    """
+
+    # Hypothesis: this does not account for the full path from current position to the next position
+    return not [s for s in group if sprite.hit_rect.inflate(dx, dy).move(dx, dy).colliderect(s.hit_rect)]

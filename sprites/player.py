@@ -17,10 +17,8 @@ class Player(Sprite):
         self.hit_rect.width = TILE_SIZE / 2
         self.hit_rect.height = TILE_SIZE / 2
 
-        self.x = x * TILE_SIZE
-        self.y = y * TILE_SIZE
         self.vx, self.vy = 0, 0
-        self.spd = 200
+        self.spd = 6
         self.last_movex = 0.0
         self.last_movey = 0.0
         self.moving = False
@@ -59,24 +57,38 @@ class Player(Sprite):
         self.container = Container(self, 16)
 
     def input(self):
+        """
+        Handles the user input
+        :return: true if the player has moved, false otherwise
+        """
+        player_moved = False
+
         self.vx, self.vy = 0, 0
         keys = pg.key.get_pressed()
         if keys[pg.K_LEFT] or keys[pg.K_a]:
             self.vx = -self.spd
             self.last_movex = -1
             self.last_movey = 0
+
+            player_moved = True
         if keys[pg.K_RIGHT] or keys[pg.K_d]:
             self.vx = self.spd
             self.last_movex = 1
             self.last_movey = 0
+
+            player_moved = True
         if keys[pg.K_UP] or keys[pg.K_w]:
             self.vy = -self.spd
             self.last_movey = -1
             self.last_movex = 0
+
+            player_moved = True
         if keys[pg.K_DOWN] or keys[pg.K_s]:
             self.vy = self.spd
             self.last_movey = 1
             self.last_movex = 0
+
+            player_moved = True
 
         # diagonals
         if self.vx != 0 and self.vy != 0:
@@ -90,20 +102,15 @@ class Player(Sprite):
         if self.game.key_just_pressed(pg.K_SPACE):
             self.game.showTextBox = False
 
-    def update(self, dt):
-        self.input()
+        return player_moved
 
-        self.x += self.vx * dt
-        self.y += self.vy * dt
-        # move on x
-        self.hit_rect.x = self.x
-        collide_with_map(self, self.game.solid, 'x')
-        # move on y
-        self.hit_rect.y = self.y
-        collide_with_map(self, self.game.solid, 'y')
-        # update image rect
-        self.rect.center = self.hit_rect.center
-        self.rect = self.rect.move(0, HITBOX_DOWN_SHIFT)
+    def update(self, dt):
+        if self.input():
+            if self.move(self.vx * dt, self.vy * dt):
+                self.rect = self.rect.move(0, HITBOX_DOWN_SHIFT)
+            else:
+                self.vx = 0
+                self.vy = 0
 
         if self.vx != 0 or self.vy != 0:
             self.moving = True

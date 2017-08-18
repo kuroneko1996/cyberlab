@@ -1,4 +1,5 @@
 from sprites import Sprite
+from settings import TILE_SIZE
 
 
 class Item(Sprite):
@@ -10,5 +11,5 @@ class Item(Sprite):
     def set_position(self, x, y):
         self.x = x
         self.y = y
-        self.rect.x = x
-        self.rect.y = y
+        self.rect.x = x * TILE_SIZE
+        self.rect.y = y * TILE_SIZE
