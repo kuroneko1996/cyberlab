@@ -1,8 +1,5 @@
 from settings import TILE_SIZE, SLITHER_SPEED
 
-# Threshold for the sign function
-THRESHOLD = 0.0000001
-
 
 def collide_with_map(sprite, group, axis):
     """
@@ -81,33 +78,3 @@ def collide_with_triggers(sprite, triggers):
     hits = [s for s in triggers if sprite.get_rect().inflate(20, 20).colliderect(s.hit_rect)]
     for hit in hits:
         hit.on_hit()
-
-
-def get_obstacles(sprite, group, dx, dy):
-    """
-    Produces obstacles in the way of sprite's movement
-    :param sprite: sprite that is being moved
-    :param group: clipping group
-    :param dx: x shift
-    :param dy: y shift
-    :return: obstacles in the way of sprite's movement
-    """
-
-    return [s for s in group if
-            sprite.get_hit_rect()
-            .move(2 * sgn(dx), 2 * sgn(dy))
-            .colliderect(s.get_hit_rect())]
-
-
-def sgn(num):
-    """
-    Produce the sign of the number
-    :param num: signed number
-    :return: sign of the number
-    """
-    if num > THRESHOLD:
-        return 1
-    elif num < - THRESHOLD:
-        return -1
-    else:
-        return 0

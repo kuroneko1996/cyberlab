@@ -1,7 +1,21 @@
 import pygame as pg
-from settings import *
 from .collision import *
+# Threshold for the sign function
+THRESHOLD = 0.000000001
 
+
+def sgn(num):
+    """
+    Produce the sign of the number
+    :param num: signed number
+    :return: sign of the number
+    """
+    if num > THRESHOLD:
+        return 1
+    elif num < - THRESHOLD:
+        return -1
+    else:
+        return 0
 
 class Sprite(pg.sprite.Sprite):
     """
@@ -60,15 +74,23 @@ class Sprite(pg.sprite.Sprite):
 
         :param dx: x shift
         :param dy: y shift
-        :return: true if movement succeeded, false otherwise
+        :return: true if movement succeeded (or partially succeeded),
+         false otherwise
         """
 
-        if not get_obstacles(self, self.game.solid, dx, dy):
+        if not self.get_obstacles(dx, dy):
             self.x += dx
             self.y += dy
             return True
         else:
-            return False
+            if not self.get_obstacles(dx, 0):
+                self.x += dx
+                return True
+            elif not self.get_obstacles(0, dy):
+                self.y += dy
+                return True
+            else:
+                return False
 
     def set_position(self, x, y):
         """
@@ -79,6 +101,21 @@ class Sprite(pg.sprite.Sprite):
         """
         self.x = x
         self.y = y
+
+    def get_obstacles(self, dx, dy):
+        """
+        Produces obstacles in the way of sprite's movement
+        :param sprite: sprite that is being moved
+        :param group: clipping group
+        :param dx: x shift
+        :param dy: y shift
+        :return: obstacles in the way of sprite's movement
+        """
+
+        return [s for s in self.game.solid if
+                self.get_hit_rect()
+                    .move(3 * sgn(dx), 3 * sgn(dy))
+                    .colliderect(s.get_hit_rect())]
 
     def set_hit_rect(self, hit_rect):
         """
