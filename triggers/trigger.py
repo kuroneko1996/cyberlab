@@ -15,8 +15,9 @@ class Trigger:
 
 
 class KeyButtonTrigger(Trigger):
-    def __init__(self, game, hit_rect, callback, *keys):
+    def __init__(self, game, hit_rect, callback, keys, j_buttons = None):
         self.keys = keys
+        self.joystick_buttons = j_buttons
         super().__init__(game, hit_rect)
         self.callback = callback
 
@@ -24,7 +25,12 @@ class KeyButtonTrigger(Trigger):
         for key in self.keys:
             if key in self.game.keys_just_pressed:
                 self.callback()
-                break
+                return
+
+        for button in self.joystick_buttons:
+            if button in self.game.joystick_just_pressed:
+                self.callback()
+                return
 
 
 class TextTrigger(Trigger):

@@ -65,11 +65,12 @@ class Player(Sprite):
         self.vx, self.vy = 0, 0
 
         keys = pg.key.get_pressed()
+        game = self.game
 
-        x_axis = self.game.get_axis(0)
+        x_axis = game.get_axis(0)
         if abs(x_axis) < JOYSTICK_THRESHOLD:
             x_axis = 0
-        y_axis = self.game.get_axis(1)
+        y_axis = game.get_axis(1)
         if abs(y_axis) < JOYSTICK_THRESHOLD:
             y_axis = 0
 
@@ -97,12 +98,12 @@ class Player(Sprite):
             self.vx *= 0.707
             self.vy *= 0.707
 
-        if self.game.key_just_pressed(pg.K_q):
+        if game.get_key_jp(pg.K_q) or game.get_joystick_jp(J_BUTTONS['X']):
             self.drop_item()
-        elif self.game.key_just_pressed(pg.K_g) or self.game.key_just_pressed(pg.K_e):
+        elif game.get_key_jp(pg.K_g) or game.get_key_jp(pg.K_e) or game.get_joystick_jp(J_BUTTONS['A']):
             self.pickup_items()
-        if self.game.key_just_pressed(pg.K_SPACE):
-            self.game.showTextBox = False
+        if game.get_key_jp(pg.K_SPACE) or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
+            game.showTextBox = False
 
         return self.vx != 0 or self.vy != 0
 

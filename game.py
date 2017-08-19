@@ -39,6 +39,7 @@ class Game:
         self.playing = False
         self.dt = 0.0
         self.keys_just_pressed = {}
+        self.joystick_just_pressed = {}
 
         self.textBox = pg.image.load("assets/textBox.png").convert_alpha()
         self.font = pg.font.Font("assets/fonts/Arcon.otf", 20)
@@ -113,6 +114,7 @@ class Game:
 
     def events(self):
         self.keys_just_pressed.clear()
+        self.joystick_just_pressed.clear()
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.quit()
@@ -122,6 +124,8 @@ class Game:
                     self.quit()
                 if event.key == pg.K_F11:
                     self.toggle_fullscreen()
+            if event.type == pg.JOYBUTTONDOWN:
+                self.joystick_just_pressed[event.button] = True
 
     def toggle_fullscreen(self):
         """Taken from http://pygame.org/wiki/toggle_fullscreen"""
@@ -148,8 +152,15 @@ class Game:
 
         return screen
 
-    def key_just_pressed(self, key):
+    def get_key_jp(self, key):
+        # get key just pressed (clears on new frame)
         if key in self.keys_just_pressed:
+            return True
+        return False
+
+    def get_joystick_jp(self, button):
+        # get joystick button just pressed (clears on new frame)
+        if button in self.joystick_just_pressed:
             return True
         return False
 

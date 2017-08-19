@@ -36,7 +36,8 @@ class Door(Sprite):
 
         self.door_open = False
 
-        KeyButtonTrigger(self.game, self.get_rect().inflate(50, 50), self.switch_door, pg.K_RETURN)
+        KeyButtonTrigger(self.game, self.get_rect().inflate(50, 50),
+                         self.switch_door, keys=[pg.K_RETURN], j_buttons=[J_BUTTONS['A']])
 
     def switch_door(self):
         if self.door_open:
