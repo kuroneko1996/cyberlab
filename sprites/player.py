@@ -117,7 +117,7 @@ class Player(Sprite):
         else:
             self.moving = False
 
-        self.collide_with_triggers(self.game.triggers)
+        self.collide_with_triggers()
         self.pickup_items(True)
         self.update_animation(dt)
 

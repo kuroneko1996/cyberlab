@@ -17,6 +17,7 @@ def sgn(num):
     else:
         return 0
 
+
 class Sprite(pg.sprite.Sprite):
     """
     A visible game entry that is positioned on the map
@@ -105,8 +106,6 @@ class Sprite(pg.sprite.Sprite):
     def get_obstacles(self, dx, dy):
         """
         Produces obstacles in the way of sprite's movement
-        :param sprite: sprite that is being moved
-        :param group: clipping group
         :param dx: x shift
         :param dy: y shift
         :return: obstacles in the way of sprite's movement
@@ -117,20 +116,26 @@ class Sprite(pg.sprite.Sprite):
                     .move(3 * sgn(dx), 3 * sgn(dy))
                     .colliderect(s.get_hit_rect())]
 
-    def there_is_space(self, hit, group, direction):
-        """Returns true if there is space in the direction given"""
+    # TODO: get rid of direction
+    def there_is_space(self, sprite, direction):
+        """
+        Returns true if there is space in the direction given
+        :param sprite: sprite around which to search for space
+        :param direction:
+        :return:
+        """
         if direction == "up":
-            point = (hit.get_hit_rect().x, hit.get_hit_rect().y - 1)
+            point = (sprite.get_hit_rect().x, sprite.get_hit_rect().y - 1)
         elif direction == "down":
-            point = (hit.get_hit_rect().x, hit.get_hit_rect().y + hit.get_hit_rect().height + 1)
+            point = (sprite.get_hit_rect().x, sprite.get_hit_rect().y + sprite.get_hit_rect().height + 1)
         elif direction == "right":
-            point = (hit.get_hit_rect().x + hit.get_hit_rect().width + 1, hit.get_hit_rect().y)
+            point = (sprite.get_hit_rect().x + sprite.get_hit_rect().width + 1, sprite.get_hit_rect().y)
         elif direction == "left":
-            point = (hit.get_hit_rect().x - 1, hit.get_hit_rect().y)
+            point = (sprite.get_hit_rect().x - 1, sprite.get_hit_rect().y)
         else:
             assert False
 
-        hits = [s for s in group if s.get_hit_rect().collidepoint(point)]
+        hits = [s for s in self.game.solid if s.get_hit_rect().collidepoint(point)]
 
         return not hits
 
@@ -140,40 +145,40 @@ class Sprite(pg.sprite.Sprite):
             hits = self.get_obstacles(1, 0)
             if hits:
                 hit = hits[0]
-                if self.there_is_space(hit, self.game.solid, "up"):
+                if self.there_is_space(hit, "up"):
                     self.y += SLITHER_SPEED
-                elif self.there_is_space(hit, self.game.solid, "down"):
+                elif self.there_is_space(hit, "down"):
                     self.y -= SLITHER_SPEED
 
         elif direction == "left":
             hits = self.get_obstacles(-1, 0)
             if hits:
                 hit = hits[0]
-                if self.there_is_space(hit, self.game.solid, "up"):
+                if self.there_is_space(hit, "up"):
                     self.y += SLITHER_SPEED
-                elif self.there_is_space(hit, self.game.solid, "down"):
+                elif self.there_is_space(hit, "down"):
                     self.y -= SLITHER_SPEED
         elif direction == "up":
             hits = self.get_obstacles(0, -1)
             if hits:
                 hit = hits[0]
-                if self.there_is_space(hit, self.game.solid, "right"):
+                if self.there_is_space(hit, "right"):
                     self.x += SLITHER_SPEED
-                elif self.there_is_space(hit, self.game.solid, "left"):
+                elif self.there_is_space(hit, "left"):
                     self.x -= SLITHER_SPEED
         elif direction == "down":
             hits = self.get_obstacles(0, 1)
             if hits:
                 hit = hits[0]
-                if self.there_is_space(hit, self.game.solid, "right"):
+                if self.there_is_space(hit, "right"):
                     self.x += SLITHER_SPEED
-                elif self.there_is_space(hit, self.game.solid, "left"):
+                elif self.there_is_space(hit, "left"):
                     self.x -= SLITHER_SPEED
         else:
             assert False
 
-    def collide_with_triggers(self, triggers):
-        hits = [s for s in triggers if self.get_rect().inflate(20, 20).colliderect(s.hit_rect)]
+    def collide_with_triggers(self):
+        hits = [s for s in self.game.triggers if self.get_rect().inflate(20, 20).colliderect(s.hit_rect)]
         for hit in hits:
             hit.on_hit()
 
