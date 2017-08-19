@@ -3,7 +3,6 @@ import math
 from settings import *
 from animation import Animation, PlayMode
 from container import Container
-from .collision import *
 from sprites import Sprite
 
 HITBOX_DOWN_SHIFT = -8
@@ -118,7 +117,7 @@ class Player(Sprite):
         else:
             self.moving = False
 
-        collide_with_triggers(self, self.game.triggers)
+        self.collide_with_triggers(self.game.triggers)
         self.pickup_items(True)
         self.update_animation(dt)
 

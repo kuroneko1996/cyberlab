@@ -1,5 +1,5 @@
 import pygame as pg
-from .collision import *
+from settings import TILE_SIZE, SLITHER_SPEED
 # Threshold for the sign function
 THRESHOLD = 0.000000001
 
@@ -116,6 +116,66 @@ class Sprite(pg.sprite.Sprite):
                 self.get_hit_rect()
                     .move(3 * sgn(dx), 3 * sgn(dy))
                     .colliderect(s.get_hit_rect())]
+
+    def there_is_space(self, hit, group, direction):
+        """Returns true if there is space in the direction given"""
+        if direction == "up":
+            point = (hit.get_hit_rect().x, hit.get_hit_rect().y - 1)
+        elif direction == "down":
+            point = (hit.get_hit_rect().x, hit.get_hit_rect().y + hit.get_hit_rect().height + 1)
+        elif direction == "right":
+            point = (hit.get_hit_rect().x + hit.get_hit_rect().width + 1, hit.get_hit_rect().y)
+        elif direction == "left":
+            point = (hit.get_hit_rect().x - 1, hit.get_hit_rect().y)
+        else:
+            assert False
+
+        hits = [s for s in group if s.get_hit_rect().collidepoint(point)]
+
+        return not hits
+
+    def slither(self, direction):
+        """Slithers the sprite along the hit in the direction with an opening"""
+        if direction == "right":
+            hits = self.get_obstacles(1, 0)
+            if hits:
+                hit = hits[0]
+                if self.there_is_space(hit, self.game.solid, "up"):
+                    self.y += SLITHER_SPEED
+                elif self.there_is_space(hit, self.game.solid, "down"):
+                    self.y -= SLITHER_SPEED
+
+        elif direction == "left":
+            hits = self.get_obstacles(-1, 0)
+            if hits:
+                hit = hits[0]
+                if self.there_is_space(hit, self.game.solid, "up"):
+                    self.y += SLITHER_SPEED
+                elif self.there_is_space(hit, self.game.solid, "down"):
+                    self.y -= SLITHER_SPEED
+        elif direction == "up":
+            hits = self.get_obstacles(0, -1)
+            if hits:
+                hit = hits[0]
+                if self.there_is_space(hit, self.game.solid, "right"):
+                    self.x += SLITHER_SPEED
+                elif self.there_is_space(hit, self.game.solid, "left"):
+                    self.x -= SLITHER_SPEED
+        elif direction == "down":
+            hits = self.get_obstacles(0, 1)
+            if hits:
+                hit = hits[0]
+                if self.there_is_space(hit, self.game.solid, "right"):
+                    self.x += SLITHER_SPEED
+                elif self.there_is_space(hit, self.game.solid, "left"):
+                    self.x -= SLITHER_SPEED
+        else:
+            assert False
+
+    def collide_with_triggers(self, triggers):
+        hits = [s for s in triggers if self.get_rect().inflate(20, 20).colliderect(s.hit_rect)]
+        for hit in hits:
+            hit.on_hit()
 
     def set_hit_rect(self, hit_rect):
         """
