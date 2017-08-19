@@ -1,7 +1,7 @@
 from settings import TILE_SIZE, SLITHER_SPEED
 
 # Threshold for the sign function
-THRESHOLD = 0.0001
+THRESHOLD = 0.0000001
 
 
 def collide_with_map(sprite, group, axis):
@@ -78,7 +78,7 @@ def there_is_space(hit, group, direction):
 
 
 def collide_with_triggers(sprite, triggers):
-    hits = [s for s in triggers if sprite.get_hit_rect().colliderect(s.hit_rect)]
+    hits = [s for s in triggers if sprite.get_rect().inflate(20, 20).colliderect(s.hit_rect)]
     for hit in hits:
         hit.on_hit()
 

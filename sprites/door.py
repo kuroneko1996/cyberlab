@@ -22,12 +22,12 @@ class Door(Sprite):
         super().__init__(game, x, y, self.door_img[dir], (game.doors, game.solid))
 
         self.door_hit_rect = {
-            "up": (self.hit_rect.left, self.hit_rect.top, TILE_SIZE, DOOR_THICKNESS),
-            "right": (self.hit_rect.left + TILE_SIZE - DOOR_THICKNESS,
-                      self.hit_rect.top, DOOR_THICKNESS, TILE_SIZE),
-            "down": (self.hit_rect.left, self.hit_rect.top + TILE_SIZE - DOOR_THICKNESS,
+            "up": (0, 0, TILE_SIZE, DOOR_THICKNESS),
+            "right": (TILE_SIZE - DOOR_THICKNESS, 0,
+                      DOOR_THICKNESS, TILE_SIZE),
+            "down": (0, TILE_SIZE - DOOR_THICKNESS,
                      TILE_SIZE, DOOR_THICKNESS),
-            "left": (self.hit_rect.left, self.hit_rect.top, DOOR_THICKNESS, TILE_SIZE)
+            "left": (0, 0, DOOR_THICKNESS, TILE_SIZE)
         }
 
         self.set_hit_rect(self.door_hit_rect[dir])
@@ -36,11 +36,11 @@ class Door(Sprite):
 
         self.door_open = False
 
-        KeyButtonTrigger(self.game, self.get_rect().inflate(80, 80), self.switch_door, pg.K_RETURN)
+        KeyButtonTrigger(self.game, self.get_rect().inflate(50, 50), self.switch_door, pg.K_RETURN)
 
     def switch_door(self):
         if self.door_open:
-            if not self.get_rect().colliderect(self.game.player.hit_rect.inflate(-20, -20)):
+            if not self.get_hit_rect().colliderect(self.game.player.get_hit_rect().inflate(-5, -5)):
                 self.close_door()
         else:
             self.open_door()

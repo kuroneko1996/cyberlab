@@ -27,9 +27,9 @@ class Sprite(pg.sprite.Sprite):
         self.x = x
         self.y = y
 
-        self.hit_rect = self.image.get_rect()
-        self.hit_rect.x = 0
-        self.hit_rect.y = 0
+        self.__hit_rect = self.image.get_rect()
+        self.__hit_rect.x = 0
+        self.__hit_rect.y = 0
 
     def on_hit(self):
         """
@@ -52,7 +52,7 @@ class Sprite(pg.sprite.Sprite):
         Produce the hit rectangle in the world coordinates
         :return: hit rectangle positioned in the world coordinates
         """
-        return self.hit_rect.move(self.x * TILE_SIZE, self.y * TILE_SIZE)
+        return self.__hit_rect.move(self.x * TILE_SIZE, self.y * TILE_SIZE)
 
     def move(self, dx, dy):
         """
@@ -86,7 +86,7 @@ class Sprite(pg.sprite.Sprite):
         :param hit_rect: new hit rectangle
         :return: nothing
         """
-        self.hit_rect.left = hit_rect[0]
-        self.hit_rect.top = hit_rect[1]
-        self.hit_rect.width = hit_rect[2]
-        self.hit_rect.height = hit_rect[3]
+        self.__hit_rect.left = hit_rect[0]
+        self.__hit_rect.top = hit_rect[1]
+        self.__hit_rect.width = hit_rect[2]
+        self.__hit_rect.height = hit_rect[3]
