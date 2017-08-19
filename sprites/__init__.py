@@ -86,9 +86,17 @@ class Sprite(pg.sprite.Sprite):
         else:
             if not self.get_obstacles(dx, 0):
                 self.x += dx
+                if dy > 0:
+                    self.slither("down")
+                elif dy < 0:
+                    self.slither("up")
                 return True
             elif not self.get_obstacles(0, dy):
                 self.y += dy
+                if dx > 0:
+                    self.slither("right")
+                elif dx < 0:
+                    self.slither("left")
                 return True
             else:
                 return False
