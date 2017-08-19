@@ -2,6 +2,7 @@ from operator import add
 from settings import *
 from sprites import Sprite
 import pygame as pg
+from triggers.trigger import KeyButtonTrigger
 
 DOOR_THICKNESS = 8
 
@@ -35,9 +36,11 @@ class Door(Sprite):
 
         self.door_open = False
 
+        KeyButtonTrigger(self.game, self.get_rect().inflate(80, 80), self.switch_door, pg.K_RETURN)
+
     def switch_door(self):
         if self.door_open:
-            if not self.rect.colliderect(self.game.player.hit_rect.inflate(-10, -10)):
+            if not self.get_rect().colliderect(self.game.player.hit_rect.inflate(-20, -20)):
                 self.close_door()
         else:
             self.open_door()
@@ -81,12 +84,3 @@ class Door(Sprite):
 
     def set_image(self, img):
         self.image = img
-        new_rect = self.image.get_rect()
-        self.rect.width = new_rect.width
-        self.rect.height = new_rect.height
-
-    def set_hit_rect(self, hit_rect_builder):
-        self.hit_rect.left = hit_rect_builder[0]
-        self.hit_rect.top = hit_rect_builder[1]
-        self.hit_rect.width = hit_rect_builder[2]
-        self.hit_rect.height = hit_rect_builder[3]

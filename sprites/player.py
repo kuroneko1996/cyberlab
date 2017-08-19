@@ -15,8 +15,7 @@ class Player(Sprite):
         self.image = self.idle_image
         super().__init__(game, x, y, self.image)
 
-        self.hit_rect.width = TILE_SIZE / 2
-        self.hit_rect.height = TILE_SIZE / 2
+        self.set_hit_rect((TILE_SIZE / 4, TILE_SIZE / 2, TILE_SIZE / 2, TILE_SIZE / 2))
 
         self.vx, self.vy = 0, 0
         self.spd = 6
@@ -62,7 +61,6 @@ class Player(Sprite):
         Handles the user input
         :return: true if the player has moved, false otherwise
         """
-        player_moved = False
 
         self.vx, self.vy = 0, 0
 
@@ -90,11 +88,9 @@ class Player(Sprite):
         if y_axis != 0:
             self.last_movey = y_axis
             self.last_movex = 0
-            player_moved = True
         elif x_axis != 0:
             self.last_movex = x_axis
             self.last_movey = 0
-            player_moved = True
 
         # diagonals
         if self.vx != 0 and self.vy != 0:
@@ -108,13 +104,11 @@ class Player(Sprite):
         if self.game.key_just_pressed(pg.K_SPACE):
             self.game.showTextBox = False
 
-        return player_moved
+        return self.vx != 0 or self.vy != 0
 
     def update(self, dt):
         if self.input():
-            if self.move(self.vx * dt, self.vy * dt):
-                self.rect = self.rect.move(0, HITBOX_DOWN_SHIFT)
-            else:
+            if not self.move(self.vx * dt, self.vy * dt):
                 self.vx = 0
                 self.vy = 0
 
@@ -146,7 +140,7 @@ class Player(Sprite):
             self.animation_timer = 0.0
 
     def pickup_items(self, auto_pick=False):
-        items = pg.sprite.spritecollide(self, self.game.items_on_floor, False)
+        items = [s for s in self.game.items_on_floor if self.get_hit_rect().colliderect(s.get_hit_rect())]
         for item in items:
             if item.pickable is not None:
                 if auto_pick is True and item.pickable.auto_pick is False:

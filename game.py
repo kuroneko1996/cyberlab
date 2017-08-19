@@ -68,8 +68,7 @@ class Game:
                 item = Item(self, node['x'], node['y'], apple_img)
                 item.pickable = Pickable(item, 'apple', False, 1, False)
             elif node["name"] == "DOOR":
-                door = Door(self, node["x"], node["y"], node["dir"])
-                KeyButtonTrigger(self, door.rect.inflate(20, 20), door.switch_door, pg.K_RETURN)
+                Door(self, node["x"], node["y"], node["dir"])
 
         for trigger in self.map.triggers:
             TextTrigger(self,

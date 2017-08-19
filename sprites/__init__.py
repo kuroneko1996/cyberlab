@@ -7,7 +7,8 @@ class Sprite(pg.sprite.Sprite):
     """
     A visible game entry that is positioned on the map
     """
-    def __init__(self, game, x, y, img, groups = ()):
+
+    def __init__(self, game, x, y, img, groups=()):
         """
         Construct a new sprite
 
@@ -23,14 +24,12 @@ class Sprite(pg.sprite.Sprite):
         pg.sprite.Sprite.__init__(self, self.groups)
 
         self.image = img
-        self.rect = self.image.get_rect()
-        self.hit_rect = self.image.get_rect()
         self.x = x
         self.y = y
-        self.rect.x = x * TILE_SIZE
-        self.rect.y = y * TILE_SIZE
-        self.hit_rect.x = x * TILE_SIZE
-        self.hit_rect.y = y * TILE_SIZE
+
+        self.hit_rect = self.image.get_rect()
+        self.hit_rect.x = 0
+        self.hit_rect.y = 0
 
     def on_hit(self):
         """
@@ -38,7 +37,24 @@ class Sprite(pg.sprite.Sprite):
         """
         pass
 
-    def move(self, dx, dy, do_slither=True):
+    def get_rect(self):
+        """
+        Gets the image rectangle in the world coordinates
+        :return: image rectangle positioned in the world coordinates
+        """
+        return pg.Rect(self.x * TILE_SIZE,
+                       self.y * TILE_SIZE,
+                       self.image.get_rect().x,
+                       self.image.get_rect().y)
+
+    def get_hit_rect(self):
+        """
+        Produce the hit rectangle in the world coordinates
+        :return: hit rectangle positioned in the world coordinates
+        """
+        return self.hit_rect.move(self.x * TILE_SIZE, self.y * TILE_SIZE)
+
+    def move(self, dx, dy):
         """
         Moves this sprite by (x,y), checking for collisions
 
@@ -47,25 +63,30 @@ class Sprite(pg.sprite.Sprite):
         :return: true if movement succeeded, false otherwise
         """
 
-        if can_walk(self, self.game.solid, dx, dy):
+        if not get_obstacles(self, self.game.solid, dx, dy):
             self.x += dx
             self.y += dy
-
-            # move on x
-            self.hit_rect.x = self.x * TILE_SIZE
-            hit = collide_with_map(self, self.game.solid, 'x')
-            if hit and do_slither:
-                slither(self.game.solid, hit, self, "y", False)
-
-            # move on y
-            self.hit_rect.y = self.y * TILE_SIZE
-            hit = collide_with_map(self, self.game.solid, 'y')
-            if hit and do_slither:
-                slither(self.game.solid, hit, self, "x", False)
-
-            # update image rect
-            self.rect.center = self.hit_rect.center
-
             return True
         else:
             return False
+
+    def set_position(self, x, y):
+        """
+        Sets the position of this sprite explicitly
+        :param x: x coordinate in tile units
+        :param y: y coordinate in tile units
+        :return: nothing
+        """
+        self.x = x
+        self.y = y
+
+    def set_hit_rect(self, hit_rect):
+        """
+        Sets the hit rectangle for this sprite in the sprite's local coordinates
+        :param hit_rect: new hit rectangle
+        :return: nothing
+        """
+        self.hit_rect.left = hit_rect[0]
+        self.hit_rect.top = hit_rect[1]
+        self.hit_rect.width = hit_rect[2]
+        self.hit_rect.height = hit_rect[3]

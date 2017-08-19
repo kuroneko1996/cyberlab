@@ -9,12 +9,12 @@ class Camera:
         self.height = height
 
     def transform(self, sprite):
-        return sprite.rect.move(self.rect.topleft)
+        return sprite.get_rect().move(self.rect.topleft)
 
     # move camera in opposite direction
     def update(self, target):
-        x = -target.rect.x + int(SCREEN_WIDTH / 2)
-        y = -target.rect.y + int(SCREEN_HEIGHT / 2)
+        x = -target.get_rect().x + int(SCREEN_WIDTH / 2)
+        y = -target.get_rect().y + int(SCREEN_HEIGHT / 2)
 
         # limit scrolling near borders of map
         x = min(0, x)  # left
