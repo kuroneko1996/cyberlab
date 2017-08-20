@@ -1,3 +1,4 @@
+import time
 import pygame as pg
 import sys
 from game import Game
@@ -36,8 +37,10 @@ class Menu:
             self.joystick = self.joysticks[0]
             self.joystick.init()
 
+        self.last_axis_motion = 0.0
+
     def run(self):
-        self.draw() # draw first time to ignore self.updated
+        self.draw()  # draw first time to ignore self.updated
         while self.playing:
             self.dt = self.clock.tick(FPS) / 1000
             self.events()
@@ -46,6 +49,8 @@ class Menu:
 
     def events(self):
         self.updated = False
+        action = None
+        
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 quit_game(self)
@@ -53,15 +58,34 @@ class Menu:
                 if event.key == pg.K_ESCAPE:
                     quit_game(self)
                 if event.key == pg.K_DOWN:
-                    self.menu["selected_option"] += 1
-                    self.menu["selected_option"] %= len(self.menu["options"])
-                    self.updated = True
+                    action = 'down'
                 if event.key == pg.K_UP:
-                    self.menu["selected_option"] -= 1
-                    self.menu["selected_option"] %= len(self.menu["options"])
-                    self.updated = True
+                    action = 'up'
                 if event.key == pg.K_RETURN:
-                    self.menu["options"][self.menu["selected_option"]]["func"](self)
+                    action = 'enter'
+            if event.type == pg.JOYBUTTONDOWN:
+                if event.button == J_BUTTONS['A']:
+                    action = 'enter'
+            if event.type == pg.JOYAXISMOTION:
+                if event.dict['axis'] == 1:
+                    if time.time() >= self.last_axis_motion + 0.3:
+                        if event.dict['value'] < -JOYSTICK_THRESHOLD:
+                            action = 'up'
+                            self.last_axis_motion = time.time()
+                        elif event.dict['value'] > JOYSTICK_THRESHOLD:
+                            action = 'down'
+                            self.last_axis_motion = time.time()
+
+        if action == 'down':
+            self.menu["selected_option"] += 1
+            self.menu["selected_option"] %= len(self.menu["options"])
+            self.updated = True
+        elif action == 'up':
+            self.menu["selected_option"] -= 1
+            self.menu["selected_option"] %= len(self.menu["options"])
+            self.updated = True
+        elif action == 'enter':
+            self.menu["options"][self.menu["selected_option"]]["func"](self)
 
     def update(self):
         self.gui.pre(self.joystick)
@@ -90,6 +114,7 @@ class Menu:
             self.display.blit(rend, rect)
 
             count += 1
+
 
 def new_game(self):
     self.playing = False
@@ -136,4 +161,3 @@ def main_menu():
             },
         ]
     }, display)
-
