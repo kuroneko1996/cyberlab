@@ -1,6 +1,4 @@
-import pygame as pg
-from settings import *
-from sprites import Sprite
+from .sprite import Sprite
 
 
 class Wall(Sprite):

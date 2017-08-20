@@ -3,12 +3,12 @@ import math
 from settings import *
 from animation import Animation, PlayMode
 from container import Container
-from sprites import Sprite
+from .active_sprite import ActiveSprite
 
 HITBOX_DOWN_SHIFT = -8
 
 
-class Player(Sprite):
+class Player(ActiveSprite):
     def __init__(self, game, x, y):
         self.idle_image = game.spritesheet.get_image_alpha_at_row_col(0, 1)
         self.image = self.idle_image
@@ -16,11 +16,9 @@ class Player(Sprite):
 
         self.set_hit_rect((TILE_SIZE / 4, TILE_SIZE / 2, TILE_SIZE / 2, TILE_SIZE / 2))
 
-        self.vx, self.vy = 0, 0
         self.spd = 6
         self.last_movex = 0.0
         self.last_movey = 0.0
-        self.moving = False
 
         self.animation_timer = 0.0
         self.idling_animation = Animation(
@@ -82,6 +80,12 @@ class Player(Sprite):
         elif keys[pg.K_DOWN] or keys[pg.K_s]:
             y_axis = 1
 
+        # Check for collisions
+        if self.get_obstacles(self.spd * x_axis, 0):
+            x_axis = 0
+        if self.get_obstacles(0, self.spd * y_axis):
+            y_axis = 0
+
         self.vx = self.spd * x_axis
         self.vy = self.spd * y_axis
 
@@ -104,18 +108,13 @@ class Player(Sprite):
         if game.get_key_jp(pg.K_SPACE) or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
             game.showTextBox = False
 
-        return self.vx != 0 or self.vy != 0
+        return self.is_moving()
 
     def update(self, dt):
         if self.input():
             if not self.move(self.vx * dt, self.vy * dt):
                 self.vx = 0
                 self.vy = 0
-
-        if self.vx != 0 or self.vy != 0:
-            self.moving = True
-        else:
-            self.moving = False
 
         self.collide_with_triggers()
         self.pickup_items(True)
@@ -124,12 +123,12 @@ class Player(Sprite):
     def update_animation(self, dt):
         self.image = self.idling_animation.get_key_frame(self.animation_timer)
 
-        if self.moving and self.last_movey != 0:
+        if self.is_moving() and self.last_movey != 0:
             if self.last_movey > 0:
                 self.image = self.walking_animation_up.get_key_frame(self.animation_timer)
             else:
                 self.image = self.walking_animation_down.get_key_frame(self.animation_timer)
-        elif self.moving and self.last_movex != 0:
+        elif self.is_moving() and self.last_movex != 0:
             if self.last_movex > 0:
                 self.image = self.walking_animation_right.get_key_frame(self.animation_timer)
             else:

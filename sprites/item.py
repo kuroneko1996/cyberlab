@@ -1,4 +1,4 @@
-from sprites import Sprite
+from .sprite import Sprite
 from settings import TILE_SIZE
 
 

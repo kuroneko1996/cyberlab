@@ -1,6 +1,6 @@
 from operator import add
 from settings import *
-from sprites import Sprite
+from .sprite import Sprite
 import pygame as pg
 from triggers.trigger import KeyButtonTrigger
 

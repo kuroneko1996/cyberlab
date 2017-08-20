@@ -1,7 +1,5 @@
 import sys
 from os import path
-import pygame as pg
-from settings import *
 from spritesheet import Spritesheet
 from sprites.player import Player
 from sprites.wall import Wall
