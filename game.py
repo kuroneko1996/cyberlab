@@ -6,6 +6,7 @@ from sprites.wall import Wall
 from sprites.item import Item
 from sprites.door import Door
 from pickable import Pickable
+from nanogui import Nanogui
 from triggers.trigger import *
 from camera import *
 from map import *
@@ -45,6 +46,8 @@ class Game:
         self.showTextBox = False
         self.text = None
 
+        self.gui = Nanogui()
+
     def load(self):
         self.all_sprites = pg.sprite.Group()
         self.solid = pg.sprite.Group()
@@ -77,10 +80,14 @@ class Game:
         self.camera = Camera(self.map.width_screen, self.map.height_screen)
 
     def update(self):
+        self.gui.pre(self.joystick)
+
         for sprite in self.all_sprites:
             sprite.update(self.dt)
 
         self.camera.update(self.player)
+
+        self.gui.after()
 
     def draw(self):
         self.display.fill(BG_COLOR)
@@ -94,8 +101,7 @@ class Game:
         if self.showTextBox is True:
             self.bot_message(self.text)
 
-        # pg.draw.rect(self.display, (0,255,0), self.player.hit_rect, 1)
-        # pg.draw.rect(self.display, (255, 255, 255), self.player.rect, 1)
+        self.gui.draw()
         pg.display.flip()
 
     def run(self):
