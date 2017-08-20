@@ -2,6 +2,7 @@ import pygame as pg
 import sys
 from game import Game
 from settings import *
+from nanogui import Nanogui
 
 OPTION_COLOR = (231, 100, 240)
 
@@ -17,21 +18,34 @@ display = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 class Menu:
     def __init__(self, menu, display):
         self.clock = pg.time.Clock()
-        self.dt = self.clock.tick(FPS) / 1000
+        self.dt = 0.0
         self.playing = True
         self.display = display
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
+        self.font = pg.font.SysFont("comicsansms", 72)
+
+        self.updated = True
 
         self.menu = menu
+        self.gui = Nanogui()
+
+        self.joysticks = [pg.joystick.Joystick(x) for x in range(pg.joystick.get_count())]
+        self.joystick = None
+        if len(self.joysticks) > 0:
+            self.joystick = self.joysticks[0]
+            self.joystick.init()
 
     def run(self):
+        self.draw() # draw first time to ignore self.updated
         while self.playing:
+            self.dt = self.clock.tick(FPS) / 1000
             self.events()
             self.update()
             self.draw()
 
     def events(self):
+        self.updated = False
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 quit_game(self)
@@ -41,29 +55,34 @@ class Menu:
                 if event.key == pg.K_DOWN:
                     self.menu["selected_option"] += 1
                     self.menu["selected_option"] %= len(self.menu["options"])
+                    self.updated = True
                 if event.key == pg.K_UP:
                     self.menu["selected_option"] -= 1
                     self.menu["selected_option"] %= len(self.menu["options"])
+                    self.updated = True
                 if event.key == pg.K_RETURN:
                     self.menu["options"][self.menu["selected_option"]]["func"](self)
 
     def update(self):
-        pass
+        self.gui.pre(self.joystick)
+        self.gui.after()
 
     def draw(self):
-        self.display.fill(BG_COLOR)
+        if self.updated:
+            self.display.fill(BG_COLOR)
+            self.draw_options()
+            pg.display.flip()
 
+    def draw_options(self):
         count = 0
 
         for option in self.menu["options"]:
-            font = pg.font.SysFont("comicsansms", 72)
-
             if self.menu["selected_option"] == count:
                 color = SELECTED_OPTION_COLOR
             else:
                 color = OPTION_COLOR
 
-            rend = font.render(option["name"], True, color)
+            rend = self.font.render(option["name"], True, color)
             rect = rend.get_rect().move(
                 SCREEN_WIDTH // 2 - rend.get_width() // 2,
                 INITIAL_V_GAP + (rend.get_height() + V_SPACING) * count)
@@ -71,9 +90,6 @@ class Menu:
             self.display.blit(rend, rect)
 
             count += 1
-
-        pg.display.flip()
-
 
 def new_game(self):
     self.playing = False
@@ -98,38 +114,26 @@ def settings(self):
     # TODO: finish settings option
 
 
-main_menu = Menu({
-    "selected_option": 0,
-    "options": [
-        {
-            "name": "NEW GAME",
-            "func": new_game
-        },
-        {
-            "name": "LOAD GAME",
-            "func": load_game
-        },
-        {
-            "name": "SETTINGS",
-            "func": settings
-        },
-        {
-            "name": "QUIT",
-            "func": quit_game
-        },
-    ]
-}, display)
+def main_menu():
+    return Menu({
+        "selected_option": 0,
+        "options": [
+            {
+                "name": "NEW GAME",
+                "func": new_game
+            },
+            {
+                "name": "LOAD GAME",
+                "func": load_game
+            },
+            {
+                "name": "SETTINGS",
+                "func": settings
+            },
+            {
+                "name": "QUIT",
+                "func": quit_game
+            },
+        ]
+    }, display)
 
-settings = Menu({
-    "selected_option": 0,
-    "options": [
-        # TODO: finish
-    ]
-}, display)
-
-pause = Menu({
-    "selected_option": 0,
-    "options": [
-        # TODO: finish
-    ]
-}, display)
