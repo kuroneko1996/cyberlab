@@ -1,5 +1,6 @@
 import sys
 from os import path
+import math
 from spritesheet import Spritesheet
 from sprites.player import Player
 from sprites.wall import Wall
@@ -10,6 +11,7 @@ from nanogui import Nanogui
 from triggers.trigger import *
 from camera import *
 from map import *
+from fov import calc_fov, fov_index
 
 
 class Game:
@@ -47,6 +49,8 @@ class Game:
         self.text = None
 
         self.gui = Nanogui()
+        self.visibility_data = None  # two dimensional list
+        self.fov_data = {}
 
     def load(self):
         self.all_sprites = pg.sprite.Group()
@@ -61,16 +65,21 @@ class Game:
         wall_img = self.spritesheet.get_image_at_row_col(0, 0)
         apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
 
+        self.visibility_data = [[True] * self.map.height for i in range(self.map.width)]
+        print(self.visibility_data)
         for node in self.map.objects:
+            x, y = node['x'], node['y']
             if node["name"] == 'WALL':
-                Wall(self, node["x"], node["y"], wall_img)
+                Wall(self, x, y, wall_img)
+                self.visibility_data[x][y] = False
             elif node["name"] == 'PLAYER':
-                self.player = Player(self, node["x"], node["y"])
+                self.player = Player(self, x, y)
             elif node["name"] == 'APPLE':
-                item = Item(self, node['x'], node['y'], apple_img)
+                item = Item(self, x, y, apple_img)
                 item.pickable = Pickable(item, 'apple', False, 1, False)
             elif node["name"] == "DOOR":
-                Door(self, node["x"], node["y"], node["dir"])
+                Door(self, x, y, node["dir"])
+                self.visibility_data[x][y] = False  # TODO opened doors visibility
 
         for trigger in self.map.triggers:
             TextTrigger(self,
@@ -85,7 +94,9 @@ class Game:
         for sprite in self.all_sprites:
             sprite.update(self.dt)
 
-        self.camera.update(self.player)
+        if self.camera.update(self.player):  # TODO opening doors should trigger FOV update
+            self.fov_data = calc_fov(math.floor(self.player.x), math.floor(self.player.y), FOV_RADIUS,
+                                     self.visibility_data)
 
         self.gui.after()
 
@@ -94,7 +105,12 @@ class Game:
 
         # TODO layering
         for sprite in self.all_sprites:
-            if sprite != self.player:
+            if sprite != self.player and not isinstance(sprite, Item):
+                self.display.blit(sprite.image, self.camera.transform(sprite))
+
+        for sprite in self.items_on_floor:
+            index = fov_index(sprite.x, sprite.y)
+            if index in self.fov_data:
                 self.display.blit(sprite.image, self.camera.transform(sprite))
 
         self.display.blit(self.player.image, self.camera.transform(self.player))

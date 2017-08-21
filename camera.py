@@ -22,7 +22,13 @@ class Camera:
         x = max(SCREEN_WIDTH - self.width, x)  # right
         y = max(SCREEN_HEIGHT - self.height, y)  # height
 
+        updated = False
+        if self.rect.x != x or self.rect.y != y or self.rect.width != self.width or self.rect.height != self.height:
+            updated = True
+
         self.rect.x = x
         self.rect.y = y
         self.rect.width = self.width
         self.rect.height = self.height
+
+        return updated

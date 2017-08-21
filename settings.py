@@ -4,11 +4,13 @@ WINDOW_TITLE = "Cyberpunk Laboratory"
 
 FPS = 60
 
-BG_COLOR = (0,0,0)
+BG_COLOR = (0, 0, 0)
 
 TILE_SIZE = 32
 
 SLITHER_SPEED = 0.05
+FOV_RADIUS = 5
+DEBUG_FOV = False
 
 JOYSTICK_THRESHOLD = 0.1
 J_BUTTONS = {

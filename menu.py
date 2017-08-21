@@ -50,7 +50,7 @@ class Menu:
     def events(self):
         self.updated = False
         action = None
-        
+
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 quit_game(self)
