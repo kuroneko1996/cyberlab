@@ -80,4 +80,4 @@ def light(mx, my):
 
 
 def fov_index(mx, my):
-    return mx * FOV_RADIUS + my
+    return mx * (FOV_RADIUS + 1) * 2 + my

@@ -61,6 +61,7 @@ class Door(Sprite):
             assert False
 
         self.add(self.game.solid)
+        self.game.set_visibility(self.x, self.y, False)
 
     def open_door(self):
         self.door_open = True
@@ -77,6 +78,7 @@ class Door(Sprite):
             assert False
 
         self.remove(self.game.solid)
+        self.game.set_visibility(self.x, self.y, True)
 
     def set_dir(self, dir):
         self.dir = dir

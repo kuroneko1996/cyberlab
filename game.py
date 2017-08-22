@@ -51,6 +51,7 @@ class Game:
         self.gui = Nanogui()
         self.visibility_data = None  # two dimensional list
         self.fov_data = {}
+        self.update_fov = True
 
     def load(self):
         self.all_sprites = pg.sprite.Group()
@@ -66,7 +67,7 @@ class Game:
         apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
 
         self.visibility_data = [[True] * self.map.height for i in range(self.map.width)]
-        print(self.visibility_data)
+
         for node in self.map.objects:
             x, y = node['x'], node['y']
             if node["name"] == 'WALL':
@@ -94,9 +95,10 @@ class Game:
         for sprite in self.all_sprites:
             sprite.update(self.dt)
 
-        if self.camera.update(self.player):  # TODO opening doors should trigger FOV update
+        if self.camera.update(self.player) or self.update_fov:
             self.fov_data = calc_fov(math.floor(self.player.x), math.floor(self.player.y), FOV_RADIUS,
                                      self.visibility_data)
+            self.update_fov = False
 
         self.gui.after()
 
@@ -194,3 +196,7 @@ class Game:
         self.display.blit(self.font.render(text, True, (255, 255, 255)), (150, 390))
         self.display.blit(self.fontSpace.render("[SPACE]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()
+
+    def set_visibility(self, tilex, tiley, value):
+        self.visibility_data[tilex][tiley] = value
+        self.update_fov = True
