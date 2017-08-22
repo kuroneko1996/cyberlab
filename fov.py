@@ -8,23 +8,28 @@ MULT = [
   [1,  0,  0,  1, -1,  0,  0, -1],
 ]
 
-data = {}
 
-
-def calc_fov(startx, starty, radius, visibility_data):
-    global data
-    data = {}
-
+def calc_fov(startx, starty, radius, visibility_data, fov_data):
     def blocked_func(x, y):
         return is_blocked(x, y, visibility_data)
 
-    light(startx, starty)
+    def light_func(mx, my):
+        return light(mx, my, fov_data)
+
+    if not visibility_data[startx][starty]:
+        return fov_data
+
+    for i in range(len(fov_data)):
+        for j in range(len(fov_data[0])):
+            fov_data[i][j] = False
+
+    light_func(startx, starty)
     for octant in range(8):
         cast_light(cx=startx, cy=starty, row=1, light_start=1.0, light_end=0.0, radius=radius,
                    xx=MULT[0][octant], xy=MULT[1][octant], yx=MULT[2][octant], yy=MULT[3][octant],
-                   light_func=light, blocked_func=blocked_func)
+                   light_func=light_func, blocked_func=blocked_func)
 
-    return data
+    return fov_data
 
 
 def cast_light(cx, cy, row, light_start, light_end, radius, xx, xy, yx, yy, light_func, blocked_func):
@@ -75,9 +80,5 @@ def is_blocked(x, y, visibility_map):
     return not visibility_map[x][y]
 
 
-def light(mx, my):
-    data[fov_index(mx, my)] = True
-
-
-def fov_index(mx, my):
-    return mx * (FOV_RADIUS + 1) * 2 + my
+def light(mx, my, fov_data):
+    fov_data[mx][my] = True

@@ -11,6 +11,9 @@ class Camera:
     def transform(self, sprite):
         return sprite.get_rect().move(self.rect.topleft)
 
+    def transform_xy(self, x, y):
+        return self.rect.left + x, self.rect.top + y
+
     # move camera in opposite direction
     def update(self, target):
         x = -target.get_rect().x + int(SCREEN_WIDTH / 2)

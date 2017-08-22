@@ -11,7 +11,7 @@ from nanogui import Nanogui
 from triggers.trigger import *
 from camera import *
 from map import *
-from fov import calc_fov, fov_index
+from fov import calc_fov
 
 
 class Game:
@@ -49,8 +49,8 @@ class Game:
         self.text = None
 
         self.gui = Nanogui()
-        self.visibility_data = None  # two dimensional list
-        self.fov_data = {}
+        self.visibility_data = None  # [x][y] -> True, False
+        self.fov_data = None  # [x][y] -> True, False
         self.update_fov = True
 
     def load(self):
@@ -67,6 +67,7 @@ class Game:
         apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
 
         self.visibility_data = [[True] * self.map.height for i in range(self.map.width)]
+        self.fov_data = [[True] * self.map.height for i in range(self.map.width)]
 
         for node in self.map.objects:
             x, y = node['x'], node['y']
@@ -96,8 +97,12 @@ class Game:
             sprite.update(self.dt)
 
         if self.camera.update(self.player) or self.update_fov:
-            self.fov_data = calc_fov(math.floor(self.player.x), math.floor(self.player.y), FOV_RADIUS,
-                                     self.visibility_data)
+            player_hit_rect = self.player.get_hit_rect()
+            player_tilex = math.floor(player_hit_rect.x / TILE_SIZE)
+            player_tiley = math.floor(player_hit_rect.y / TILE_SIZE)
+
+            self.fov_data = calc_fov(player_tilex, player_tiley, FOV_RADIUS,
+                                     self.visibility_data, self.fov_data)
             self.update_fov = False
 
         self.gui.after()
@@ -111,9 +116,11 @@ class Game:
                 self.display.blit(sprite.image, self.camera.transform(sprite))
 
         for sprite in self.items_on_floor:
-            index = fov_index(sprite.x, sprite.y)
-            if index in self.fov_data:
+            if self.fov_data[sprite.x][sprite.y]:
                 self.display.blit(sprite.image, self.camera.transform(sprite))
+
+        if DEBUG_FOV:
+            self.draw_fov()
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
         if self.showTextBox is True:
@@ -200,3 +207,11 @@ class Game:
     def set_visibility(self, tilex, tiley, value):
         self.visibility_data[tilex][tiley] = value
         self.update_fov = True
+
+    def draw_fov(self):
+        for x in range(len(self.fov_data)):
+            for y in range(len(self.fov_data[0])):
+                if self.fov_data[x][y]:
+                    newx, newy = self.camera.transform_xy(x * TILE_SIZE, y * TILE_SIZE)
+                    pg.draw.rect(self.display, (200, 200, 200), pg.Rect(newx, newy,
+                                                                        TILE_SIZE, TILE_SIZE), 1)

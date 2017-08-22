@@ -115,6 +115,8 @@ class Player(ActiveSprite):
             if not self.move(self.vx * dt, self.vy * dt):
                 self.vx = 0
                 self.vy = 0
+            else:
+                self.game.update_fov = True
 
         self.collide_with_triggers()
         self.pickup_items(True)
