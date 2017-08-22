@@ -13,8 +13,6 @@ INITIAL_V_GAP = 30
 
 V_SPACING = 5
 
-display = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
 
 class Menu:
     def __init__(self, menu, display):
@@ -139,7 +137,7 @@ def settings(self):
     # TODO: finish settings option
 
 
-def main_menu():
+def main_menu(display):
     return Menu({
         "selected_option": 0,
         "options": [
