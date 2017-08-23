@@ -1,5 +1,5 @@
 import sys
-from os import path
+from os import path, getcwd
 import math
 from spritesheet import Spritesheet
 from sprites.player import Player
@@ -59,7 +59,7 @@ class Game:
         self.items_on_floor = pg.sprite.Group()
         self.doors = pg.sprite.Group()
 
-        assets_folder = path.join(path.dirname(__file__), 'assets')
+        assets_folder = path.join(getcwd(), 'assets')
         self.map = Map(path.join(assets_folder, 'maps/map1.json'))
 
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'), 32)

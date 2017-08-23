@@ -41,3 +41,8 @@ Usage:
 
 **$python util/txt2json.py**
 Converts the map in readable txt format to json format
+
+### How to compile into binary executable
+**python -m pip install cx_Freeze --upgrade** to install cx_Freeze module
+**python setup.py build**
+It will create *build* folder with binaries.
