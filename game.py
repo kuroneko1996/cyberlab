@@ -8,7 +8,7 @@ from sprites.item import Item
 from sprites.door import Door
 from pickable import Pickable
 from nanogui import Nanogui
-from triggers.trigger import *
+from triggers import *
 from camera import *
 from map import *
 from fov import calc_fov
@@ -116,7 +116,9 @@ class Game:
                 self.display.blit(sprite.image, self.camera.transform(sprite))
 
         for sprite in self.items_on_floor:
-            if self.fov_data[sprite.x][sprite.y]:
+            tilex = math.floor(sprite.x)
+            tiley = math.floor(sprite.y)
+            if self.fov_data[tilex][tiley]:
                 self.display.blit(sprite.image, self.camera.transform(sprite))
 
         if DEBUG_FOV:
