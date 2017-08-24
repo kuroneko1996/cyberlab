@@ -3,7 +3,6 @@ import pygame as pg
 import sys
 from game import Game
 from settings import *
-from nanogui import Nanogui
 
 OPTION_COLOR = (128, 135, 239)
 
@@ -27,7 +26,7 @@ class Menu:
         self.updated = True
 
         self.menu = menu
-        self.gui = Nanogui(display)
+        self.menu_rects = {}
 
         self.joysticks = [pg.joystick.Joystick(x) for x in range(pg.joystick.get_count())]
         self.joystick = None
@@ -52,8 +51,8 @@ class Menu:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 quit_game(self)
+            # keyboard
             if event.type == pg.KEYDOWN:
-                self.gui.key_pressed(event.key)
                 if event.key == pg.K_ESCAPE:
                     quit_game(self)
                 if event.key == pg.K_DOWN:
@@ -62,6 +61,17 @@ class Menu:
                     action = 'up'
                 if event.key == pg.K_RETURN:
                     action = 'enter'
+            # mouse
+            if event.type == pg.MOUSEMOTION:
+                mousex, mousey = pg.mouse.get_pos()
+                for i in range(len(self.menu_rects.items())):
+                    if self.menu_rects[i].collidepoint(mousex, mousey):
+                        self.menu['selected_option'] = i
+                        self.updated = True
+                        break
+            if event.type == pg.MOUSEBUTTONDOWN:
+                action = 'enter'
+            # joystick
             if event.type == pg.JOYBUTTONDOWN:
                 if event.button == J_BUTTONS['A']:
                     action = 'enter'
@@ -87,15 +97,13 @@ class Menu:
             self.menu["options"][self.menu["selected_option"]]["func"](self)
 
     def update(self):
-        self.gui.pre(self.joystick)
-        self.gui.after()
+        pass
 
     def draw(self):
         if self.updated:
             self.display.fill(BG_COLOR)
             self.draw_game_title()
             self.draw_options()
-            self.gui.draw()
             pg.display.flip()
 
     def draw_options(self):
@@ -115,6 +123,7 @@ class Menu:
             rect = rend.get_rect().move(
                 x_offset,
                 INITIAL_V_GAP + (rend.get_height() + V_SPACING) * count)
+            self.menu_rects[count] = rect
 
             self.display.blit(rend, rect)
 

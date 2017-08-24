@@ -14,7 +14,7 @@ class Nanogui:
         # keyboard
         self.kbd_item = 0
         self.key_entered = 0
-        self.key_shift = 0
+        self.key_shift = False
         self.last_widget = 0
 
         self.draw_elements = {}
@@ -67,10 +67,70 @@ class Nanogui:
         else:
             return False
 
+    def change_page(self):
+        self.kbd_item = 0
+        self.last_widget = 0
+        self.key_entered = 0
+        self.key_shift = False
+
     def label(self, id, text, x, y, color=(255, 255, 255)):
         if not(id in self.draw_elements):
-            def func():
+            def draw_func():
                 surface = self.font.render(text, True, color)
                 self.display.blit(surface, (x, y))
 
-            self.draw_elements[id] = func
+            self.draw_elements[id] = draw_func
+
+    def button(self, id, text, x, y, w=64, h=48):
+        if self.region_hit(x, y, w, h):
+            self.hot_item = id
+            if self.active_item == 0 and self.mousedown == True:
+                self.active_item = id
+
+        # keyboard focus
+        if self.kbd_item == 0:  # get focus
+            self.kbd_item = id
+
+        # creating draw function
+        if not(id in self.draw_elements):
+            def draw_func():
+                xpos = x
+                ypos = y
+
+                if self.hot_item == id:  # hovered
+                    if self.active_item == id:
+                        # clicked
+                        xpos = x + 4
+                        ypos = y + 4
+                        pg.draw.rect(self.display, (255, 255, 255), pg.Rect(xpos, ypos, w, h))
+                    else:
+                        pg.draw.rect(self.display, (200, 200, 200), pg.Rect(xpos, ypos, w, h))
+                else:
+                    pg.draw.rect(self.display, (100, 100, 100), pg.Rect(xpos, ypos, w, h))
+
+                # text
+                text_surface = self.font.render(text, True, (255, 255, 255))
+                text_x = xpos + w // 2 - text_surface.get_width() // 2
+                text_y = ypos + h // 2 - text_surface.get_height() // 2
+                self.display.blit(text_surface, (text_x, text_y))
+
+                if self.kbd_item == id:
+                    # draw focus
+                    pass
+
+            self.draw_elements[id] = draw_func
+
+        # focus keys
+        if self.kbd_item == id:
+            if not self.focus_change():
+                if self.key_entered == pg.K_RETURN:
+                    self.key_entered = 0
+                    return True
+
+        self.last_widget = id
+
+        # return
+        if self.mousedown is False and self.hot_item != 0 and self.active_item == id:
+            return True
+
+        return False
