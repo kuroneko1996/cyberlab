@@ -48,7 +48,7 @@ class Game:
         self.showTextBox = False
         self.text = None
 
-        self.gui = Nanogui()
+        self.gui = Nanogui(display)
         self.visibility_data = None  # [x][y] -> True, False
         self.fov_data = None  # [x][y] -> True, False
         self.update_fov = True

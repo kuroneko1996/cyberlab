@@ -5,11 +5,11 @@ from game import Game
 from settings import *
 from nanogui import Nanogui
 
-OPTION_COLOR = (231, 100, 240)
+OPTION_COLOR = (128, 135, 239)
 
-SELECTED_OPTION_COLOR = (255, 100, 30)
+SELECTED_OPTION_COLOR = (255, 255, 255)
 
-INITIAL_V_GAP = 30
+INITIAL_V_GAP = 140
 
 V_SPACING = 5
 
@@ -22,12 +22,12 @@ class Menu:
         self.display = display
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
-        self.font = pg.font.SysFont("comicsansms", 72)
+        self.font = pg.font.Font('assets/fonts/Arcon.otf', 32)
 
         self.updated = True
 
         self.menu = menu
-        self.gui = Nanogui()
+        self.gui = Nanogui(display)
 
         self.joysticks = [pg.joystick.Joystick(x) for x in range(pg.joystick.get_count())]
         self.joystick = None
@@ -53,6 +53,7 @@ class Menu:
             if event.type == pg.QUIT:
                 quit_game(self)
             if event.type == pg.KEYDOWN:
+                self.gui.key_pressed(event.key)
                 if event.key == pg.K_ESCAPE:
                     quit_game(self)
                 if event.key == pg.K_DOWN:
@@ -92,11 +93,14 @@ class Menu:
     def draw(self):
         if self.updated:
             self.display.fill(BG_COLOR)
+            self.draw_game_title()
             self.draw_options()
+            self.gui.draw()
             pg.display.flip()
 
     def draw_options(self):
         count = 0
+        x_offset = 0
 
         for option in self.menu["options"]:
             if self.menu["selected_option"] == count:
@@ -105,13 +109,22 @@ class Menu:
                 color = OPTION_COLOR
 
             rend = self.font.render(option["name"], True, color)
+            if x_offset == 0:
+                x_offset = SCREEN_WIDTH // 2 - rend.get_width() // 2
+
             rect = rend.get_rect().move(
-                SCREEN_WIDTH // 2 - rend.get_width() // 2,
+                x_offset,
                 INITIAL_V_GAP + (rend.get_height() + V_SPACING) * count)
 
             self.display.blit(rend, rect)
 
             count += 1
+
+    def draw_game_title(self):
+        surface = self.font.render('¥ CYBERLAB ¥', True, (255, 255, 255))
+        x = SCREEN_WIDTH // 2 - surface.get_width() // 2
+        y = 40
+        self.display.blit(surface, (x, y))
 
 
 def new_game(self):
