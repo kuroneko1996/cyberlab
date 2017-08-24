@@ -39,6 +39,7 @@ class Game:
         self.camera = None
         self.playing = False
         self.dt = 0.0
+        self.pressed_keys = {}
         self.keys_just_pressed = {}
         self.joystick_just_pressed = {}
 
@@ -146,6 +147,8 @@ class Game:
     def events(self):
         self.keys_just_pressed.clear()
         self.joystick_just_pressed.clear()
+
+        self.pressed_keys = pg.key.get_pressed()
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.quit()
@@ -182,6 +185,20 @@ class Game:
         pg.mouse.set_cursor(*cursor)
 
         return screen
+
+    def get_vbutton_down(self, name):
+        if name in V_BUTTONS:
+            for key in V_BUTTONS[name]:
+                if self.pressed_keys[key]:
+                    return True
+        return False
+
+    def get_vbutton_jp(self, name):
+        if name in V_BUTTONS:
+            for key in V_BUTTONS[name]:
+                if key in self.keys_just_pressed:
+                    return True
+        return False
 
     def get_key_jp(self, key):
         # get key just pressed (clears on new frame)

@@ -13,10 +13,13 @@ Requirements: python 3, pygame.
 
 ### Game:
 
-* Arrow keys for movement
-* Look at the door and press Enter to open/close it
+* Arrow keys for movement. Numeric pad works too.
+* Look at the door and press E or Enter to open/close it
 * E or G to pickup items, Q to drop
+* Space to close text messages
 * F11 toggles fullscreen
+
+You can change default key mapping in settings.py
 
 ## Editing tools:
 
@@ -43,8 +46,8 @@ Usage:
 Converts the map in readable txt format to json format
 
 ### Compiling into executable
-**python -m pip install cx_Freeze --upgrade** to install cx_Freeze module
+**$python -m pip install cx_Freeze --upgrade** to install cx_Freeze module
 
-**python setup.py build**
+**$python setup.py build**
 
 It will create *build* folder with binaries.

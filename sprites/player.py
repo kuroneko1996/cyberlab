@@ -1,5 +1,3 @@
-import pygame as pg
-import math
 from settings import *
 from animation import Animation, PlayMode
 from container import Container
@@ -61,7 +59,6 @@ class Player(ActiveSprite):
 
         self.vx, self.vy = 0, 0
 
-        keys = pg.key.get_pressed()
         game = self.game
 
         x_axis = game.get_axis(0)
@@ -71,13 +68,25 @@ class Player(ActiveSprite):
         if abs(y_axis) < JOYSTICK_THRESHOLD:
             y_axis = 0
 
-        if keys[pg.K_LEFT] or keys[pg.K_a]:
+        if game.get_vbutton_down('left'):
             x_axis = -1
-        elif keys[pg.K_RIGHT] or keys[pg.K_d]:
+        elif game.get_vbutton_down('right'):
             x_axis = 1
-        if keys[pg.K_UP] or keys[pg.K_w]:
+        if game.get_vbutton_down('up'):
             y_axis = -1
-        elif keys[pg.K_DOWN] or keys[pg.K_s]:
+        elif game.get_vbutton_down('down'):
+            y_axis = 1
+        elif game.get_vbutton_down('top_left'):
+            x_axis = -1
+            y_axis = -1
+        elif game.get_vbutton_down('top_right'):
+            x_axis = 1
+            y_axis = -1
+        elif game.get_vbutton_down('bottom_left'):
+            x_axis = -1
+            y_axis = 1
+        elif game.get_vbutton_down('bottom_right'):
+            x_axis = 1
             y_axis = 1
 
         # Check for collisions
@@ -101,11 +110,11 @@ class Player(ActiveSprite):
             self.vx *= 0.707
             self.vy *= 0.707
 
-        if game.get_key_jp(pg.K_q) or game.get_joystick_jp(J_BUTTONS['X']):
+        if game.get_vbutton_jp('drop') or game.get_joystick_jp(J_BUTTONS['X']):
             self.drop_item()
-        elif game.get_key_jp(pg.K_g) or game.get_key_jp(pg.K_e) or game.get_joystick_jp(J_BUTTONS['A']):
+        elif game.get_vbutton_jp('pickup') or game.get_joystick_jp(J_BUTTONS['A']):
             self.pickup_items()
-        if game.get_key_jp(pg.K_SPACE) or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
+        if game.get_vbutton_jp('close') or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
             game.showTextBox = False
 
         return self.is_moving()
