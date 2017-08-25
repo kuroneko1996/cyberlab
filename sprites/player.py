@@ -2,6 +2,7 @@ from settings import *
 from animation import Animation, PlayMode
 from container import Container
 from .active_sprite import ActiveSprite
+from message import make_message
 
 HITBOX_DOWN_SHIFT = -8
 
@@ -115,7 +116,13 @@ class Player(ActiveSprite):
         elif game.get_vbutton_jp('pickup') or game.get_joystick_jp(J_BUTTONS['A']):
             self.pickup_items()
         if game.get_vbutton_jp('close') or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
-            game.text_queue.pop()
+            if game.message_queue:
+                if game.message_queue[-1].switch_picture:
+                    try:
+                        game.picture_queue.pop()
+                    except IndexError:
+                        pass
+                game.message_queue.pop()
 
         return self.is_moving()
 
@@ -155,7 +162,8 @@ class Player(ActiveSprite):
             if item.pickable is not None:
                 if auto_pick is True and item.pickable.auto_pick is False:
                     continue
-                self.game.text_queue.append("Picking up "+item.pickable.id+" ...")
+                self.game.picture_queue.append(item.image)
+                self.game.message_queue.append(make_message("Picking up "+item.pickable.id+" ...", True))
                 # TODO move to pickable.py?
                 self.container.add(item.pickable)
                 item.remove(self.game.all_sprites, self.game.items_on_floor)
@@ -168,4 +176,4 @@ class Player(ActiveSprite):
             item = pickable.owner
             item.set_position(self.x, self.y)
             item.add(self.game.all_sprites, self.game.items_on_floor)
-            self.game.text_queue.append("Dropping "+item.pickable.id+" ...")
+            self.game.message_queue.append(make_message("Dropping "+item.pickable.id+" ..."))

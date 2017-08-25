@@ -56,9 +56,21 @@ It will create *build* folder with binaries.
 
 
 ### In-game text
-To put text on player's screen, use `game.text_queue`.
+To put text on player's screen, append a message object
+(you can make one with `message.make_message(text)`) to
+`game.message_queue`.
 This list contains all the messages that the player can
 read at the moment. The message that the players sees is
 the last text element in the list. When he presses space,
 last message is removed from the list and the player sees
 next message.
+
+You can also make a text message that switches the picture
+displayed on the players screen using
+`message.make_message(text, True)`.
+The picture would be switched after the players dismisses
+the message.
+
+### In-game images
+To add an image on player's screen, append a `Sprite`
+object to `game.picture_queue`.

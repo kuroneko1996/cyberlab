@@ -1,4 +1,4 @@
-import pygame as pg
+from message import make_message
 
 
 class Trigger:
@@ -41,5 +41,5 @@ class TextTrigger(Trigger):
 
     def callback(self):
         if not self.activated:
-            self.game.text_queue.append(self.text)
+            self.game.message_queue.append(make_message(self.text))
             self.activated = True

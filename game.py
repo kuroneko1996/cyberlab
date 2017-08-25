@@ -21,7 +21,10 @@ class Game:
         pg.display.set_caption(WINDOW_TITLE)
 
         # Contains text displayed on the player's screen
-        self.text_queue = []
+        self.message_queue = []
+
+        # Contains pictures displayed on the player's screen
+        self.picture_queue = []
 
         self.joysticks = [pg.joystick.Joystick(x) for x in range(pg.joystick.get_count())]
         self.joystick = None
@@ -135,11 +138,22 @@ class Game:
             self.draw_fov()
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
-        if self.text_queue:
-            self.__put_text_on_screen__(self.text_queue[-1])
+        if self.message_queue:
+            self.__put_text_on_screen__(self.message_queue[-1].text)
+        if self.picture_queue:
+            self.__put_picture_on_screen__(self.picture_queue[-1])
 
         self.gui.draw()
         pg.display.flip()
+
+    def __put_text_on_screen__(self, text):
+        self.display.blit(self.textBox, (0, 360))
+        self.display.blit(self.font.render(text, True, (255, 255, 255)), (150, 390))
+        self.display.blit(self.fontSpace.render("[SPACE]", True, (255, 255, 255)), (560, 440))
+        pg.display.flip()
+
+    def __put_picture_on_screen__(self, image):
+        self.display.blit(image, (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
 
     def run(self):
         self.playing = True
@@ -225,12 +239,6 @@ class Game:
         if self.joystick is not None:
             return self.joystick.get_axis(number)
         return 0.0
-
-    def __put_text_on_screen__(self, text):
-        self.display.blit(self.textBox, (0, 360))
-        self.display.blit(self.font.render(text, True, (255, 255, 255)), (150, 390))
-        self.display.blit(self.fontSpace.render("[SPACE]", True, (255, 255, 255)), (560, 440))
-        pg.display.flip()
 
     def set_visibility(self, tilex, tiley, value):
         self.visibility_data[tilex][tiley] = value
