@@ -13,6 +13,8 @@ TILE_SIZE = 32
 SLITHER_SPEED = 0.05
 FOV_RADIUS = 10
 DEBUG_FOV = False
+DARKEN_COLOR = (60, 60, 60)
+LIGHT_COLOR = (40, 40, 10)
 
 # change key mappings for keyboard
 V_BUTTONS = {

@@ -53,6 +53,7 @@ class Game:
         self.visibility_data = None  # [x][y] -> True, False
         self.fov_data = None  # [x][y] -> True, False
         self.update_fov = True
+        self.light_map = []
 
     def load(self):
         self.all_sprites = pg.sprite.Group()
@@ -104,6 +105,7 @@ class Game:
 
             self.fov_data = calc_fov(player_tilex, player_tiley, FOV_RADIUS,
                                      self.visibility_data, self.fov_data)
+            self.update_light_map()
             self.update_fov = False
 
         self.gui.after()
@@ -121,6 +123,12 @@ class Game:
             tiley = math.floor(sprite.y)
             if self.fov_data[tilex][tiley]:
                 self.display.blit(sprite.image, self.camera.transform(sprite))
+
+        # darken image
+        self.display.fill(DARKEN_COLOR, special_flags=pg.BLEND_SUB)
+        # draw light
+        for light_rect in self.light_map:
+            self.display.fill(LIGHT_COLOR, light_rect, pg.BLEND_ADD)
 
         if DEBUG_FOV:
             self.draw_fov()
@@ -234,3 +242,11 @@ class Game:
                     newx, newy = self.camera.transform_xy(x * TILE_SIZE, y * TILE_SIZE)
                     pg.draw.rect(self.display, (200, 200, 200), pg.Rect(newx, newy,
                                                                         TILE_SIZE, TILE_SIZE), 1)
+
+    def update_light_map(self):
+        self.light_map.clear()
+        for x in range(len(self.fov_data)):
+            for y in range(len(self.fov_data[0])):
+                if self.fov_data[x][y]:
+                    newx, newy = self.camera.transform_xy(x * TILE_SIZE, y * TILE_SIZE)
+                    self.light_map.append(pg.Rect(newx, newy, TILE_SIZE, TILE_SIZE))
