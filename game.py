@@ -39,7 +39,9 @@ class Game:
         self.solid = None
         self.doors = None
 
+        self.background_surface = None
         self.triggers = []
+        self.collisions = []  # rectangles
         self.spritesheet = None
         self.map = None
         self.player = None
@@ -73,6 +75,7 @@ class Game:
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'), 32)
         wall_img = self.spritesheet.get_image_at_row_col(0, 0)
         apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
+        self.background_surface = pg.Surface((self.map.width * TILE_SIZE, self.map.height * TILE_SIZE))
 
         self.visibility_data = [[True] * self.map.height for i in range(self.map.width)]
         self.fov_data = [[True] * self.map.height for i in range(self.map.width)]
@@ -80,7 +83,10 @@ class Game:
         for node in self.map.objects:
             x, y = node['x'], node['y']
             if node["name"] == 'WALL':
-                Wall(self, x, y, wall_img)
+                #self.collisions.append(pg.Rect(x, y, TILE_SIZE, TILE_SIZE))  # TODO big rectangles
+                wall = Wall(self, x, y, wall_img)
+                wall.remove(self.all_sprites)  # skip drawing
+                self.background_surface.blit(wall_img, (x * TILE_SIZE, y * TILE_SIZE))
                 self.visibility_data[x][y] = False
             elif node["name"] == 'PLAYER':
                 self.player = Player(self, x, y)
@@ -122,6 +128,9 @@ class Game:
 
     def draw(self):
         self.display.fill(BG_COLOR)
+
+        bg_x, bg_y = self.camera.transform_xy(0, 0)
+        self.display.blit(self.background_surface, (bg_x, bg_y))
 
         # TODO layering
         for sprite in self.all_sprites:
