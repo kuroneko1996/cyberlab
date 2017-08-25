@@ -2,7 +2,7 @@ from settings import *
 from animation import Animation, PlayMode
 from container import Container
 from .active_sprite import ActiveSprite
-from message import make_message
+from message import make_message, is_typed, finish_typing
 
 HITBOX_DOWN_SHIFT = -8
 
@@ -117,12 +117,15 @@ class Player(ActiveSprite):
             self.pickup_items()
         if game.get_vbutton_jp('close') or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
             if game.message_queue:
-                if game.message_queue[-1].switch_picture:
-                    try:
-                        game.picture_queue.pop()
-                    except IndexError:
-                        pass
-                game.message_queue.pop()
+                if is_typed(game.message_queue[-1]):
+                    if game.message_queue[-1].switch_picture:
+                        try:
+                            game.picture_queue.pop()
+                        except IndexError:
+                            pass
+                    game.message_queue.pop()
+                else:
+                    game.message_queue[-1] = finish_typing(game.message_queue[-1])
 
         return self.is_moving()
 

@@ -12,6 +12,7 @@ from triggers import *
 from camera import *
 from map import *
 from fov import calc_fov
+from message import type_message
 
 
 class Game:
@@ -45,6 +46,7 @@ class Game:
         self.camera = None
         self.playing = False
         self.dt = 0.0
+        self.global_time = 0
         self.pressed_keys = {}
         self.keys_just_pressed = {}
         self.joystick_just_pressed = {}
@@ -112,6 +114,10 @@ class Game:
             self.update_light_map()
             self.update_fov = False
 
+        if self.message_queue:
+            if self.global_time % TYPING_SPEED < self.dt:
+                self.message_queue[-1] = type_message(self.message_queue[-1])
+
         self.gui.after()
 
     def draw(self):
@@ -139,7 +145,7 @@ class Game:
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
         if self.message_queue:
-            self.__put_text_on_screen__(self.message_queue[-1].text)
+            self.__put_text_on_screen__(self.message_queue[-1].text[:self.message_queue[-1].text_typed])
         if self.picture_queue:
             self.__put_picture_on_screen__(self.picture_queue[-1])
 
@@ -159,6 +165,7 @@ class Game:
         self.playing = True
         while self.playing:
             self.dt = self.clock.tick(FPS) / 1000
+            self.global_time += self.dt
             self.events()
             self.update()
             self.draw()
