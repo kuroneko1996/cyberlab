@@ -20,6 +20,9 @@ class Game:
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
 
+        # Contains text displayed on the player's screen
+        self.text_queue = []
+
         self.joysticks = [pg.joystick.Joystick(x) for x in range(pg.joystick.get_count())]
         self.joystick = None
         if len(self.joysticks) > 0:
@@ -46,8 +49,6 @@ class Game:
         self.textBox = pg.image.load("assets/textBox.png").convert_alpha()
         self.font = pg.font.Font("assets/fonts/Arcon.otf", 20)
         self.fontSpace = pg.font.Font("assets/fonts/Arcon.otf", 14)
-        self.showTextBox = False
-        self.text = None
 
         self.gui = Nanogui(display)
         self.visibility_data = None  # [x][y] -> True, False
@@ -134,8 +135,8 @@ class Game:
             self.draw_fov()
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
-        if self.showTextBox is True:
-            self.bot_message(self.text)
+        if self.text_queue:
+            self.__put_text_on_screen__(self.text_queue[-1])
 
         self.gui.draw()
         pg.display.flip()
@@ -225,7 +226,7 @@ class Game:
             return self.joystick.get_axis(number)
         return 0.0
 
-    def bot_message(self, text):
+    def __put_text_on_screen__(self, text):
         self.display.blit(self.textBox, (0, 360))
         self.display.blit(self.font.render(text, True, (255, 255, 255)), (150, 390))
         self.display.blit(self.fontSpace.render("[SPACE]", True, (255, 255, 255)), (560, 440))

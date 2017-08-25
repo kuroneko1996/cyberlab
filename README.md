@@ -51,3 +51,14 @@ Converts the map in readable txt format to json format
 **$python setup.py build**
 
 It will create *build* folder with binaries.
+
+## Development:
+
+
+### In-game text
+To put text on player's screen, use `game.text_queue`.
+This list contains all the messages that the player can
+read at the moment. The message that the players sees is
+the last text element in the list. When he presses space,
+last message is removed from the list and the player sees
+next message.

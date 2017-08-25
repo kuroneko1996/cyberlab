@@ -41,6 +41,5 @@ class TextTrigger(Trigger):
 
     def callback(self):
         if not self.activated:
-            self.game.text = self.text
-            self.game.showTextBox = True
+            self.game.text_queue.append(self.text)
             self.activated = True
