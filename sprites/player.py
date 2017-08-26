@@ -1,3 +1,4 @@
+import math
 from settings import *
 from animation import Animation, PlayMode
 from container import Container
@@ -18,6 +19,8 @@ class Player(ActiveSprite):
         self.spd = 6
         self.last_movex = 0.0
         self.last_movey = 0.0
+        self.old_x = 0.0
+        self.old_y = 0.0
 
         self.animation_timer = 0.0
         self.idling_animation = Animation(
@@ -130,12 +133,14 @@ class Player(ActiveSprite):
         return self.is_moving()
 
     def update(self, dt):
+        self.old_x, self.old_y = self.x, self.y
         if self.input():
             if not self.move(self.vx * dt, self.vy * dt):
                 self.vx = 0
                 self.vy = 0
             else:
-                self.game.update_fov = True
+                if self.has_moved_to_new_tile():
+                    self.game.update_fov = True
 
         self.collide_with_triggers()
         self.pickup_items(True)
@@ -180,3 +185,14 @@ class Player(ActiveSprite):
             item.set_position(self.x, self.y)
             item.add(self.game.all_sprites, self.game.items_on_floor)
             self.game.message_queue.append(make_message("Dropping "+item.pickable.id+" ..."))
+
+    def has_moved_to_new_tile(self):
+        old_tile_x = math.floor(self.old_x)
+        old_tile_y = math.floor(self.old_y)
+        new_tile_x = math.floor(self.x)
+        new_tile_y = math.floor(self.y)
+
+        if old_tile_x == new_tile_x and old_tile_y == new_tile_y:
+            return False
+        else:
+            return True

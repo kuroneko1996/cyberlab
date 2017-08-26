@@ -110,14 +110,15 @@ class Game:
         for sprite in self.all_sprites:
             sprite.update(self.dt)
 
-        if self.camera.update(self.player) or self.update_fov:
+        camera_updated = self.camera.update(self.player)
+        if self.update_fov:
             player_hit_rect = self.player.get_hit_rect()
             player_tilex = math.floor(player_hit_rect.x / TILE_SIZE)
             player_tiley = math.floor(player_hit_rect.y / TILE_SIZE)
 
             self.fov_data = calc_fov(player_tilex, player_tiley, FOV_RADIUS,
                                      self.visibility_data, self.fov_data)
-            self.update_light_map()
+            self.update_light_map(self.player.x, self.player.y)
             self.update_fov = False
 
         if self.message_queue:
@@ -146,8 +147,8 @@ class Game:
         # darken image
         self.display.fill(DARKEN_COLOR, special_flags=pg.BLEND_SUB)
         # draw light
-        for light_rect in self.light_map:
-            self.display.fill(LIGHT_COLOR, light_rect, pg.BLEND_ADD)
+        for light in self.light_map:
+            self.display.fill(light[1], light[0], pg.BLEND_ADD)
 
         if DEBUG_FOV:
             self.draw_fov()
@@ -268,10 +269,19 @@ class Game:
                     pg.draw.rect(self.display, (200, 200, 200), pg.Rect(newx, newy,
                                                                         TILE_SIZE, TILE_SIZE), 1)
 
-    def update_light_map(self):
+    def update_light_map(self, source_x, source_y):
         self.light_map.clear()
+        radius_sqr = FOV_RADIUS * FOV_RADIUS
+        tmp = 1.0 / (1.0 + radius_sqr)
+
         for x in range(len(self.fov_data)):
             for y in range(len(self.fov_data[0])):
                 if self.fov_data[x][y]:
                     newx, newy = self.camera.transform_xy(x * TILE_SIZE, y * TILE_SIZE)
-                    self.light_map.append(pg.Rect(newx, newy, TILE_SIZE, TILE_SIZE))
+
+                    dist_sqr = (source_x - x)*(source_x - x) + (source_y - y)*(source_y - y)
+                    intensity = 1.0 / (1.0 + dist_sqr / 20)
+                    intensity = intensity - tmp
+                    intensity = intensity / (1.0 - tmp)
+                    color = tuple(intensity*v for v in LIGHT_COLOR)
+                    self.light_map.append((pg.Rect(newx, newy, TILE_SIZE, TILE_SIZE), color))
