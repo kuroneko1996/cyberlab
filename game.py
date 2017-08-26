@@ -107,8 +107,7 @@ class Game:
     def update(self):
         self.gui.pre(self.joystick)
 
-        for sprite in self.all_sprites:
-            sprite.update(self.dt)
+        self.player.update(self.dt)
 
         camera_updated = self.camera.update(self.player)
         if self.update_fov:

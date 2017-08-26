@@ -4,7 +4,7 @@ from settings import *
 
 class Map:
     def __init__(self, filename):
-        with open(filename, 'rt') as f:
+        with open(filename, 'rt', encoding='utf-8') as f:
             self.data = json.loads(f.read())
             self.objects = self.data["objects"]
             self.triggers = self.data["triggers"]
