@@ -161,7 +161,9 @@ class Game:
 
     def __put_text_on_screen__(self, text):
         self.display.blit(self.textBox, (0, 360))
-        self.display.blit(self.font.render(text, True, (255, 255, 255)), (150, 390))
+        self.display.blit(self.font.render(text[0:55],    True, (255, 255, 255)), (140, 380))
+        self.display.blit(self.font.render(text[55:110],  True, (255, 255, 255)), (140, 400))
+        self.display.blit(self.font.render(text[110:165], True, (255, 255, 255)), (140, 420))
         self.display.blit(self.fontSpace.render("[SPACE]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()
 
