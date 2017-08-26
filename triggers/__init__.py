@@ -1,5 +1,4 @@
-from message import make_message
-
+from message import Message
 
 class Trigger:
     def __init__(self, game, hit_rect):
@@ -41,5 +40,5 @@ class TextTrigger(Trigger):
 
     def callback(self):
         if not self.activated:
-            self.game.message_queue.append(make_message(self.text))
+            self.game.message_queue.append(Message(self.text))
             self.activated = True

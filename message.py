@@ -1,46 +1,28 @@
 import collections
 from math import *
 
-Message = collections.namedtuple("Message", "text switch_picture text_typed")
 
+class Message:
+    def __init__(self, text, picture=None):
+        self.__text = text
+        self.__text_typed = 0
+        self.__picture = picture
 
-def make_message(text, switch_picture=False):
-    """
-    Makes a new message
-    :param text: text
-    :param switch_picture: if true, picture would be switched
-    :return: message object
-    """
-    return Message(text, switch_picture, 0)
+    def __str__(self):
+        return self.__text[:self.__text_typed]
 
+    def type_more(self):
+        self.__text_typed = min(self.__text_typed + 1,
+                                len(self.__text))
 
-def type_message(message):
-    """
-    Type more parts of the message on the player's screen
-    :param message: message to be typed
-    :return: new message that's one or zero more characters longer
-    """
-    return Message(message.text,
-                   message.switch_picture,
-                   min(message.text_typed + 1,
-                       len(message.text)))
+    def finish_typing(self):
+        self.__text_typed = len(self.__text)
 
+    def is_typed(self):
+        return len(self.__text) == self.__text_typed
 
-def is_typed(message):
-    """
-    Return true if the message is completely typed
-    :param message: message to be checked
-    :return: true if the message is typed
-    """
-    return len(message.text) == message.text_typed
+    def has_picture(self):
+        return self.__picture is not None
 
-
-def finish_typing(message):
-    """
-    Finish typing the message
-    :param message: message to finish typing
-    :return: completely typed version of the message
-    """
-    return Message(message.text,
-                   message.switch_picture,
-                   len(message.text))
+    def get_picture(self):
+        return self.__picture

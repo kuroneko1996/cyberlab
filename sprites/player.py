@@ -3,7 +3,7 @@ from settings import *
 from animation import Animation, PlayMode
 from container import Container
 from .active_sprite import ActiveSprite
-from message import make_message, is_typed, finish_typing
+from message import Message
 
 HITBOX_DOWN_SHIFT = -8
 
@@ -120,15 +120,10 @@ class Player(ActiveSprite):
             self.pickup_items()
         if game.get_vbutton_jp('close') or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
             if game.message_queue:
-                if is_typed(game.message_queue[-1]):
-                    if game.message_queue[-1].switch_picture:
-                        try:
-                            game.picture_queue.pop()
-                        except IndexError:
-                            pass
+                if game.message_queue[-1].is_typed():
                     game.message_queue.pop()
                 else:
-                    game.message_queue[-1] = finish_typing(game.message_queue[-1])
+                    game.message_queue[-1].finish_typing()
 
         return self.is_moving()
 
@@ -170,8 +165,7 @@ class Player(ActiveSprite):
             if item.pickable is not None:
                 if auto_pick is True and item.pickable.auto_pick is False:
                     continue
-                self.game.picture_queue.append(item.image)
-                self.game.message_queue.append(make_message("Picking up "+item.pickable.id+" ...", True))
+                self.game.message_queue.append(Message("Picking up "+item.pickable.id+" ...", item.image))
                 # TODO move to pickable.py?
                 self.container.add(item.pickable)
                 item.remove(self.game.all_sprites, self.game.items_on_floor)
@@ -184,7 +178,7 @@ class Player(ActiveSprite):
             item = pickable.owner
             item.set_position(self.x, self.y)
             item.add(self.game.all_sprites, self.game.items_on_floor)
-            self.game.message_queue.append(make_message("Dropping "+item.pickable.id+" ..."))
+            self.game.message_queue.append(Message("Dropping "+item.pickable.id+" ..."))
 
     def has_moved_to_new_tile(self):
         old_tile_x = math.floor(self.old_x)
