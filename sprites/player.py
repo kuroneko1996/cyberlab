@@ -120,10 +120,10 @@ class Player(ActiveSprite):
             self.pickup_items()
         if game.get_vbutton_jp('close') or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
             if game.message_queue:
-                if game.message_queue[-1].is_typed():
+                if game.message_queue[-1]:
                     game.message_queue.pop()
                 else:
-                    game.message_queue[-1].finish_typing()
+                    game.message_queue[-1].close()
 
         return self.is_moving()
 

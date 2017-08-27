@@ -49,10 +49,6 @@ class Game:
         self.keys_just_pressed = {}
         self.joystick_just_pressed = {}
 
-        self.textBox = pg.image.load("assets/textBox.png").convert_alpha()
-        self.font = pg.font.Font("assets/fonts/Arcon.otf", 20)
-        self.fontSpace = pg.font.Font("assets/fonts/Arcon.otf", 14)
-
         self.gui = Nanogui(display)
         self.visibility_data = None  # [x][y] -> True, False
         self.fov_data = None  # [x][y] -> True, False
@@ -150,21 +146,13 @@ class Game:
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
         if self.message_queue:
-            message = self.message_queue[-1]
+            self.message_queue[-1].render(self.display)
 
-            self.__put_text_on_screen__(str(message))
-            if message.has_picture():
-                self.__put_picture_on_screen__(message.get_picture())
+            #self.__put_text_on_screen__(str(message))
+            #if message.has_picture():
+            #    self.__put_picture_on_screen__(message.get_picture())
 
         self.gui.draw()
-        pg.display.flip()
-
-    def __put_text_on_screen__(self, text):
-        self.display.blit(self.textBox, (0, 360))
-        self.display.blit(self.font.render(text[0:55],    True, (255, 255, 255)), (140, 380))
-        self.display.blit(self.font.render(text[55:110],  True, (255, 255, 255)), (140, 400))
-        self.display.blit(self.font.render(text[110:165], True, (255, 255, 255)), (140, 420))
-        self.display.blit(self.fontSpace.render("[SPACE]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()
 
     def __put_picture_on_screen__(self, image):
