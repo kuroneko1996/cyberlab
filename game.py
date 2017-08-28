@@ -1,18 +1,19 @@
+import math
 import sys
 from os import path, getcwd
-import math
-from spritesheet import Spritesheet
+
+from camera import *
+from fov import calc_fov
+from map import *
+from nanogui import Nanogui
+from pickable import Pickable
+from sprites.door import Door
+from sprites.item import Item
 from sprites.player import Player
 from sprites.wall import Wall
-from sprites.item import Item
-from sprites.door import Door
-from pickable import Pickable
-from nanogui import Nanogui
-from triggers import *
-from camera import *
-from map import *
-from fov import calc_fov
-import message
+from spritesheet import Spritesheet
+from triggers.triggers import *
+from triggers import message
 
 
 class Game:
@@ -111,10 +112,6 @@ class Game:
             self.update_light_map(self.player.x, self.player.y)
             self.update_fov = False
 
-        if Message.messages:
-            if self.global_time % TYPING_SPEED < self.dt:
-                Message.messages[0].type_more()
-
         self.gui.after()
 
     def draw(self):
@@ -144,8 +141,8 @@ class Game:
             self.draw_fov()
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
-        if Message.messages:
-            Message.messages[0].render(self.display)
+        if message.Message.messages:
+            message.Message.messages[0].render(self.display)
 
             #self.__put_text_on_screen__(str(messages))
             #if messages.has_picture():

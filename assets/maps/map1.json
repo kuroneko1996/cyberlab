@@ -2403,14 +2403,14 @@
     "triggers": [
         {
             "height": 114, 
-            "text": "You entered a dark room.\n\n\u0424\u0410\u0422\u0412\u0420\u041a\u041e\u0410\u041f\u041e\u041b\u0410\u041b\u0418\u0421\u041c \u0420\u041f\u0410 \u041f \u041f\u0410\u041e\u041e\u0410\u041f \u0421 \u0422\u0410\u0410\u041f\n\n\u0412\u044b \u0432\u043e\u0448\u043b\u0438 \u0432 \u0442\u0435\u043c\u043d\u0443\u044e \u043a\u043e\u043c\u043d\u0430\u0442\u0443. \u0412 \u0443\u0433\u043b\u0443 \u0447\u0442\u043e-\u0442\u043e \u043b\u0435\u0436\u0438\u0442. \u0412\u0437\u044f\u0442\u044c? \u0412\u044b \u0442\u043e\u0447\u043d\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u044d\u0442\u043e \u0432\u0437\u044f\u0442\u044c? \u0422\u043e\u0447\u043d\u043e-\u0442\u043e\u0447\u043d\u043e?\n\n$menu:bool\nif bool:\n    add_item(apple)", 
+            "text": "You entered a dark room.\n\n\u0424\u0410\u0422\u0412\u0420\u041a\u041e\u0410\u041f\u041e\u041b\u0410\u041b\u0418\u0421\u041c \u0420\u041f\u0410 \u041f \u041f\u0410\u041e\u041e\u0410\u041f \u0421 \u0422\u0410\u0410\u041f\n\n\u0412\u044b \u0432\u043e\u0448\u043b\u0438 \u0432 \u0442\u0435\u043c\u043d\u0443\u044e \u043a\u043e\u043c\u043d\u0430\u0442\u0443. \u0412 \u0443\u0433\u043b\u0443 \u0447\u0442\u043e-\u0442\u043e \u043b\u0435\u0436\u0438\u0442. \u0412\u0437\u044f\u0442\u044c? \u0412\u044b \u0442\u043e\u0447\u043d\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u044d\u0442\u043e \u0432\u0437\u044f\u0442\u044c? \u0422\u043e\u0447\u043d\u043e-\u0442\u043e\u0447\u043d\u043e?\n\n$menu bool add_item(apple) pass", 
             "width": 202, 
             "x": 606, 
             "y": 505
         }, 
         {
             "height": 116, 
-            "text": "$style:narrator\n\n-------maximum-line-length-----------------------\n\nThis is a\nsingle\nmessage\n\nAnother message\nis here\nreally\n\nMessages can be one line long\n\nTwo lines\nlong\n\nOr three\nlines\nlong\n\nFour lines is too much :(\n\nIf you type too many line breaks, you'd get an\nempty message:\n\n\n\n# This is a comment\n # But this is not", 
+            "text": "$style narrator\n\n-------maximum-line-length-----------------------\n\nThis is a\nsingle\nmessage\n\nAnother message\nis here\nreally\n\nMessages can be one line long\n\nTwo lines\nlong\n\nOr three\nlines\nlong\n\nFour lines is too much :(\n\nIf you type too many line breaks, you'd get an\nempty message:\n\n\n\n# This is a comment\n # But this is not\n\n$style icon\n\nLet's try a different style\n\nIsn't this better?", 
             "width": 111, 
             "x": 472, 
             "y": 503
@@ -2480,7 +2480,7 @@
         }, 
         {
             "height": 108, 
-            "text": "This room looks nice.", 
+            "text": "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0432\u0441\u0442\u0443\u043f\u043b\u0435\u043d\u0438\u0435 \u043a \u043f\u0435\u0440\u0432\u043e\u0439 \u0433\u043b\u0430\u0432\u0435?\n\n$menu bool play_intro pass", 
             "width": 242, 
             "x": 208, 
             "y": 501

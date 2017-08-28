@@ -1,9 +1,10 @@
 import math
-from settings import *
+
 from animation import Animation, PlayMode
 from container import Container
+from settings import *
+from triggers.message import get_message, Message
 from .active_sprite import ActiveSprite
-from message import Message
 
 HITBOX_DOWN_SHIFT = -8
 
@@ -159,7 +160,7 @@ class Player(ActiveSprite):
             if item.pickable is not None:
                 if auto_pick is True and item.pickable.auto_pick is False:
                     continue
-                Message("Picking up "+item.pickable.id+" ...", item.image)
+                get_message("Picking up "+item.pickable.id+" ...", item.image)
                 # TODO move to pickable.py?
                 self.container.add(item.pickable)
                 item.remove(self.game.all_sprites, self.game.items_on_floor)
@@ -172,7 +173,7 @@ class Player(ActiveSprite):
             item = pickable.owner
             item.set_position(self.x, self.y)
             item.add(self.game.all_sprites, self.game.items_on_floor)
-            Message("Dropping "+item.pickable.id+" ...")
+            get_message("Dropping "+item.pickable.id+" ...")
 
     def has_moved_to_new_tile(self):
         old_tile_x = math.floor(self.old_x)

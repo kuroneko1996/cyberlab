@@ -2,7 +2,7 @@ from operator import add
 from settings import *
 from .sprite import Sprite
 import pygame as pg
-from triggers import KeyButtonTrigger
+from triggers.triggers import KeyButtonTrigger
 
 DOOR_THICKNESS = 8
 
