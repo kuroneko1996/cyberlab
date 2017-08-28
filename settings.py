@@ -11,9 +11,10 @@ BG_COLOR = (0, 0, 0)
 TILE_SIZE = 32
 TYPING_SPEED = 0.2
 
-TEXT_BOX = "assets/textBox.png"
-FONT = "assets/fonts/Arcon.otf", 20
-FONT_SMALLER = "assets/fonts/Arcon.otf", 14
+TEXT_BOX = "assets/messages/textBox.png"
+FONT_BIGGER = "assets/fonts/unifont-10.0.06.ttf", 32
+FONT = "assets/fonts/unifont-10.0.06.ttf", 20
+FONT_SMALLER = "assets/fonts/unifont-10.0.06.ttf", 14
 
 SLITHER_SPEED = 0.05
 FOV_RADIUS = 10

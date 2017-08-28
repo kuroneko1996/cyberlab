@@ -1,4 +1,5 @@
 import pygame as pg
+from settings import FONT, FONT_BIGGER
 
 
 class Nanogui:
@@ -19,8 +20,8 @@ class Nanogui:
 
         self.draw_elements = {}
 
-        self.font = pg.font.Font("assets/fonts/Arcon.otf", 14)
-        self.font_large = pg.font.Font("assets/fonts/Arcon.otf", 32)
+        self.font = pg.font.Font(*FONT)
+        self.font_large = pg.font.Font(*FONT_BIGGER)
 
     def draw(self):
         if len(self.draw_elements) == 0:

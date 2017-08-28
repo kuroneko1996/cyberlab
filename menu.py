@@ -21,7 +21,7 @@ class Menu:
         self.display = display
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
-        self.font = pg.font.Font('assets/fonts/Arcon.otf', 32)
+        self.font = pg.font.Font(*FONT_BIGGER)
 
         self.updated = True
 

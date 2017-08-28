@@ -2403,14 +2403,14 @@
     "triggers": [
         {
             "height": 114, 
-            "text": "You entered a dark room.", 
+            "text": "You entered a dark room.\n\n\u0424\u0410\u0422\u0412\u0420\u041a\u041e\u0410\u041f\u041e\u041b\u0410\u041b\u0418\u0421\u041c \u0420\u041f\u0410 \u041f \u041f\u0410\u041e\u041e\u0410\u041f \u0421 \u0422\u0410\u0410\u041f", 
             "width": 202, 
             "x": 606, 
             "y": 505
         }, 
         {
             "height": 116, 
-            "text": "This is a\nsingle\nmessage\n\nAnother message\nis here\nreally\n\nMessages can be one line long\n\nTwo lines\nlong\n\nOr three\nlines\nlong\n\nFour lines is too much :(\n\nIf you type too many line breaks, you'd get an\nempty message:\n\n\n\n# This is a comment\n # But this is not", 
+            "text": "$style:narrator\n\n-------maximum-line-length-----------------------\n\nThis is a\nsingle\nmessage\n\nAnother message\nis here\nreally\n\nMessages can be one line long\n\nTwo lines\nlong\n\nOr three\nlines\nlong\n\nFour lines is too much :(\n\nIf you type too many line breaks, you'd get an\nempty message:\n\n\n\n# This is a comment\n # But this is not", 
             "width": 111, 
             "x": 472, 
             "y": 503

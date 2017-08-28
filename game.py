@@ -147,9 +147,9 @@ class Game:
         if Message.messages:
             Message.messages[0].render(self.display)
 
-            #self.__put_text_on_screen__(str(message))
-            #if message.has_picture():
-            #    self.__put_picture_on_screen__(message.get_picture())
+            #self.__put_text_on_screen__(str(messages))
+            #if messages.has_picture():
+            #    self.__put_picture_on_screen__(messages.get_picture())
 
         self.gui.draw()
         pg.display.flip()

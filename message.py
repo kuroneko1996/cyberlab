@@ -36,14 +36,14 @@ class Message:
 
     def close(self):
         """
-        Either finish typing this message or switch to the next screen
+        Either finish typing this messages or switch to the next screen
         """
         self.__text_typed = len(self.__text)
 
     def __bool__(self):
         """
-        A message is true when it's complete
-        :return: true if the message is done typing
+        A messages is true when it's complete
+        :return: true if the messages is done typing
         """
         return len(self.__text) == self.__text_typed
 
@@ -54,7 +54,7 @@ class Message:
     def render(self, display):
         """
         Renders self onto given display
-        :param display: display on which to render the message
+        :param display: display on which to render the messages
         :return: nothing
         """
         self.__put_text_on_screen(display, str(self))
@@ -65,7 +65,7 @@ class Message:
         line_num = 0
         for line in re.split("\n", text):
             if not is_a_line_comment(line):
-                display.blit(self.font.render(line, True, (255, 255, 255)), (140, 380 + 20 * line_num))
+                display.blit(self.font.render(line, True, (255, 255, 255)), (130, 380 + 20 * line_num))
                 line_num += 1
         display.blit(self.font_smaller.render("[SPACE]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()

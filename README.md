@@ -58,3 +58,11 @@ It will create *build* folder with binaries.
 ### In-game text
 To put text or an image on player's screen, simply make a message
 using Message(text).
+
+### More about text triggers:
+
+* Put two line breaks to create separate messages
+* Put single line breaks to format messages
+* Use # after a newline to create a comment
+* Recommended maximum line length for picture
+ chat mode is 50 characters
