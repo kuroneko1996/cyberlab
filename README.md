@@ -72,6 +72,8 @@ Use `$style icon` to switch to icon style.
 
 Use `$style narrator` to switch to narrator style.
 
+See `screenshots` directory for more info.
+
 #### Changing speaker
 Use `$speaker name` to switch to speaker with the given name.
 Make sure to put a png file named
