@@ -113,7 +113,7 @@ class Game:
 
         if Message.messages:
             if self.global_time % TYPING_SPEED < self.dt:
-                Message.messages[-1].type_more()
+                Message.messages[0].type_more()
 
         self.gui.after()
 
@@ -145,7 +145,7 @@ class Game:
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
         if Message.messages:
-            Message.messages[-1].render(self.display)
+            Message.messages[0].render(self.display)
 
             #self.__put_text_on_screen__(str(message))
             #if message.has_picture():

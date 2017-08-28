@@ -127,7 +127,7 @@ class Sprite(pg.sprite.Sprite):
                     self.x -= SLITHER_SPEED
 
     def collide_with_triggers(self):
-        hits = [s for s in self.game.triggers if self.get_rect().inflate(20, 20).colliderect(s.hit_rect)]
+        hits = [s for s in self.game.triggers if self.get_rect().colliderect(s.hit_rect)]
         for hit in hits:
             hit.on_hit()
 

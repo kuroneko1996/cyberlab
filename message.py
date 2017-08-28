@@ -1,6 +1,7 @@
 import settings
 import pygame as pg
 from settings import J_BUTTONS
+import re
 
 
 class Message:
@@ -60,12 +61,18 @@ class Message:
 
     def __put_text_on_screen(self, display, text):
         display.blit(self.text_box, (0, 360))
-        display.blit(self.font.render(text[0:55],    True, (255, 255, 255)), (140, 380))
-        display.blit(self.font.render(text[55:110],  True, (255, 255, 255)), (140, 400))
-        display.blit(self.font.render(text[110:165], True, (255, 255, 255)), (140, 420))
+
+        line_num = 0
+        for line in re.split("\n", text):
+            if not is_a_line_comment(line):
+                display.blit(self.font.render(line, True, (255, 255, 255)), (140, 380 + 20 * line_num))
+                line_num += 1
         display.blit(self.font_smaller.render("[SPACE]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()
 
+
+def is_a_line_comment(message):
+    return re.fullmatch("^#.*", message)
 
 def update(game):
     """
@@ -74,7 +81,7 @@ def update(game):
     """
     if game.get_vbutton_jp('close') or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
         if Message.messages:
-            if Message.messages[-1]:
-                Message.messages.pop()
+            if Message.messages[0]:
+                Message.messages.pop(0)
             else:
-                Message.messages[-1].close()
+                Message.messages[0].close()

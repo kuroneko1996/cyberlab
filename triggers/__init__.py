@@ -1,4 +1,5 @@
 from message import Message
+import re
 
 class Trigger:
     def __init__(self, game, hit_rect):
@@ -40,7 +41,6 @@ class TextTrigger(Trigger):
 
     def callback(self):
         if not self.activated:
-            Message(self.text[165 * 2:165 * 3])
-            Message(self.text[165:165 * 2])
-            Message(self.text[0:165])
+            for message in re.split("\n\n", self.text):
+                Message(message)
             self.activated = True
