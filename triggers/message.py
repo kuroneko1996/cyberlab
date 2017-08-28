@@ -99,7 +99,7 @@ class TextMessage(Message):
         Either finish typing this messages or switch to the next screen
         """
 
-        if self:
+        if self.completed:
             Message.messages.pop(0)
         else:
             self.__text_typed = len(self.__text)
