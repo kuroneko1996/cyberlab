@@ -38,7 +38,7 @@ V_BUTTONS = {
     'pickup': [pg.K_e, pg.K_g, pg.K_KP5],
     'open_door': [pg.K_e, pg.K_RETURN, pg.K_KP5],
     'drop': [pg.K_q],
-    'close': [pg.K_SPACE],
+    'close': [pg.K_RETURN],
 }
 # end key mappings
 

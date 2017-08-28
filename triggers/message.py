@@ -122,7 +122,7 @@ class TextMessage(Message):
         for line in re.split("\n", self.__str__()):
             display.blit(self.FONT.render(line, True, (255, 255, 255)), (Message.text_start_x, 380 + 20 * line_num))
             line_num += 1
-        display.blit(self.FONT_SMALLER.render("[SPACE]", True, (255, 255, 255)), (560, 440))
+        display.blit(self.FONT_SMALLER.render("[RETURN]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()
 
     def render(self, display):
