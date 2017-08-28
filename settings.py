@@ -11,6 +11,7 @@ BG_COLOR = (0, 0, 0)
 TILE_SIZE = 32
 TYPING_SPEED = 0.2
 
+MAX_LINE_LENGTH = 50
 TEXT_BOX = "assets/messages/textBox.png"
 FONT_BIGGER = "assets/fonts/unifont-10.0.06.ttf", 32
 FONT = "assets/fonts/unifont-10.0.06.ttf", 20

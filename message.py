@@ -1,7 +1,12 @@
 import settings
 import pygame as pg
-from settings import J_BUTTONS
+from settings import J_BUTTONS, MAX_LINE_LENGTH
 import re
+
+
+def validate_line(line):
+    if len(line) > MAX_LINE_LENGTH:
+        print("Warning: Maximum line length is " + str(MAX_LINE_LENGTH))
 
 
 class Message:
@@ -65,6 +70,7 @@ class Message:
         line_num = 0
         for line in re.split("\n", text):
             if not is_a_line_comment(line):
+                # validate_line(line)
                 display.blit(self.font.render(line, True, (255, 255, 255)), (130, 380 + 20 * line_num))
                 line_num += 1
         display.blit(self.font_smaller.render("[SPACE]", True, (255, 255, 255)), (560, 440))
