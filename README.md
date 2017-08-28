@@ -66,3 +66,14 @@ using Message(text).
 * Use # after a newline to create a comment
 * Recommended maximum line length for picture
  chat mode is 50 characters
+
+#### Styling
+Use `$style icon` to switch to icon style.
+
+Use `$style narrator` to switch to narrator style.
+
+#### Changing speaker
+Use `$speaker name` to switch to speaker with the given name.
+Make sure to put a png file named
+`name.png` to `assets/messages/avatars` with the speaker's
+picture.

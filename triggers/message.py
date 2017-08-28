@@ -12,8 +12,8 @@ def get_message(text, picture=None):
     else:
         return TextMessage(text, picture)
 
-
 class Message:
+    speaker = "1"
     ICON_TEXT_BOX = None
     ICON_TEXT_BOX_TEXT_START_X = 130
 
@@ -49,8 +49,9 @@ class Message:
         if not Message.text_box:
             Message.text_box = Message.ICON_TEXT_BOX
 
-    def __bool__(self):
-        return False
+    @property
+    def complete(self):
+        return True
 
     def update(self, game):
         pass
@@ -69,7 +70,7 @@ def update(game):
     """
     if Message.messages:
         Message.messages[0].update(game)
-        if Message.messages[0] and type(Message.messages[0]) == ControlMessage:
+        if Message.messages[0].complete and type(Message.messages[0]) == ControlMessage:
             Message.messages.pop(0)
 
     if (game.get_vbutton_jp('close') or
@@ -103,10 +104,11 @@ class TextMessage(Message):
         else:
             self.__text_typed = len(self.__text)
 
-    def __bool__(self):
+    @property
+    def completed(self):
         """
-        A messages is true when it's complete
-        :return: true if the messages is done typing
+        Returns true if message is complete
+        :return: true if the messages is typed
         """
         return len(self.__text) == self.__text_typed
 
@@ -117,6 +119,12 @@ class TextMessage(Message):
 
     def __put_text_on_screen(self, display):
         display.blit(self.text_box, (0, 360))
+        if Message.text_box == Message.ICON_TEXT_BOX:
+            display.blit(pg.transform.scale(
+                pg.image.load("assets/messages/avatars/{0}.png".format(Message.speaker))
+                    .convert_alpha(),
+                (105, 105)),
+                (5, 367))
 
         line_num = 0
         for line in re.split("\n", self.__str__()):
@@ -150,11 +158,6 @@ class ControlMessage(Message):
         self.__code = re.split(" ", text[1:])
         print(self.__code)
 
-    def __bool__(self):
-        # return true so that this could be
-        # easily removed from the message queue
-        return True
-
     def update(self, game):
         if self.__code[0] == "style":
             if self.__code[1] == "icon":
@@ -165,6 +168,9 @@ class ControlMessage(Message):
                 Message.text_start_x = Message.NARRATOR_TEXT_BOX_TEXT_START_X
             else:
                 raise ValueError("Unexpected message style")
+
+        if self.__code[0] == "speaker":
+            Message.speaker = self.__code[1]
 
     def render(self, display):
         pass
