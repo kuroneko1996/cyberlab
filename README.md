@@ -56,11 +56,5 @@ It will create *build* folder with binaries.
 
 
 ### In-game text
-To put text or an image on player's screen, append a message object
-(you can make one with `message.Message(text)`) to
-`game.message_queue`.
-This list contains all the messages that the player can
-read at the moment. The message that the players sees is
-the last text element in the list. When he presses space,
-last message is removed from the list and the player sees
-next message.
+To put text or an image on player's screen, simply make a message
+using Message(text).

@@ -40,5 +40,7 @@ class TextTrigger(Trigger):
 
     def callback(self):
         if not self.activated:
-            self.game.message_queue.append(Message(self.text))
+            Message(self.text[165 * 2:165 * 3])
+            Message(self.text[165:165 * 2])
+            Message(self.text[0:165])
             self.activated = True

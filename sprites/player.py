@@ -118,18 +118,12 @@ class Player(ActiveSprite):
             self.drop_item()
         elif game.get_vbutton_jp('pickup') or game.get_joystick_jp(J_BUTTONS['A']):
             self.pickup_items()
-        if game.get_vbutton_jp('close') or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
-            if game.message_queue:
-                if game.message_queue[-1]:
-                    game.message_queue.pop()
-                else:
-                    game.message_queue[-1].close()
 
         return self.is_moving()
 
     def update(self, dt):
         self.old_x, self.old_y = self.x, self.y
-        if self.input():
+        if not Message.messages and self.input():
             if not self.move(self.vx * dt, self.vy * dt):
                 self.vx = 0
                 self.vy = 0
@@ -165,7 +159,7 @@ class Player(ActiveSprite):
             if item.pickable is not None:
                 if auto_pick is True and item.pickable.auto_pick is False:
                     continue
-                self.game.message_queue.append(Message("Picking up "+item.pickable.id+" ...", item.image))
+                Message("Picking up "+item.pickable.id+" ...", item.image)
                 # TODO move to pickable.py?
                 self.container.add(item.pickable)
                 item.remove(self.game.all_sprites, self.game.items_on_floor)
@@ -178,7 +172,7 @@ class Player(ActiveSprite):
             item = pickable.owner
             item.set_position(self.x, self.y)
             item.add(self.game.all_sprites, self.game.items_on_floor)
-            self.game.message_queue.append(Message("Dropping "+item.pickable.id+" ..."))
+            Message("Dropping "+item.pickable.id+" ...")
 
     def has_moved_to_new_tile(self):
         old_tile_x = math.floor(self.old_x)

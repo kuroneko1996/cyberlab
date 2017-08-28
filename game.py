@@ -12,6 +12,7 @@ from triggers import *
 from camera import *
 from map import *
 from fov import calc_fov
+import message
 
 
 class Game:
@@ -19,9 +20,6 @@ class Game:
         self.display = display
         self.clock = pg.time.Clock()
         pg.display.set_caption(WINDOW_TITLE)
-
-        # Contains messages to be displayed on the player's screen
-        self.message_queue = []
 
         self.joysticks = [pg.joystick.Joystick(x) for x in range(pg.joystick.get_count())]
         self.joystick = None
@@ -100,6 +98,7 @@ class Game:
         self.gui.pre(self.joystick)
 
         self.player.update(self.dt)
+        message.update(self)
 
         camera_updated = self.camera.update(self.player)
         if self.update_fov:
@@ -112,9 +111,9 @@ class Game:
             self.update_light_map(self.player.x, self.player.y)
             self.update_fov = False
 
-        if self.message_queue:
+        if Message.messages:
             if self.global_time % TYPING_SPEED < self.dt:
-                self.message_queue[-1].type_more()
+                Message.messages[-1].type_more()
 
         self.gui.after()
 
@@ -145,8 +144,8 @@ class Game:
             self.draw_fov()
 
         self.display.blit(self.player.image, self.camera.transform(self.player))
-        if self.message_queue:
-            self.message_queue[-1].render(self.display)
+        if Message.messages:
+            Message.messages[-1].render(self.display)
 
             #self.__put_text_on_screen__(str(message))
             #if message.has_picture():

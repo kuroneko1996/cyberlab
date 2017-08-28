@@ -1,14 +1,19 @@
 import settings
 import pygame as pg
+from settings import J_BUTTONS
 
 
 class Message:
+    messages = []
+
     def __init__(self, text, picture=None):
         self.__text = text
         self.__text_typed = 0
         self.__picture = picture
 
         self.__init_graphics()
+
+        Message.messages.append(self)
 
     def __init_graphics(self):
         self.text_box = pg.image.load(settings.TEXT_BOX).convert_alpha()
@@ -60,3 +65,16 @@ class Message:
         display.blit(self.font.render(text[110:165], True, (255, 255, 255)), (140, 420))
         display.blit(self.font_smaller.render("[SPACE]", True, (255, 255, 255)), (560, 440))
         pg.display.flip()
+
+
+def update(game):
+    """
+    Handles user input regarding messages
+    :return: nothing
+    """
+    if game.get_vbutton_jp('close') or game.get_joystick_jp(J_BUTTONS['A']) or game.get_joystick_jp(J_BUTTONS['B']):
+        if Message.messages:
+            if Message.messages[-1]:
+                Message.messages.pop()
+            else:
+                Message.messages[-1].close()
