@@ -38,15 +38,46 @@ class Door(Sprite):
 
         self.door_open = False
 
-        KeyButtonTrigger(self.game, self.get_hit_rect().inflate(50, 50).move(-25,-25),
+        KeyButtonTrigger(self.game, self.get_hit_rect().inflate(40, 40),
                          self.switch_door, keys=V_BUTTONS['open_door'], j_buttons=[J_BUTTONS['A']])
 
     def switch_door(self):
         if self.door_open:
-            if not self.get_hit_rect().colliderect(self.game.player.get_hit_rect().inflate(-5, -5)):
+            if not self.get_hit_rect_next().colliderect(self.game.player.get_hit_rect().inflate(-5, -5)):
                 self.close_door()
         else:
             self.open_door()
+
+    def get_hit_rect_next(self):
+        """
+        Return the next hit rect
+        :return: next hit rect after the state shift
+        """
+        return pg.Rect(*self.get_hit_tuple_next()).move(self.x * TILE_SIZE, self.y * TILE_SIZE)
+
+    def get_hit_tuple_next(self):
+        if self.door_open:
+            if self.dir == "left":
+                return self.door_hit_rect["up"]
+            elif self.dir == "right":
+                return self.door_hit_rect["down"]
+            elif self.dir == "up":
+                return self.door_hit_rect["right"]
+            elif self.dir == "down":
+                return self.door_hit_rect["left"]
+            else:
+                assert False
+        else:
+            if self.dir == "up":
+                return self.door_hit_rect["left"]
+            elif self.dir == "down":
+                return self.door_hit_rect["right"]
+            elif self.dir == "right":
+                return self.door_hit_rect["up"]
+            elif self.dir == "left":
+                return self.door_hit_rect["down"]
+            else:
+                assert False
 
     def close_door(self):
         self.door_open = False

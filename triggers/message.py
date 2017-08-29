@@ -46,21 +46,23 @@ class Message:
                                                      (20, 370),
                                                      pg.image.load(settings.NARRATOR_TEXT_BOX).convert_alpha())
 
-            # TODO: move to the helper
-            big_box_picture = pg.Surface((settings.SCREEN_WIDTH - 10,
-                                          settings.SCREEN_HEIGHT - 10))
-            big_box_picture.fill((24, 191, 60),
-                               pg.Rect(2, 2,
-                                       big_box_picture.get_width() - 4,
-                                       big_box_picture.get_height() - 4))
-
             Message.BIG_TEXT_BOX = MessageStyle((5, 5),
-                                             (10, 10),
-                                             big_box_picture)
+                                                (10, 10),
+                                                self.get_rectangle_picture())
 
             Message.text_box = Message.ICON_TEXT_BOX
 
         Message.messages.append(self)
+
+    @staticmethod
+    def get_rectangle_picture():
+        big_box_picture = pg.Surface((settings.SCREEN_WIDTH - 10,
+                                      settings.SCREEN_HEIGHT - 10))
+        big_box_picture.fill((24, 191, 60),
+                             pg.Rect(2, 2,
+                                     big_box_picture.get_width() - 4,
+                                     big_box_picture.get_height() - 4))
+        return big_box_picture
 
     @property
     def complete(self):

@@ -127,7 +127,7 @@ class Sprite(pg.sprite.Sprite):
                     self.x -= SLITHER_SPEED
 
     def collide_with_triggers(self):
-        hits = [s for s in self.game.triggers if self.get_rect().colliderect(s.hit_rect)]
+        hits = [s for s in self.game.triggers if self.get_hit_rect().colliderect(s.hit_rect)]
         for hit in hits:
             hit.on_hit()
 
@@ -137,7 +137,10 @@ class Sprite(pg.sprite.Sprite):
         :param hit_rect: new hit rectangle
         :return: nothing
         """
-        self.__hit_rect.left = hit_rect[0]
-        self.__hit_rect.top = hit_rect[1]
-        self.__hit_rect.width = hit_rect[2]
-        self.__hit_rect.height = hit_rect[3]
+        if type(hit_rect) == tuple:
+            self.__hit_rect.left = hit_rect[0]
+            self.__hit_rect.top = hit_rect[1]
+            self.__hit_rect.width = hit_rect[2]
+            self.__hit_rect.height = hit_rect[3]
+        else:
+            raise TypeError("tuple expected")
