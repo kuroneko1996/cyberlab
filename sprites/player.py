@@ -129,8 +129,7 @@ class Player(ActiveSprite):
                 self.vx = 0
                 self.vy = 0
             else:
-                if self.has_moved_to_new_tile():
-                    self.game.update_fov = True
+                self.game.update_fov = True
 
         self.collide_with_triggers()
         self.pickup_items(True)
