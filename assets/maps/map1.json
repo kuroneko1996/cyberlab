@@ -1,2572 +1,2577 @@
 {
     "objects": [
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 8, 
+            "name": "WALL",
+            "x": 8,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 12, 
+            "name": "WALL",
+            "x": 12,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 16, 
+            "name": "WALL",
+            "x": 16,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 0
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 1
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 1
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 2
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 2
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 20, 
+            "name": "WALL",
+            "x": 20,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 24, 
+            "name": "WALL",
+            "x": 24,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 27, 
+            "name": "WALL",
+            "x": 27,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 28, 
+            "name": "WALL",
+            "x": 28,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 30, 
+            "name": "WALL",
+            "x": 30,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 31, 
+            "name": "WALL",
+            "x": 31,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 3
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 4, 
+            "name": "WALL",
+            "x": 4,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 5, 
+            "name": "WALL",
+            "x": 5,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 8, 
+            "name": "WALL",
+            "x": 8,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 4
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 10, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 10,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 12, 
+            "name": "WALL",
+            "x": 12,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 4
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 5
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 5
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 5
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 5
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 6
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 6
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 6
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 6
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 7
-        }, 
+        },
         {
-            "dir": "left", 
-            "name": "DOOR", 
-            "x": 6, 
+            "dir": "left",
+            "name": "DOOR",
+            "x": 6,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 16, 
+            "name": "WALL",
+            "x": 16,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 20, 
+            "name": "WALL",
+            "x": 20,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 24, 
+            "name": "WALL",
+            "x": 24,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 27, 
+            "name": "WALL",
+            "x": 27,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 28, 
+            "name": "WALL",
+            "x": 28,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 7
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 8
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 8
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 8
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 8
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 8
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 9
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 9
-        }, 
+        },
         {
-            "dir": "right", 
-            "name": "DOOR", 
-            "x": 13, 
+            "dir": "right",
+            "name": "DOOR",
+            "x": 13,
             "y": 9
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 9
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 9
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 10
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 10
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 10
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 10
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 10
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 8, 
+            "name": "WALL",
+            "x": 8,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 11
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 10, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 10,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 12, 
+            "name": "WALL",
+            "x": 12,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 16, 
+            "name": "WALL",
+            "x": 16,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 20, 
+            "name": "WALL",
+            "x": 20,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 24, 
+            "name": "WALL",
+            "x": 24,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 11
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 12
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 12
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 12
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 12
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 12
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 13
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 13
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 13
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 13
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 13
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 14
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 14
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 14
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 14
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 14
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 8, 
+            "name": "WALL",
+            "x": 8,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 12, 
+            "name": "WALL",
+            "x": 12,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 15
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 16, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 16,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 20, 
+            "name": "WALL",
+            "x": 20,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 24, 
+            "name": "WALL",
+            "x": 24,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 15
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 16
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 16
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 16
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 16
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 16
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 16
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 16
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 17
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 17
-        }, 
+        },
         {
-            "dir": "left", 
-            "name": "DOOR", 
-            "x": 14, 
+            "dir": "left",
+            "name": "DOOR",
+            "x": 14,
             "y": 17
-        }, 
+        },
         {
-            "name": "PLAYER", 
-            "x": 16, 
+            "name": "PLAYER",
+            "x": 16,
             "y": 17
-        }, 
+        },
         {
-            "dir": "right", 
-            "name": "DOOR", 
-            "x": 18, 
+            "dir": "right",
+            "name": "DOOR",
+            "x": 18,
             "y": 17
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 17
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 17
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 17
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 18
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 5, 
+            "name": "APPLE",
+            "x": 5,
             "y": 18
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 18
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 18
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 18
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 18
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 18
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 18
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 1, 
+            "name": "WALL",
+            "x": 1,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 2, 
+            "name": "WALL",
+            "x": 2,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 8, 
+            "name": "WALL",
+            "x": 8,
             "y": 19
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 9, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 9,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 12, 
+            "name": "WALL",
+            "x": 12,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 19
-        }, 
+        },
         {
-            "dir": "down", 
-            "name": "DOOR", 
-            "x": 16, 
+            "dir": "down",
+            "name": "DOOR",
+            "x": 16,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 20, 
+            "name": "WALL",
+            "x": 20,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 24, 
+            "name": "WALL",
+            "x": 24,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 30, 
+            "name": "WALL",
+            "x": 30,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 31, 
+            "name": "WALL",
+            "x": 31,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 19
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 4, 
+            "name": "WALL",
+            "x": 4,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 5, 
+            "name": "WALL",
+            "x": 5,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 27, 
+            "name": "WALL",
+            "x": 27,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 28, 
+            "name": "WALL",
+            "x": 28,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 20
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 21
-        }, 
+        },
         {
-            "dir": "right", 
-            "name": "DOOR", 
-            "x": 3, 
+            "dir": "right",
+            "name": "DOOR",
+            "x": 3,
             "y": 21
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 21
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 19, 
+            "name": "APPLE",
+            "x": 19,
             "y": 21
-        }, 
+        },
         {
-            "dir": "left", 
-            "name": "DOOR", 
-            "x": 29, 
+            "dir": "left",
+            "name": "DOOR",
+            "x": 29,
             "y": 21
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 21
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 22
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 22
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 5, 
+            "name": "APPLE",
+            "x": 5,
             "y": 22
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 22
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 22
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 1, 
+            "name": "WALL",
+            "x": 1,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 2, 
+            "name": "WALL",
+            "x": 2,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 8, 
+            "name": "WALL",
+            "x": 8,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 12, 
+            "name": "WALL",
+            "x": 12,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 16, 
+            "name": "WALL",
+            "x": 16,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 20, 
+            "name": "WALL",
+            "x": 20,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 24, 
+            "name": "WALL",
+            "x": 24,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 30, 
+            "name": "WALL",
+            "x": 30,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 31, 
+            "name": "WALL",
+            "x": 31,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 23
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 24
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 1, 
+            "name": "APPLE",
+            "x": 1,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 24
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 25
-        }, 
+        },
         {
-            "dir": "right", 
-            "name": "DOOR", 
-            "x": 3, 
+            "dir": "right",
+            "name": "DOOR",
+            "x": 3,
             "y": 25
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 25
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 8, 
+            "name": "APPLE",
+            "x": 8,
             "y": 25
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 25
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 12, 
+            "name": "APPLE",
+            "x": 12,
             "y": 25
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 25
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 16, 
+            "name": "APPLE",
+            "x": 16,
             "y": 25
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 25
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 20, 
+            "name": "APPLE",
+            "x": 20,
             "y": 25
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 25
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 24, 
+            "name": "APPLE",
+            "x": 24,
             "y": 25
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 25
-        }, 
+        },
         {
-            "dir": "left", 
-            "name": "DOOR", 
-            "x": 29, 
+            "dir": "left",
+            "name": "DOOR",
+            "x": 29,
             "y": 25
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 25
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 26
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 1, 
+            "name": "APPLE",
+            "x": 1,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 26
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 1, 
+            "name": "WALL",
+            "x": 1,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 2, 
+            "name": "WALL",
+            "x": 2,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 27
-        }, 
+        },
         {
-            "dir": "down", 
-            "name": "DOOR", 
-            "x": 8, 
+            "dir": "down",
+            "name": "DOOR",
+            "x": 8,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 27
-        }, 
+        },
         {
-            "dir": "down", 
-            "name": "DOOR", 
-            "x": 12, 
+            "dir": "down",
+            "name": "DOOR",
+            "x": 12,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 27
-        }, 
+        },
         {
-            "dir": "down", 
-            "name": "DOOR", 
-            "x": 16, 
+            "dir": "down",
+            "name": "DOOR",
+            "x": 16,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 27
-        }, 
+        },
         {
-            "dir": "down", 
-            "name": "DOOR", 
-            "x": 20, 
+            "dir": "down",
+            "name": "DOOR",
+            "x": 20,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 27
-        }, 
+        },
         {
-            "dir": "down", 
-            "name": "DOOR", 
-            "x": 24, 
+            "dir": "down",
+            "name": "DOOR",
+            "x": 24,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 30, 
+            "name": "WALL",
+            "x": 30,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 31, 
+            "name": "WALL",
+            "x": 31,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 27
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 28
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 28
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 28
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 28
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 29
-        }, 
+        },
         {
-            "dir": "right", 
-            "name": "DOOR", 
-            "x": 3, 
+            "dir": "right",
+            "name": "DOOR",
+            "x": 3,
             "y": 29
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 20, 
+            "name": "APPLE",
+            "x": 20,
             "y": 29
-        }, 
+        },
         {
-            "dir": "left", 
-            "name": "DOOR", 
-            "x": 29, 
+            "dir": "left",
+            "name": "DOOR",
+            "x": 29,
             "y": 29
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 29
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 30
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 30
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 30
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 31, 
+            "name": "APPLE",
+            "x": 31,
             "y": 30
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 30
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 1, 
+            "name": "WALL",
+            "x": 1,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 2, 
+            "name": "WALL",
+            "x": 2,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 31
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 8, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 8,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 31
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 12, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 12,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 31
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 16, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 16,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 31
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 20, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 20,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 31
-        }, 
+        },
         {
-            "dir": "up", 
-            "name": "DOOR", 
-            "x": 24, 
+            "dir": "up",
+            "name": "DOOR",
+            "x": 24,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 30, 
+            "name": "WALL",
+            "x": 30,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 31, 
+            "name": "WALL",
+            "x": 31,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 31
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 32
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 33
-        }, 
+        },
         {
-            "dir": "right", 
-            "name": "DOOR", 
-            "x": 3, 
+            "dir": "right",
+            "name": "DOOR",
+            "x": 3,
             "y": 33
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 33
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 8, 
+            "name": "APPLE",
+            "x": 8,
             "y": 33
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 33
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 12, 
+            "name": "APPLE",
+            "x": 12,
             "y": 33
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 33
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 16, 
+            "name": "APPLE",
+            "x": 16,
             "y": 33
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 33
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 20, 
+            "name": "APPLE",
+            "x": 20,
             "y": 33
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 33
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 24, 
+            "name": "APPLE",
+            "x": 24,
             "y": 33
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 33
-        }, 
+        },
         {
-            "dir": "left", 
-            "name": "DOOR", 
-            "x": 29, 
+            "dir": "left",
+            "name": "DOOR",
+            "x": 29,
             "y": 33
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 33
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 34
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 1, 
+            "name": "APPLE",
+            "x": 1,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 34
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 31, 
+            "name": "APPLE",
+            "x": 31,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 34
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 1, 
+            "name": "WALL",
+            "x": 1,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 2, 
+            "name": "WALL",
+            "x": 2,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 8, 
+            "name": "WALL",
+            "x": 8,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 12, 
+            "name": "WALL",
+            "x": 12,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 16, 
+            "name": "WALL",
+            "x": 16,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 20, 
+            "name": "WALL",
+            "x": 20,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 24, 
+            "name": "WALL",
+            "x": 24,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 30, 
+            "name": "WALL",
+            "x": 30,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 31, 
+            "name": "WALL",
+            "x": 31,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 35
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 36
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 1, 
+            "name": "APPLE",
+            "x": 1,
             "y": 36
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 36
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 36
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 36
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 37
-        }, 
+        },
         {
-            "dir": "right", 
-            "name": "DOOR", 
-            "x": 3, 
+            "dir": "right",
+            "name": "DOOR",
+            "x": 3,
             "y": 37
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 28, 
+            "name": "KEYCARD",
+            "x": 14,
             "y": 37
-        }, 
+        },
         {
-            "dir": "left", 
-            "name": "DOOR", 
-            "x": 29, 
+            "name": "APPLE",
+            "x": 28,
             "y": 37
-        }, 
+        },
         {
-            "name": "APPLE", 
-            "x": 31, 
+            "dir": "left",
+            "name": "DOOR",
+            "x": 29,
             "y": 37
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "APPLE",
+            "x": 31,
             "y": 37
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 32,
+            "y": 37
+        },
+        {
+            "name": "WALL",
+            "x": 0,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 4, 
+            "name": "WALL",
+            "x": 4,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 5, 
+            "name": "WALL",
+            "x": 5,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 6, 
+            "name": "WALL",
+            "x": 6,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 7, 
+            "name": "WALL",
+            "x": 7,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 8, 
+            "name": "WALL",
+            "x": 8,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 9, 
+            "name": "WALL",
+            "x": 9,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 10, 
+            "name": "WALL",
+            "x": 10,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 11, 
+            "name": "WALL",
+            "x": 11,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 12, 
+            "name": "WALL",
+            "x": 12,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 13, 
+            "name": "WALL",
+            "x": 13,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 14, 
+            "name": "WALL",
+            "x": 14,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 15, 
+            "name": "WALL",
+            "x": 15,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 16, 
+            "name": "WALL",
+            "x": 16,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 17, 
+            "name": "WALL",
+            "x": 17,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 18, 
+            "name": "WALL",
+            "x": 18,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 19, 
+            "name": "WALL",
+            "x": 19,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 20, 
+            "name": "WALL",
+            "x": 20,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 21, 
+            "name": "WALL",
+            "x": 21,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 22, 
+            "name": "WALL",
+            "x": 22,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 23, 
+            "name": "WALL",
+            "x": 23,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 24, 
+            "name": "WALL",
+            "x": 24,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 25, 
+            "name": "WALL",
+            "x": 25,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 26, 
+            "name": "WALL",
+            "x": 26,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 27, 
+            "name": "WALL",
+            "x": 27,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 28, 
+            "name": "WALL",
+            "x": 28,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 38
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 0, 
+            "name": "WALL",
+            "x": 0,
             "y": 39
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 1, 
+            "name": "WALL",
+            "x": 1,
             "y": 39
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 2, 
+            "name": "WALL",
+            "x": 2,
             "y": 39
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 3, 
+            "name": "WALL",
+            "x": 3,
             "y": 39
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 29, 
+            "name": "WALL",
+            "x": 29,
             "y": 39
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 30, 
+            "name": "WALL",
+            "x": 30,
             "y": 39
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 31, 
+            "name": "WALL",
+            "x": 31,
             "y": 39
-        }, 
+        },
         {
-            "name": "WALL", 
-            "x": 32, 
+            "name": "WALL",
+            "x": 32,
             "y": 39
         }
-    ], 
+    ],
     "triggers": [
         {
-            "height": 114, 
-            "text": "$style narrator\n\n\u0414\u043e\u0436\u0434\u0438\u0442 \u041e\u0442\u0435\u0446-\u0417\u0435\u0432\u0441 \u0441 \u043d\u0435\u0431\u0430 \u043d\u0435\u043d\u0430\u0441\u0442\u043d\u043e\u0433\u043e,\n\u0418 \u0432\u0435\u0442\u0435\u0440 \u0434\u0443\u0435\u0442 \u0441\u0442\u0443\u0436\u0435\u044e \u0421\u0435\u0432\u0435\u0440\u0430;\n\u200e \u0418 \u0441\u0442\u044b\u043d\u0443\u0442 \u0441\u0442\u0440\u0443\u0439\u043a\u0438 \u0434\u043e\u0436\u0434\u0435\u0432\u044b\u0435,\n\u200e \u0418 \u0437\u0430\u043c\u0435\u0440\u0437\u0430\u044e\u0442 \u0440\u0443\u0447\u044c\u0438 \u043f\u043e\u0434 \u0432\u044c\u044e\u0433\u043e\u0439.\n\n\u041a\u0430\u043a \u0431\u044b\u0442\u044c \u0437\u0438\u043c\u043e\u0439 \u043d\u0430\u043c? \u0421\u043b\u0443\u0448\u0430\u0439: \u043e\u0433\u043e\u043d\u044c \u0437\u0430\u0436\u0433\u0438,\n\u0414\u0430 \u2014 \u043d\u0435 \u0436\u0430\u043b\u0435\u044f \u2014 \u0432 \u043a\u0443\u0431\u043a\u0438 \u0433\u043b\u0443\u0431\u043e\u043a\u0438\u0435\n \u041b\u0435\u0439 \u0445\u043c\u0435\u043b\u044c \u043e\u0442\u0440\u0430\u0434\u043d\u044b\u0439, \u0434\u0430 \u0442\u0435\u043f\u043b\u0435\u0435,\n\u200e \u041f\u043e\u0301-\u0443\u0448\u0438 \u0432 \u043c\u044f\u0433\u043a\u0443\u044e \u0448\u0435\u0440\u0441\u0442\u044c \u0443\u043a\u0440\u043e\u0439\u0441\u044f.\n      \u0417\u0438\u043c\u0430 (\u0410\u043b\u043a\u0435\u0439/\u0412\u044f\u0447. \u0418\u0432\u0430\u043d\u043e\u0432)\n\n\u0412\u044b \u0432\u043e\u0448\u043b\u0438 \u0432 \u0442\u0435\u043c\u043d\u0443\u044e \u043a\u043e\u043c\u043d\u0430\u0442\u0443. \u0412 \u0443\u0433\u043b\u0443 \u0447\u0442\u043e-\u0442\u043e \u043b\u0435\u0436\u0438\u0442. \u0412\u0437\u044f\u0442\u044c? \u0412\u044b \u0442\u043e\u0447\u043d\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u044d\u0442\u043e \u0432\u0437\u044f\u0442\u044c?\n\n$menu bool add_item(apple) pass", 
-            "width": 202, 
-            "x": 606, 
+            "height": 114,
+            "text": "$style narrator\n\n\u0414\u043e\u0436\u0434\u0438\u0442 \u041e\u0442\u0435\u0446-\u0417\u0435\u0432\u0441 \u0441 \u043d\u0435\u0431\u0430 \u043d\u0435\u043d\u0430\u0441\u0442\u043d\u043e\u0433\u043e,\n\u0418 \u0432\u0435\u0442\u0435\u0440 \u0434\u0443\u0435\u0442 \u0441\u0442\u0443\u0436\u0435\u044e \u0421\u0435\u0432\u0435\u0440\u0430;\n\u200e \u0418 \u0441\u0442\u044b\u043d\u0443\u0442 \u0441\u0442\u0440\u0443\u0439\u043a\u0438 \u0434\u043e\u0436\u0434\u0435\u0432\u044b\u0435,\n\u200e \u0418 \u0437\u0430\u043c\u0435\u0440\u0437\u0430\u044e\u0442 \u0440\u0443\u0447\u044c\u0438 \u043f\u043e\u0434 \u0432\u044c\u044e\u0433\u043e\u0439.\n\n\u041a\u0430\u043a \u0431\u044b\u0442\u044c \u0437\u0438\u043c\u043e\u0439 \u043d\u0430\u043c? \u0421\u043b\u0443\u0448\u0430\u0439: \u043e\u0433\u043e\u043d\u044c \u0437\u0430\u0436\u0433\u0438,\n\u0414\u0430 \u2014 \u043d\u0435 \u0436\u0430\u043b\u0435\u044f \u2014 \u0432 \u043a\u0443\u0431\u043a\u0438 \u0433\u043b\u0443\u0431\u043e\u043a\u0438\u0435\n \u041b\u0435\u0439 \u0445\u043c\u0435\u043b\u044c \u043e\u0442\u0440\u0430\u0434\u043d\u044b\u0439, \u0434\u0430 \u0442\u0435\u043f\u043b\u0435\u0435,\n\u200e \u041f\u043e\u0301-\u0443\u0448\u0438 \u0432 \u043c\u044f\u0433\u043a\u0443\u044e \u0448\u0435\u0440\u0441\u0442\u044c \u0443\u043a\u0440\u043e\u0439\u0441\u044f.\n      \u0417\u0438\u043c\u0430 (\u0410\u043b\u043a\u0435\u0439/\u0412\u044f\u0447. \u0418\u0432\u0430\u043d\u043e\u0432)\n\n\u0412\u044b \u0432\u043e\u0448\u043b\u0438 \u0432 \u0442\u0435\u043c\u043d\u0443\u044e \u043a\u043e\u043c\u043d\u0430\u0442\u0443. \u0412 \u0443\u0433\u043b\u0443 \u0447\u0442\u043e-\u0442\u043e \u043b\u0435\u0436\u0438\u0442. \u0412\u0437\u044f\u0442\u044c? \u0412\u044b \u0442\u043e\u0447\u043d\u043e \u0445\u043e\u0442\u0438\u0442\u0435 \u044d\u0442\u043e \u0432\u0437\u044f\u0442\u044c?\n\n$menu bool add_item(apple) pass",
+            "width": 202,
+            "x": 606,
             "y": 505
-        }, 
+        },
         {
-            "height": 116, 
-            "text": "$style narrator\n\n-------maximum-line-length--------------------123456789qwerty\n\nThis is a\nsingle\nmessage\n\nAnother message\nis here\nreally\n\nMessages can be one line long\n\nTwo lines\nlong\n\nOr three\nlines\nlong\n\nFour\nlines\nis not \ntoo much :P\n\nIf you type too many line breaks, you'd get an\nempty message:\n\n\n\n# This is a comment\n # But this is not\n\n$style icon\n\nLet's try a different style\n\n-------maximum-line-length-----------------------\n\nIsn't this better?", 
-            "width": 111, 
-            "x": 472, 
+            "height": 116,
+            "text": "$style narrator\n\n-------maximum-line-length--------------------123456789qwerty\n\nThis is a\nsingle\nmessage\n\nAnother message\nis here\nreally\n\nMessages can be one line long\n\nTwo lines\nlong\n\nOr three\nlines\nlong\n\nFour\nlines\nis not \ntoo much :P\n\nIf you type too many line breaks, you'd get an\nempty message:\n\n\n\n# This is a comment\n # But this is not\n\n$style icon\n\nLet's try a different style\n\n-------maximum-line-length-----------------------\n\nIsn't this better?",
+            "width": 111,
+            "x": 472,
             "y": 503
-        }, 
+        },
         {
-            "height": 109, 
-            "text": "Pick up that apple!", 
-            "width": 32, 
-            "x": 608, 
+            "height": 109,
+            "text": "Pick up that apple!",
+            "width": 32,
+            "x": 608,
             "y": 633
-        }, 
+        },
         {
-            "height": 110, 
-            "text": "$style narrator\n\n\u53e4\u6c60\u3084\u86d9\u98db\u3073\u8fbc\u3080\u6c34\u306e\u97f3\n  \n    \u3075\u308b\u3044\u3051\u3084\u304b\u308f\u305a\u3068\u3073\u3053\u3080\u307f\u305a\u306e\u304a\u3068", 
-            "width": 587, 
-            "x": 221, 
+            "height": 110,
+            "text": "$style narrator\n\n\u53e4\u6c60\u3084\u86d9\u98db\u3073\u8fbc\u3080\u6c34\u306e\u97f3\n  \n    \u3075\u308b\u3044\u3051\u3084\u304b\u308f\u305a\u3068\u3073\u3053\u3080\u307f\u305a\u306e\u304a\u3068",
+            "width": 587,
+            "x": 221,
             "y": 375
-        }, 
+        },
         {
-            "height": 207, 
-            "text": "$style icon\n\n$speaker 1\n\nOnce you taste poison, you might\nas well finish the meal. If it comes to that\nyou would make as fine a dish as any.\n                            Horo (Spice and Wolf)\n\n$speaker 2\n\nGetting dumped always makes a man stronger,\nbut then again, men aren\u2019t meant to pursue happiness\u2026\n                                             Jiraiya (Naruto Shippuden)\n\n$speaker 3\n\nMan proposes, God disposes.\nShintaro Midorima (Kuroko No Basket)\n\n$speaker 4\n\nReligion, ideology, resources, land, spite, love or just because\u2026\nNo matter how pathetic the reason, it\u2019s enough to start war.\nWar will never cease to exist\u2026 reasons can be thought up after the fact\u2026\nHuman nature pursues strife.\n                                                  Paine (Naruto Shippuden)\n\n$speaker 5\n\nThe opposite of love isn\u2019t hate, it\u2019s apathy.\n                                 Kyoko Hoin (Kodomo no Jikan)\n\n$speaker 6\n\nThere is nothing more noble and beautiful than a warrior with no distractions.\nOne could say he is the closest thing to God.\n                                       Treize Khushrenada (Gundam Wing)\n\n$speaker 7\n\nConstellations of stars that I am seeing for the first time\u2026\nyou are all only allowed to exist as objects for my conquest and rule.\nJust wait.\nReinhard von Lohengramm (Legend of the Galactic Heroes)\n\n$speaker 8\n\nIn this world is the destiny of mankind controlled by some transcendental\nentity or law? is it like the hand of god hovering above?\nPerhaps Man has no control even over his own will\n                                                                                 (Berserk)\n\n$speaker 9\n\nPeople are like dice, a certain Frenchman said that.\nYou throw yourself in the direction of your own choosing.\nPeople are free because they can do that.\n\nEveryone\u2019s circumstances are different, but no matter how small\nthe choice, at the very least, you can throw yourself.\nIt\u2019s not chance or fate. It\u2019s the choice you made.\n                                                   Rokuro Okajima (Black Lagoon)\n\n$speaker 10\n\nPirates are evil? The Marines are righteous?\nThese terms have always changed throughout the course of history!\nKids who have never seen peace and kids who have never seen war\n have different values! \n\nThose who stand at the top determine what\u2019s wrong and what\u2019s right!\nThis very place is neutral ground! Justice will prevail, you say?\nBut of course it will! Whoever wins this war becomes justice!\n                 Donquixote Doflamingo (One Piece)\n\n$speaker 11\n\n...\n\n$speaker 12\n\n...\n\n$speaker 13\n\n...\n\n$speaker 14\n\n...\n\n$speaker 15\n\n...\n\n$speaker 16\n\n...\n\n$speaker 17\n\n...\n\n$speaker 18\n\n...\n\n$speaker 19\n\n...\n\n$speaker 20\n\n...\n\n$speaker 21\n\n...", 
-            "width": 209, 
-            "x": 215, 
+            "height": 207,
+            "text": "$style icon\n\n$speaker 1\n\nOnce you taste poison, you might\nas well finish the meal. If it comes to that\nyou would make as fine a dish as any.\n                            Horo (Spice and Wolf)\n\n$speaker 2\n\nGetting dumped always makes a man stronger,\nbut then again, men aren\u2019t meant to pursue happiness\u2026\n                                             Jiraiya (Naruto Shippuden)\n\n$speaker 3\n\nMan proposes, God disposes.\nShintaro Midorima (Kuroko No Basket)\n\n$speaker 4\n\nReligion, ideology, resources, land, spite, love or just because\u2026\nNo matter how pathetic the reason, it\u2019s enough to start war.\nWar will never cease to exist\u2026 reasons can be thought up after the fact\u2026\nHuman nature pursues strife.\n                                                  Paine (Naruto Shippuden)\n\n$speaker 5\n\nThe opposite of love isn\u2019t hate, it\u2019s apathy.\n                                 Kyoko Hoin (Kodomo no Jikan)\n\n$speaker 6\n\nThere is nothing more noble and beautiful than a warrior with no distractions.\nOne could say he is the closest thing to God.\n                                       Treize Khushrenada (Gundam Wing)\n\n$speaker 7\n\nConstellations of stars that I am seeing for the first time\u2026\nyou are all only allowed to exist as objects for my conquest and rule.\nJust wait.\nReinhard von Lohengramm (Legend of the Galactic Heroes)\n\n$speaker 8\n\nIn this world is the destiny of mankind controlled by some transcendental\nentity or law? is it like the hand of god hovering above?\nPerhaps Man has no control even over his own will\n                                                                                 (Berserk)\n\n$speaker 9\n\nPeople are like dice, a certain Frenchman said that.\nYou throw yourself in the direction of your own choosing.\nPeople are free because they can do that.\n\nEveryone\u2019s circumstances are different, but no matter how small\nthe choice, at the very least, you can throw yourself.\nIt\u2019s not chance or fate. It\u2019s the choice you made.\n                                                   Rokuro Okajima (Black Lagoon)\n\n$speaker 10\n\nPirates are evil? The Marines are righteous?\nThese terms have always changed throughout the course of history!\nKids who have never seen peace and kids who have never seen war\n have different values! \n\nThose who stand at the top determine what\u2019s wrong and what\u2019s right!\nThis very place is neutral ground! Justice will prevail, you say?\nBut of course it will! Whoever wins this war becomes justice!\n                 Donquixote Doflamingo (One Piece)\n\n$speaker 11\n\n...\n\n$speaker 12\n\n...\n\n$speaker 13\n\n...\n\n$speaker 14\n\n...\n\n$speaker 15\n\n...\n\n$speaker 16\n\n...\n\n$speaker 17\n\n...\n\n$speaker 18\n\n...\n\n$speaker 19\n\n...\n\n$speaker 20\n\n...\n\n$speaker 21\n\n...",
+            "width": 209,
+            "x": 215,
             "y": 149
-        }, 
+        },
         {
-            "height": 502, 
-            "text": "What is this room supposed to be used for?", 
-            "width": 74, 
-            "x": 123, 
+            "height": 502,
+            "text": "What is this room supposed to be used for?",
+            "width": 74,
+            "x": 123,
             "y": 143
-        }, 
+        },
         {
-            "height": 112, 
-            "text": "Hey, an apple!", 
-            "width": 85, 
-            "x": 114, 
+            "height": 112,
+            "text": "Hey, an apple!",
+            "width": 85,
+            "x": 114,
             "y": 536
-        }, 
+        },
         {
-            "height": 107, 
-            "text": "It's so dark here...", 
-            "width": 331, 
-            "x": 222, 
+            "height": 107,
+            "text": "It's so dark here...",
+            "width": 331,
+            "x": 222,
             "y": 27
-        }, 
+        },
         {
-            "height": 293, 
-            "text": "No way, dead end.", 
-            "width": 117, 
-            "x": 822, 
+            "height": 293,
+            "text": "No way, dead end.",
+            "width": 117,
+            "x": 822,
             "y": 359
-        }, 
+        },
         {
-            "height": 393, 
-            "text": "I need to find the answers", 
-            "width": 87, 
-            "x": 946, 
+            "height": 393,
+            "text": "I need to find the answers",
+            "width": 87,
+            "x": 946,
             "y": 222
-        }, 
+        },
         {
-            "height": 114, 
-            "text": "Who am I? What do I want?", 
-            "width": 587, 
-            "x": 441, 
+            "height": 114,
+            "text": "Who am I? What do I want?",
+            "width": 587,
+            "x": 441,
             "y": 119
-        }, 
+        },
         {
-            "height": 108, 
-            "text": "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0432\u0441\u0442\u0443\u043f\u043b\u0435\u043d\u0438\u0435 \u043a \u043f\u0435\u0440\u0432\u043e\u0439 \u0433\u043b\u0430\u0432\u0435?\n\n$menu bool play_intro pass", 
-            "width": 242, 
-            "x": 208, 
+            "height": 108,
+            "text": "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0432\u0441\u0442\u0443\u043f\u043b\u0435\u043d\u0438\u0435 \u043a \u043f\u0435\u0440\u0432\u043e\u0439 \u0433\u043b\u0430\u0432\u0435?\n\n$menu bool play_intro pass",
+            "width": 242,
+            "x": 208,
             "y": 501
-        }, 
+        },
         {
-            "height": 127, 
-            "text": "Is this a cell?", 
-            "width": 109, 
-            "x": 931, 
+            "height": 127,
+            "text": "Is this a cell?",
+            "width": 109,
+            "x": 931,
             "y": 624
-        }, 
+        },
         {
-            "height": 127, 
-            "text": "Is this a cell?", 
-            "width": 109, 
-            "x": 932.5, 
+            "height": 127,
+            "text": "Is this a cell?",
+            "width": 109,
+            "x": 932.5,
             "y": 760.5
-        }, 
+        },
         {
-            "height": 127, 
-            "text": "Is this a cell?", 
-            "width": 109, 
-            "x": 932.5, 
+            "height": 127,
+            "text": "Is this a cell?",
+            "width": 109,
+            "x": 932.5,
             "y": 886.5
-        }, 
+        },
         {
-            "height": 127, 
-            "text": "Is this a cell?", 
-            "width": 109, 
-            "x": 935.5, 
+            "height": 127,
+            "text": "Is this a cell?",
+            "width": 109,
+            "x": 935.5,
             "y": 1007.5
-        }, 
+        },
         {
-            "height": 127, 
-            "text": "Is this a cell?", 
-            "width": 109, 
-            "x": 935.5, 
+            "height": 127,
+            "text": "Is this a cell?",
+            "width": 109,
+            "x": 935.5,
             "y": 1136.5
-        }, 
+        },
         {
-            "height": 127, 
-            "text": "$style narrator\n\n\u0411\u0435\u043b\u0430\u044f \u043d\u043e\u0447\u044c, \u0441\u043b\u043e\u0432\u043d\u043e \u043f\u0440\u0438\u0437\u0440\u0430\u043a, \u043f\u043b\u044b\u0432\u0435\u0442 \u043d\u0430\u0434 \u043f\u0443\u0441\u0442\u044b\u043d\u043d\u043e\u0439 \u0441\u0442\u043e\u043b\u0438\u0446\u0435\u0439\n\u0414\u0440\u0435\u043c\u043b\u0435\u0442 \u041d\u0435\u0432\u0430 \u0433\u043e\u043b\u0443\u0431\u0430\u044f; \u0434\u0432\u043e\u0440\u0446\u044b \u0432\u0435\u043b\u0438\u0447\u0430\u0432\u044b\u0435 \u0441\u043f\u044f\u0442;\n\u0420\u0435\u044e\u0442 \u0442\u0440\u0435\u0432\u043e\u0436\u043d\u044b\u0435 \u0441\u043d\u044b \u0438 \u0432\u043b\u0435\u0442\u0430\u044e\u0442 \u0432 \u0434\u043e\u043c\u0430 \u0432\u0435\u0440\u0435\u043d\u0438\u0446\u0435\u0439\u2026\n\u0422\u0438\u0445\u043e \u0438\u0437 \u043d\u043e\u0440 \u0432\u044b\u043f\u043e\u043b\u0437\u0430\u0435\u0442 \u0438 \u043a\u0440\u0430\u0434\u0435\u0442\u0441\u044f \u0431\u043b\u0435\u0434\u043d\u044b\u0439 \u0440\u0430\u0437\u0432\u0440\u0430\u0442.\n\n\u0412 \u044d\u0442\u0438 \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u0438\u044f \u0447\u0435\u0440\u043d\u044b\u0435 \u043d\u0435\u043c\u043e\u0449\u0435\u043d \u0434\u0443\u0445 \u043e\u043c\u0440\u0430\u0447\u0435\u043d\u043d\u044b\u0439,\n\u0421 \u0431\u0435\u0437\u0434\u043d\u044b \u0433\u0440\u044f\u0434\u0443\u0449\u0435\u0433\u043e \u043f\u0430\u043b \u0437\u043e\u043b\u043e\u0442\u043e\u0442\u043a\u0430\u043d\u043d\u044b\u0439 \u0442\u0443\u043c\u0430\u043d,\n\u0421\u0443\u043c\u0440\u0430\u043a \u0442\u0430\u043c \u0432\u0435\u0435\u0442 \u043a\u0440\u044b\u043b\u0430\u043c\u0438, \u2014 \u0438 \u0432\u0438\u0434\u0438\u0448\u044c \u044f\u0441\u043d\u0435\u0435 \u0441\u043c\u0443\u0449\u0435\u043d\u043d\u044b\u0439,\n\u041b\u043e\u0436\u044c \u0443\u043b\u044b\u0431\u0430\u0432\u0448\u0438\u0445\u0441\u044f \u0433\u0440\u0435\u0437 \u0438 \u043d\u0430\u0434\u0435\u0436\u0434 \u043b\u0435\u0433\u043a\u043e\u043a\u0440\u044b\u043b\u044b\u0445 \u043e\u0431\u043c\u0430\u043d.\n\n\u041e, \u0437\u0430\u0436\u0438\u0433\u0430\u0439 \u0436\u0435 \u0441\u0432\u043e\u0439 \u0444\u0430\u043a\u0435\u043b, \u0442\u044b, \u0443\u0442\u0440\u0430 \u043b\u0443\u0447\u0438\u0441\u0442\u043e\u0433\u043e \u0433\u0435\u043d\u0438\u0439!\n\u0417\u0432\u043e\u043d\u043a\u043e\u044e \u043f\u0435\u0441\u043d\u0435\u0439 \u0440\u0430\u0437\u043b\u0435\u0439\u0441\u044f, \u0432 \u0442\u0430\u0438\u043d\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u0441\u0443\u043c\u0440\u0430\u043a \u0434\u0443\u0448\u0438\n\u0412\u043b\u0435\u0439 \u043c\u043e\u043b\u043e\u0434\u0443\u044e \u043e\u0442\u0432\u0430\u0433\u0443 \u2014 \u0438 \u043f\u043b\u0430\u043c\u044f \u0442\u0440\u0435\u0432\u043e\u0436\u043d\u044b\u0445 \u0441\u043e\u043c\u043d\u0435\u043d\u0438\u0439,\n\u0411\u0435\u043b\u043e\u044e \u043d\u043e\u0447\u044c\u044e \u0440\u043e\u0436\u0434\u0435\u043d\u043d\u044b\u0445, \u0434\u044b\u0445\u0430\u043d\u044c\u0435\u043c \u0441\u0432\u043e\u0438\u043c \u043f\u043e\u0442\u0443\u0448\u0438.\t\n                 \u0411\u0435\u043b\u0430\u044f \u043d\u043e\u0447\u044c (\u0427\u0435\u0440\u0432\u0438\u043d\u0441\u043a\u0438\u0439)                  <1890>", 
-            "width": 109, 
-            "x": 8.5, 
+            "height": 127,
+            "text": "$style narrator\n\n\u0411\u0435\u043b\u0430\u044f \u043d\u043e\u0447\u044c, \u0441\u043b\u043e\u0432\u043d\u043e \u043f\u0440\u0438\u0437\u0440\u0430\u043a, \u043f\u043b\u044b\u0432\u0435\u0442 \u043d\u0430\u0434 \u043f\u0443\u0441\u0442\u044b\u043d\u043d\u043e\u0439 \u0441\u0442\u043e\u043b\u0438\u0446\u0435\u0439\n\u0414\u0440\u0435\u043c\u043b\u0435\u0442 \u041d\u0435\u0432\u0430 \u0433\u043e\u043b\u0443\u0431\u0430\u044f; \u0434\u0432\u043e\u0440\u0446\u044b \u0432\u0435\u043b\u0438\u0447\u0430\u0432\u044b\u0435 \u0441\u043f\u044f\u0442;\n\u0420\u0435\u044e\u0442 \u0442\u0440\u0435\u0432\u043e\u0436\u043d\u044b\u0435 \u0441\u043d\u044b \u0438 \u0432\u043b\u0435\u0442\u0430\u044e\u0442 \u0432 \u0434\u043e\u043c\u0430 \u0432\u0435\u0440\u0435\u043d\u0438\u0446\u0435\u0439\u2026\n\u0422\u0438\u0445\u043e \u0438\u0437 \u043d\u043e\u0440 \u0432\u044b\u043f\u043e\u043b\u0437\u0430\u0435\u0442 \u0438 \u043a\u0440\u0430\u0434\u0435\u0442\u0441\u044f \u0431\u043b\u0435\u0434\u043d\u044b\u0439 \u0440\u0430\u0437\u0432\u0440\u0430\u0442.\n\n\u0412 \u044d\u0442\u0438 \u043c\u0433\u043d\u043e\u0432\u0435\u043d\u0438\u044f \u0447\u0435\u0440\u043d\u044b\u0435 \u043d\u0435\u043c\u043e\u0449\u0435\u043d \u0434\u0443\u0445 \u043e\u043c\u0440\u0430\u0447\u0435\u043d\u043d\u044b\u0439,\n\u0421 \u0431\u0435\u0437\u0434\u043d\u044b \u0433\u0440\u044f\u0434\u0443\u0449\u0435\u0433\u043e \u043f\u0430\u043b \u0437\u043e\u043b\u043e\u0442\u043e\u0442\u043a\u0430\u043d\u043d\u044b\u0439 \u0442\u0443\u043c\u0430\u043d,\n\u0421\u0443\u043c\u0440\u0430\u043a \u0442\u0430\u043c \u0432\u0435\u0435\u0442 \u043a\u0440\u044b\u043b\u0430\u043c\u0438, \u2014 \u0438 \u0432\u0438\u0434\u0438\u0448\u044c \u044f\u0441\u043d\u0435\u0435 \u0441\u043c\u0443\u0449\u0435\u043d\u043d\u044b\u0439,\n\u041b\u043e\u0436\u044c \u0443\u043b\u044b\u0431\u0430\u0432\u0448\u0438\u0445\u0441\u044f \u0433\u0440\u0435\u0437 \u0438 \u043d\u0430\u0434\u0435\u0436\u0434 \u043b\u0435\u0433\u043a\u043e\u043a\u0440\u044b\u043b\u044b\u0445 \u043e\u0431\u043c\u0430\u043d.\n\n\u041e, \u0437\u0430\u0436\u0438\u0433\u0430\u0439 \u0436\u0435 \u0441\u0432\u043e\u0439 \u0444\u0430\u043a\u0435\u043b, \u0442\u044b, \u0443\u0442\u0440\u0430 \u043b\u0443\u0447\u0438\u0441\u0442\u043e\u0433\u043e \u0433\u0435\u043d\u0438\u0439!\n\u0417\u0432\u043e\u043d\u043a\u043e\u044e \u043f\u0435\u0441\u043d\u0435\u0439 \u0440\u0430\u0437\u043b\u0435\u0439\u0441\u044f, \u0432 \u0442\u0430\u0438\u043d\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0439 \u0441\u0443\u043c\u0440\u0430\u043a \u0434\u0443\u0448\u0438\n\u0412\u043b\u0435\u0439 \u043c\u043e\u043b\u043e\u0434\u0443\u044e \u043e\u0442\u0432\u0430\u0433\u0443 \u2014 \u0438 \u043f\u043b\u0430\u043c\u044f \u0442\u0440\u0435\u0432\u043e\u0436\u043d\u044b\u0445 \u0441\u043e\u043c\u043d\u0435\u043d\u0438\u0439,\n\u0411\u0435\u043b\u043e\u044e \u043d\u043e\u0447\u044c\u044e \u0440\u043e\u0436\u0434\u0435\u043d\u043d\u044b\u0445, \u0434\u044b\u0445\u0430\u043d\u044c\u0435\u043c \u0441\u0432\u043e\u0438\u043c \u043f\u043e\u0442\u0443\u0448\u0438.\t\n                 \u0411\u0435\u043b\u0430\u044f \u043d\u043e\u0447\u044c (\u0427\u0435\u0440\u0432\u0438\u043d\u0441\u043a\u0438\u0439)                  <1890>",
+            "width": 109,
+            "x": 8.5,
             "y": 625.5
-        }, 
+        },
         {
-            "height": 127, 
-            "text": "Is this a cell?", 
-            "width": 109, 
-            "x": 10.5, 
+            "height": 127,
+            "text": "Is this a cell?",
+            "width": 109,
+            "x": 10.5,
             "y": 881.5
-        }, 
+        },
         {
-            "height": 142, 
-            "text": "I think I'll sleep here...", 
-            "width": 625, 
-            "x": 217, 
+            "height": 142,
+            "text": "I think I'll sleep here...",
+            "width": 625,
+            "x": 217,
             "y": 750
-        }, 
+        },
         {
-            "height": 114, 
-            "text": "\u521d\u3057\u3050\u308c\u733f\u3082\u5c0f\u84d1\u3092\u307b\u3057\u3052\u4e5f\n \n    \u306f\u3064\u3057\u3050\u308c\u3055\u308b\u3082\u3053\u307f\u306e\u3092\u307b\u3057\u3052\u306a\u308a", 
-            "width": 126, 
-            "x": 211, 
+            "height": 114,
+            "text": "\u521d\u3057\u3050\u308c\u733f\u3082\u5c0f\u84d1\u3092\u307b\u3057\u3052\u4e5f\n \n    \u306f\u3064\u3057\u3050\u308c\u3055\u308b\u3082\u3053\u307f\u306e\u3092\u307b\u3057\u3052\u306a\u308a",
+            "width": 126,
+            "x": 211,
             "y": 1017
-        }, 
+        },
         {
-            "height": 110, 
-            "text": "\u5bcc\u58eb\u306e\u98a8\u3084\u6247\u306b\u306e\u305b\u3066\u6c5f\u6238\u571f\u7523\n \n    \u3075\u3058\u306e\u304b\u305c\u3084\u304a\u3046\u304e\u306b\u306e\u305b\u3066\u3048\u3069\u307f\u3084\u3052", 
-            "width": 106, 
-            "x": 350, 
+            "height": 110,
+            "text": "\u5bcc\u58eb\u306e\u98a8\u3084\u6247\u306b\u306e\u305b\u3066\u6c5f\u6238\u571f\u7523\n \n    \u3075\u3058\u306e\u304b\u305c\u3084\u304a\u3046\u304e\u306b\u306e\u305b\u3066\u3048\u3069\u307f\u3084\u3052",
+            "width": 106,
+            "x": 350,
             "y": 1017
-        }, 
+        },
         {
-            "height": 120, 
-            "text": "\u6c5f\u6238\u306e\u96e8\u4f55\u77f3\u5451\u3093\u3060\u6642\u9ce5\n  \n    \u3048\u3069\u306e\u3042\u3081\u306a\u3093\u3054\u304f\u306e\u3093\u3060\u307b\u3068\u3068\u304e\u3059", 
-            "width": 113, 
-            "x": 470, 
+            "height": 120,
+            "text": "\u6c5f\u6238\u306e\u96e8\u4f55\u77f3\u5451\u3093\u3060\u6642\u9ce5\n  \n    \u3048\u3069\u306e\u3042\u3081\u306a\u3093\u3054\u304f\u306e\u3093\u3060\u307b\u3068\u3068\u304e\u3059",
+            "width": 113,
+            "x": 470,
             "y": 1010
-        }, 
+        },
         {
-            "height": 114, 
-            "text": "  A_A\n (-.-)\n  |-|\n /   \\\n|     |   __\n|  || |  |  \\__\n \\_||_/_/\n\n", 
-            "width": 108, 
-            "x": 601, 
+            "height": 114,
+            "text": "  A_A\n (-.-)\n  |-|\n /   \\\n|     |   __\n|  || |  |  \\__\n \\_||_/_/\n\n",
+            "width": 108,
+            "x": 601,
             "y": 1014
         }
     ]

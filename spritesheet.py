@@ -16,8 +16,8 @@ class Spritesheet:
         image.blit(self.sheet, (0, 0), (x, y, width, height))
         return image
 
-    def get_image_at_row_col(self, col, row):
+    def get_image_at_col_row(self, col, row):
         return self.get_image(col * self.tile_size, row * self.tile_size,  self.tile_size,  self.tile_size)
 
-    def get_image_alpha_at_row_col(self, col, row):
-        return self.get_image_alpha(col * self.tile_size, row  * self.tile_size, self.tile_size, self.tile_size)
+    def get_image_alpha_at_col_row(self, col, row):
+        return self.get_image_alpha(col * self.tile_size, row * self.tile_size, self.tile_size, self.tile_size)

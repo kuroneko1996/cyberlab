@@ -1,5 +1,7 @@
-import sys, json
+import sys
+import json
 TILE_SIZE = 32
+
 
 def print_usage():
     print("""USAGE: python tiled2json.py <input json tiled file> <output json file>""")
@@ -43,6 +45,8 @@ def parse_data(objects, out_map, width):
 
         elif 9 <= tile <= 16 or 19 <= tile <= 24:
             out_map["objects"].append({"x": col, "y": row, "name": "PLAYER"})
+        elif tile == 25:
+            out_map["objects"].append({"x": col, "y": row, "name": "KEYCARD"})
 
 
 def parse_triggers(triggers, out_map):

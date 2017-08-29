@@ -64,8 +64,9 @@ class Game:
         self.map = Map(path.join(assets_folder, 'maps/map1.json'))
 
         self.spritesheet = Spritesheet(path.join(assets_folder, 'spritesheet.png'), 32)
-        wall_img = self.spritesheet.get_image_at_row_col(0, 0)
-        apple_img = self.spritesheet.get_image_alpha_at_row_col(1, 0)
+        wall_img = self.spritesheet.get_image_at_col_row(0, 0)
+        apple_img = self.spritesheet.get_image_alpha_at_col_row(1, 0)
+        keycard_img = self.spritesheet.get_image_alpha_at_col_row(0, 3)
         self.background_surface = pg.Surface((self.map.width * TILE_SIZE, self.map.height * TILE_SIZE))
 
         self.visibility_data = [[True] * self.map.height for i in range(self.map.width)]
@@ -84,6 +85,9 @@ class Game:
             elif node["name"] == 'APPLE':
                 item = Item(self, x, y, apple_img)
                 item.pickable = Pickable(item, 'apple', False, 1, False)
+            elif node["name"] == 'KEYCARD': # key card
+                item = Item(self, x, y, keycard_img)
+                item.pickable = Pickable(item, 'keycard', False, 1, False)
             elif node["name"] == "DOOR":
                 Door(self, x, y, node["dir"])
                 self.visibility_data[x][y] = False  # TODO opened doors visibility
