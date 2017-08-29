@@ -15,7 +15,7 @@ class Player(ActiveSprite):
         self.image = self.idle_image
         super().__init__(game, x, y, self.image)
 
-        self.set_hit_rect((TILE_SIZE / 4, TILE_SIZE / 2, TILE_SIZE / 2, TILE_SIZE / 2))
+        self.hit_rect = (TILE_SIZE / 4, TILE_SIZE / 2, TILE_SIZE / 2, TILE_SIZE / 2)
 
         self.spd = 6
         self.last_movex = 0.0
@@ -155,7 +155,7 @@ class Player(ActiveSprite):
             self.animation_timer = 0.0
 
     def pickup_items(self, auto_pick=False):
-        items = [s for s in self.game.items_on_floor if self.get_hit_rect().colliderect(s.get_hit_rect())]
+        items = [s for s in self.game.items_on_floor if self.hit_rect.colliderect(s.hit_rect)]
         for item in items:
             if item.pickable is not None:
                 if auto_pick is True and item.pickable.auto_pick is False:

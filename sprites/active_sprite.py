@@ -1,5 +1,5 @@
 from .sprite import Sprite
-
+from .collision import collide_with_map
 
 class ActiveSprite(Sprite):
     """
@@ -28,11 +28,19 @@ class ActiveSprite(Sprite):
         else:
             if not self.get_obstacles(dx, 0):
                 self.x += dx
+                return True
             elif not self.get_obstacles(0, dy):
                 self.y += dy
                 return True
+            elif not self.get_obstacles(-dx, 0):
+                self.x -= dy
+                return True
+            elif not self.get_obstacles(0, -dy):
+                self.y -= dy
+                return True
             else:
                 return False
+
 
     def is_moving(self):
         """

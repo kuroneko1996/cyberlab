@@ -47,7 +47,8 @@ class Sprite(pg.sprite.Sprite):
                        self.image.get_rect().x,
                        self.image.get_rect().y)
 
-    def get_hit_rect(self):
+    @property
+    def hit_rect(self):
         """
         Produce the hit rectangle in the world coordinates
         :return: hit rectangle positioned in the world coordinates
@@ -73,9 +74,10 @@ class Sprite(pg.sprite.Sprite):
         """
 
         return [s for s in self.game.solid if
-                self.get_hit_rect()
-                    .move(3 * sgn(dx), 3 * sgn(dy))
-                    .colliderect(s.get_hit_rect())]
+                self.hit_rect
+                    .move(max(3, abs(dx)) * sgn(dx),
+                          max(3, abs(dy)) * sgn(dy))
+                    .colliderect(s.hit_rect)]
 
     # TODO: get rid of direction
     def there_is_space(self, sprite, direction):
@@ -86,17 +88,17 @@ class Sprite(pg.sprite.Sprite):
         :return:
         """
         if direction == "up":
-            point = (sprite.get_hit_rect().x, sprite.get_hit_rect().y - 1)
+            point = (sprite.hit_rect.x, sprite.hit_rect.y - 1)
         elif direction == "down":
-            point = (sprite.get_hit_rect().x, sprite.get_hit_rect().y + sprite.get_hit_rect().height + 1)
+            point = (sprite.hit_rect.x, sprite.hit_rect.y + sprite.hit_rect.height + 1)
         elif direction == "right":
-            point = (sprite.get_hit_rect().x + sprite.get_hit_rect().width + 1, sprite.get_hit_rect().y)
+            point = (sprite.hit_rect.x + sprite.hit_rect.width + 1, sprite.hit_rect.y)
         elif direction == "left":
-            point = (sprite.get_hit_rect().x - 1, sprite.get_hit_rect().y)
+            point = (sprite.hit_rect.x - 1, sprite.hit_rect.y)
         else:
             assert False
 
-        hits = [s for s in self.game.solid if s.get_hit_rect().collidepoint(point)]
+        hits = [s for s in self.game.solid if s.hit_rect.collidepoint(point)]
 
         return not hits
 
@@ -127,11 +129,12 @@ class Sprite(pg.sprite.Sprite):
                     self.x -= SLITHER_SPEED
 
     def collide_with_triggers(self):
-        hits = [s for s in self.game.triggers if self.get_hit_rect().colliderect(s.hit_rect)]
+        hits = [s for s in self.game.triggers if self.hit_rect.colliderect(s.hit_rect)]
         for hit in hits:
             hit.on_hit()
 
-    def set_hit_rect(self, hit_rect):
+    @hit_rect.setter
+    def hit_rect(self, hit_rect):
         """
         Sets the hit rectangle for this sprite in the sprite's local coordinates
         :param hit_rect: new hit rectangle

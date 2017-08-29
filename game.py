@@ -108,7 +108,7 @@ class Game:
 
         camera_updated = self.camera.update(self.player)
         if self.update_fov:
-            player_hit_rect = self.player.get_hit_rect()
+            player_hit_rect = self.player.hit_rect
             player_tilex = math.floor(player_hit_rect.x / TILE_SIZE)
             player_tiley = math.floor(player_hit_rect.y / TILE_SIZE)
 

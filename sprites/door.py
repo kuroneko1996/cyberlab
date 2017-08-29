@@ -32,18 +32,18 @@ class Door(Sprite):
             "left": (0, 0, DOOR_THICKNESS, TILE_SIZE)
         }
 
-        self.set_hit_rect(self.door_hit_rect[dir])
+        self.hit_rect = self.door_hit_rect[dir]
 
         self.dir = dir
 
         self.door_open = False
 
-        KeyButtonTrigger(self.game, self.get_hit_rect().inflate(40, 40),
+        KeyButtonTrigger(self.game, self.hit_rect.inflate(40, 40),
                          self.switch_door, keys=V_BUTTONS['open_door'], j_buttons=[J_BUTTONS['A']])
 
     def switch_door(self):
         if self.door_open:
-            if not self.get_hit_rect_next().colliderect(self.game.player.get_hit_rect().inflate(-5, -5)):
+            if not self.get_hit_rect_next().colliderect(self.game.player.hit_rect.inflate(-5, -5)):
                 self.close_door()
         else:
             self.open_door()
@@ -116,7 +116,7 @@ class Door(Sprite):
     def set_dir(self, dir):
         self.dir = dir
         self.set_image(self.door_img[dir])
-        self.set_hit_rect(self.door_hit_rect[dir])
+        self.hit_rect = self.door_hit_rect[dir]
 
     def set_image(self, img):
         self.image = img
