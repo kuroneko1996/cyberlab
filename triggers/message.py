@@ -2,6 +2,7 @@ import settings
 import pygame as pg
 from settings import J_BUTTONS, TYPING_SPEED
 import re
+import collections
 
 
 def get_message(text, picture=None):
@@ -12,25 +13,16 @@ def get_message(text, picture=None):
     else:
         return TextMessage(text, picture)
 
+MessageStyle = collections.namedtuple("MessageStyle", "frame text picture")
+# frame is the position of the text box
+# text is the position of the text
+# picture is the picture of the text box
+
 
 class Message:
     ICON_TEXT_BOX = None
-    ICON_TEXT_BOX_X = 0
-    ICON_TEXT_BOX_Y = 360
-    ICON_TEXT_BOX_TEXT_X = 130
-    ICON_TEXT_BOX_TEXT_Y = 370
-
     NARRATOR_TEXT_BOX = None
-    NARRATOR_TEXT_BOX_X = 0
-    NARRATOR_TEXT_BOX_Y = 360
-    NARRATOR_TEXT_BOX_TEXT_X = 20
-    NARRATOR_TEXT_BOX_TEXT_Y = 370
-
     BIG_TEXT_BOX = None
-    BIG_TEXT_BOX_X = 5
-    BIG_TEXT_BOX_Y = 5
-    BIG_TEXT_BOX_TEXT_X = 10
-    BIG_TEXT_BOX_TEXT_Y = 10
 
     FONT = None
     FONT_SMALLER = None
@@ -38,40 +30,37 @@ class Message:
 
     messages = []
     text_box = None
-    text_box_x = ICON_TEXT_BOX_X
-    text_box_y = ICON_TEXT_BOX_Y
-    text_x = ICON_TEXT_BOX_TEXT_X
-    text_y = ICON_TEXT_BOX_TEXT_Y
     speaker = "1"
 
     def __init__(self):
-        Message.messages.append(self)
 
-        if not Message.ICON_TEXT_BOX:
-            Message.ICON_TEXT_BOX = pg.image.load(settings.ICON_TEXT_BOX).convert_alpha()
-
-        if not Message.NARRATOR_TEXT_BOX:
-            Message.NARRATOR_TEXT_BOX = pg.image.load(settings.NARRATOR_TEXT_BOX).convert_alpha()
-
-        if not Message.BIG_TEXT_BOX:
-            Message.BIG_TEXT_BOX = pg.Surface((settings.SCREEN_WIDTH - self.BIG_TEXT_BOX_X * 2,
-                                               settings.SCREEN_HEIGHT - self.BIG_TEXT_BOX_Y * 2))
-            Message.BIG_TEXT_BOX.fill((24, 191, 60),
-                                      pg.Rect(2, 2,
-                                              self.BIG_TEXT_BOX. get_width() - 4,
-                                              self.BIG_TEXT_BOX.get_height() - 4))
-
-        if not Message.FONT:
+        if not Message.messages:
             Message.FONT = pg.font.Font(*settings.FONT)
-
-        if not Message.FONT_SMALLER:
             Message.FONT_SMALLER = pg.font.Font(*settings.FONT_SMALLER)
-
-        if not Message.FONT_BIGGER:
             Message.FONT_BIGGER = pg.font.Font(*settings.FONT_BIGGER)
 
-        if not Message.text_box:
+            Message.ICON_TEXT_BOX = MessageStyle((0, 360),
+                                                 (130, 370),
+                                                 pg.image.load(settings.ICON_TEXT_BOX).convert_alpha())
+            Message.NARRATOR_TEXT_BOX = MessageStyle((0, 360),
+                                                     (20, 370),
+                                                     pg.image.load(settings.NARRATOR_TEXT_BOX).convert_alpha())
+
+            # TODO: move to the helper
+            big_box_picture = pg.Surface((settings.SCREEN_WIDTH - 10,
+                                          settings.SCREEN_HEIGHT - 10))
+            big_box_picture.fill((24, 191, 60),
+                               pg.Rect(2, 2,
+                                       big_box_picture.get_width() - 4,
+                                       big_box_picture.get_height() - 4))
+
+            Message.BIG_TEXT_BOX = MessageStyle((5, 5),
+                                             (10, 10),
+                                             big_box_picture)
+
             Message.text_box = Message.ICON_TEXT_BOX
+
+        Message.messages.append(self)
 
     @property
     def complete(self):
@@ -144,7 +133,7 @@ class TextMessage(Message):
                                     len(self.__text))
 
     def __put_text_on_screen(self, display):
-        display.blit(self.text_box, (self.text_box_x, self.text_box_y))
+        display.blit(Message.text_box.picture, Message.text_box.frame)
         if Message.text_box == Message.ICON_TEXT_BOX:
             display.blit(pg.transform.scale(
                 pg.image.load("assets/messages/avatars/{0}.png".format(Message.speaker))
@@ -155,8 +144,8 @@ class TextMessage(Message):
         line_num = 0
         for line in re.split("\n", self.__str__()):
             display.blit(self.FONT.render(line, True, (255, 255, 255)),
-                         (Message.text_x,
-                          Message.text_y + 20 * line_num))
+                         (Message.text_box.text[0],
+                          Message.text_box.text[1] + 20 * line_num))
             line_num += 1
         display.blit(self.FONT_SMALLER.render("[RETURN]", True, (255, 255, 255)), (565, 455))
         pg.display.flip()
@@ -189,22 +178,10 @@ class ControlMessage(Message):
         if self.__code[0] == "style":
             if self.__code[1] == "icon":
                 Message.text_box = Message.ICON_TEXT_BOX
-                Message.text_x = Message.ICON_TEXT_BOX_TEXT_X
-                Message.text_y = Message.ICON_TEXT_BOX_TEXT_Y
-                Message.text_box_x = Message.ICON_TEXT_BOX_X
-                Message.text_box_y = Message.ICON_TEXT_BOX_Y
             elif self.__code[1] == "narrator":
                 Message.text_box = Message.NARRATOR_TEXT_BOX
-                Message.text_x = Message.NARRATOR_TEXT_BOX_TEXT_X
-                Message.text_y = Message.NARRATOR_TEXT_BOX_TEXT_Y
-                Message.text_box_x = Message.NARRATOR_TEXT_BOX_X
-                Message.text_box_y = Message.NARRATOR_TEXT_BOX_Y
             elif self.__code[1] == "big":
                 Message.text_box = Message.BIG_TEXT_BOX
-                Message.text_x = Message.BIG_TEXT_BOX_TEXT_X
-                Message.text_y = Message.BIG_TEXT_BOX_TEXT_Y
-                Message.text_box_x = Message.BIG_TEXT_BOX_X
-                Message.text_box_y = Message.BIG_TEXT_BOX_Y
             else:
                 raise ValueError("Unexpected message style")
 
