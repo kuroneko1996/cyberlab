@@ -14,12 +14,23 @@ def get_message(text, picture=None):
 
 
 class Message:
-    speaker = "1"
     ICON_TEXT_BOX = None
-    ICON_TEXT_BOX_TEXT_START_X = 130
+    ICON_TEXT_BOX_X = 0
+    ICON_TEXT_BOX_Y = 360
+    ICON_TEXT_BOX_TEXT_X = 130
+    ICON_TEXT_BOX_TEXT_Y = 370
 
     NARRATOR_TEXT_BOX = None
-    NARRATOR_TEXT_BOX_TEXT_START_X = 20
+    NARRATOR_TEXT_BOX_X = 0
+    NARRATOR_TEXT_BOX_Y = 360
+    NARRATOR_TEXT_BOX_TEXT_X = 20
+    NARRATOR_TEXT_BOX_TEXT_Y = 370
+
+    BIG_TEXT_BOX = None
+    BIG_TEXT_BOX_X = 5
+    BIG_TEXT_BOX_Y = 5
+    BIG_TEXT_BOX_TEXT_X = 10
+    BIG_TEXT_BOX_TEXT_Y = 10
 
     FONT = None
     FONT_SMALLER = None
@@ -27,7 +38,11 @@ class Message:
 
     messages = []
     text_box = None
-    text_start_x = ICON_TEXT_BOX_TEXT_START_X
+    text_box_x = ICON_TEXT_BOX_X
+    text_box_y = ICON_TEXT_BOX_Y
+    text_x = ICON_TEXT_BOX_TEXT_X
+    text_y = ICON_TEXT_BOX_TEXT_Y
+    speaker = "1"
 
     def __init__(self):
         Message.messages.append(self)
@@ -37,6 +52,14 @@ class Message:
 
         if not Message.NARRATOR_TEXT_BOX:
             Message.NARRATOR_TEXT_BOX = pg.image.load(settings.NARRATOR_TEXT_BOX).convert_alpha()
+
+        if not Message.BIG_TEXT_BOX:
+            Message.BIG_TEXT_BOX = pg.Surface((settings.SCREEN_WIDTH - self.BIG_TEXT_BOX_X * 2,
+                                               settings.SCREEN_HEIGHT - self.BIG_TEXT_BOX_Y * 2))
+            Message.BIG_TEXT_BOX.fill((24, 191, 60),
+                                      pg.Rect(2, 2,
+                                              self.BIG_TEXT_BOX. get_width() - 4,
+                                              self.BIG_TEXT_BOX.get_height() - 4))
 
         if not Message.FONT:
             Message.FONT = pg.font.Font(*settings.FONT)
@@ -74,11 +97,13 @@ def update(game):
         if Message.messages[0].complete and type(Message.messages[0]) == ControlMessage:
             Message.messages.pop(0)
 
-    if (game.get_vbutton_jp('close') or
-            game.get_joystick_jp(J_BUTTONS['A']) or
-            game.get_joystick_jp(J_BUTTONS['B'])):
+    if (game.get_vbutton_jp('next') or
+            game.get_joystick_jp(J_BUTTONS['A'])):
         if Message.messages:
             Message.messages[0].close()
+    if (game.get_vbutton_jp('close') or
+            game.get_joystick_jp(J_BUTTONS['B'])):
+        Message.messages = []
 
 
 class TextMessage(Message):
@@ -119,7 +144,7 @@ class TextMessage(Message):
                                     len(self.__text))
 
     def __put_text_on_screen(self, display):
-        display.blit(self.text_box, (0, 360))
+        display.blit(self.text_box, (self.text_box_x, self.text_box_y))
         if Message.text_box == Message.ICON_TEXT_BOX:
             display.blit(pg.transform.scale(
                 pg.image.load("assets/messages/avatars/{0}.png".format(Message.speaker))
@@ -129,7 +154,9 @@ class TextMessage(Message):
 
         line_num = 0
         for line in re.split("\n", self.__str__()):
-            display.blit(self.FONT.render(line, True, (255, 255, 255)), (Message.text_start_x, 370 + 20 * line_num))
+            display.blit(self.FONT.render(line, True, (255, 255, 255)),
+                         (Message.text_x,
+                          Message.text_y + 20 * line_num))
             line_num += 1
         display.blit(self.FONT_SMALLER.render("[RETURN]", True, (255, 255, 255)), (565, 455))
         pg.display.flip()
@@ -162,10 +189,22 @@ class ControlMessage(Message):
         if self.__code[0] == "style":
             if self.__code[1] == "icon":
                 Message.text_box = Message.ICON_TEXT_BOX
-                Message.text_start_x = Message.ICON_TEXT_BOX_TEXT_START_X
+                Message.text_x = Message.ICON_TEXT_BOX_TEXT_X
+                Message.text_y = Message.ICON_TEXT_BOX_TEXT_Y
+                Message.text_box_x = Message.ICON_TEXT_BOX_X
+                Message.text_box_y = Message.ICON_TEXT_BOX_Y
             elif self.__code[1] == "narrator":
                 Message.text_box = Message.NARRATOR_TEXT_BOX
-                Message.text_start_x = Message.NARRATOR_TEXT_BOX_TEXT_START_X
+                Message.text_x = Message.NARRATOR_TEXT_BOX_TEXT_X
+                Message.text_y = Message.NARRATOR_TEXT_BOX_TEXT_Y
+                Message.text_box_x = Message.NARRATOR_TEXT_BOX_X
+                Message.text_box_y = Message.NARRATOR_TEXT_BOX_Y
+            elif self.__code[1] == "big":
+                Message.text_box = Message.BIG_TEXT_BOX
+                Message.text_x = Message.BIG_TEXT_BOX_TEXT_X
+                Message.text_y = Message.BIG_TEXT_BOX_TEXT_Y
+                Message.text_box_x = Message.BIG_TEXT_BOX_X
+                Message.text_box_y = Message.BIG_TEXT_BOX_Y
             else:
                 raise ValueError("Unexpected message style")
 

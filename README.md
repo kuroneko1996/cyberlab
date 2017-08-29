@@ -16,7 +16,8 @@ Requirements: python 3, pygame.
 * Arrow keys for movement. Numeric pad works too.
 * Look at the door and press E or Enter to open/close it
 * E or G to pickup items, Q to drop
-* Space to close text messages
+* Return to show next text message
+* Space to ignore all the text messages in the current queue
 * F11 toggles fullscreen
 
 You can change default key mapping in settings.py
@@ -71,6 +72,8 @@ using Message(text).
 Use `$style icon` to switch to icon style.
 
 Use `$style narrator` to switch to narrator style.
+
+Use `$style big` for the fullscreen text window style.
 
 See `screenshots` directory for more info.
 
