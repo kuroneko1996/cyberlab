@@ -124,7 +124,7 @@ class Player(ActiveSprite):
 
     def update(self, dt):
         self.old_x, self.old_y = self.x, self.y
-        if not Message.messages and self.input():
+        if self.input():
             if not self.move(self.vx * dt, self.vy * dt):
                 self.vx = 0
                 self.vy = 0

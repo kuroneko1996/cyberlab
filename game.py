@@ -102,7 +102,8 @@ class Game:
     def update(self):
         self.gui.pre(self.joystick)
 
-        self.player.update(self.dt)
+        if not message.Message.messages:
+            self.player.update(self.dt)
         message.update(self)
 
         camera_updated = self.camera.update(self.player)
@@ -148,14 +149,14 @@ class Game:
         if message.Message.messages:
             message.Message.messages[0].render(self.display)
 
-            #self.__put_text_on_screen__(str(messages))
+            #self.__put_text_on_screen(str(messages))
             #if messages.has_picture():
             #    self.__put_picture_on_screen__(messages.get_picture())
 
         self.gui.draw()
         pg.display.flip()
 
-    def __put_picture_on_screen__(self, image):
+    def __put_picture_on_screen(self, image):
         self.display.blit(image, (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2))
 
     def run(self):
