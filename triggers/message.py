@@ -12,6 +12,7 @@ def get_message(text, picture=None):
     else:
         return TextMessage(text, picture)
 
+
 class Message:
     speaker = "1"
     ICON_TEXT_BOX = None
@@ -156,7 +157,6 @@ class ControlMessage(Message):
         super().__init__()
 
         self.__code = re.split(" ", text[1:])
-        print(self.__code)
 
     def update(self, game):
         if self.__code[0] == "style":

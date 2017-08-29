@@ -43,9 +43,9 @@ class Player(ActiveSprite):
         )
         self.walking_animation_left = Animation(
             0.10, PlayMode.LOOP,
-            game.spritesheet.get_image_alpha_at_col_row(2, 2),
-            game.spritesheet.get_image_alpha_at_col_row(3, 2),
-            game.spritesheet.get_image_alpha_at_col_row(4, 2)
+            pg.transform.flip(game.spritesheet.get_image_alpha_at_col_row(5, 2), True, False),
+            pg.transform.flip(game.spritesheet.get_image_alpha_at_col_row(6, 2), True, False),
+            pg.transform.flip(game.spritesheet.get_image_alpha_at_col_row(7, 2), True, False)
         )
         self.walking_animation_right = Animation(
             0.10, PlayMode.LOOP,

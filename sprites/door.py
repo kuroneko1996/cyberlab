@@ -13,11 +13,13 @@ def move(center, shift):
 
 class Door(Sprite):
     def __init__(self, game, x, y, dir):
+
+        up_img = game.spritesheet.get_image_alpha_at_col_row(2, 0)
         self.door_img = {
-            "up": game.spritesheet.get_image_alpha_at_col_row(2, 0),
-            "right": game.spritesheet.get_image_alpha_at_col_row(3, 0),
-            "down": game.spritesheet.get_image_alpha_at_col_row(4, 0),
-            "left": game.spritesheet.get_image_alpha_at_col_row(5, 0)
+            "up": up_img,
+            "right": pg.transform.rotate(up_img, -90),
+            "down": pg.transform.rotate(up_img, 180),
+            "left": pg.transform.rotate(up_img, 90)
         }
         super().__init__(game, x, y, self.door_img[dir], (game.doors, game.solid))
 
