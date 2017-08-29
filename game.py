@@ -77,8 +77,9 @@ class Game:
             if node["name"] == 'WALL':
                 #self.collisions.append(pg.Rect(x, y, TILE_SIZE, TILE_SIZE))  # TODO big rectangles
                 wall = Wall(self, x, y, wall_img)
-                wall.remove(self.all_sprites)  # skip drawing
-                self.background_surface.blit(wall_img, (x * TILE_SIZE, y * TILE_SIZE))
+                if not LIMIT_FOV_FOR_STATIC_SPRITES:
+                    wall.remove(self.all_sprites)  # skip drawing
+                    self.background_surface.blit(wall_img, (x * TILE_SIZE, y * TILE_SIZE))
                 self.visibility_data[x][y] = False
             elif node["name"] == 'PLAYER':
                 self.player = Player(self, x, y)
@@ -126,15 +127,21 @@ class Game:
         self.display.blit(self.background_surface, (bg_x, bg_y))
 
         # TODO layering
-        for sprite in self.all_sprites:
-            if sprite != self.player and not isinstance(sprite, Item):
-                self.display.blit(sprite.image, self.camera.transform(sprite))
+        if not LIMIT_FOV_FOR_STATIC_SPRITES:
+            for sprite in self.all_sprites:
+                if sprite != self.player and not isinstance(sprite, Item):
+                    self.display.blit(sprite.image, self.camera.transform(sprite))
 
-        for sprite in self.items_on_floor:
+        if LIMIT_FOV_FOR_STATIC_SPRITES:
+            fov_group = self.all_sprites
+        else:
+            fov_group = self.items_on_floor
+        for sprite in fov_group:
             tilex = math.floor(sprite.x)
             tiley = math.floor(sprite.y)
-            if self.fov_data[tilex][tiley]:
-                self.display.blit(sprite.image, self.camera.transform(sprite))
+            if sprite != self.player:
+                if self.fov_data[tilex][tiley]:
+                    self.display.blit(sprite.image, self.camera.transform(sprite))
 
         # darken image
         self.display.fill(DARKEN_COLOR, special_flags=pg.BLEND_SUB)
