@@ -1,4 +1,6 @@
 import pygame as pg
+import configparser
+import re
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
@@ -9,7 +11,6 @@ FPS = 60
 BG_COLOR = (0, 0, 0)
 
 TILE_SIZE = 32
-TYPING_SPEED = 0.05
 
 MAX_LINE_LENGTH = 50
 ICON_TEXT_BOX = "assets/messages/icon_text_box.png"
@@ -21,11 +22,23 @@ FONT_SMALLER = "assets/fonts/unifont-10.0.06.ttf", 14
 SLITHER_SPEED = 0.05
 FOV_RADIUS = 10
 DEBUG_FOV = False
-LIMIT_FOV_FOR_STATIC_SPRITES = False
 DARKEN_COLOR = (60, 60, 60)
 LIGHT_COLOR = (40, 40, 10)
 
-# change key mappings for keyboard
+# Default key/button mappings
+J_BUTTONS = {
+    'A': 0,
+    'B': 1,
+    'X': 2,
+    'Y': 3,
+    'LB': 4,
+    'RB': 5,
+    'Back': 6,
+    'Start': 7,
+    'Guide': 8,
+    'RStick': 9,
+    'LStick': 10
+}
 V_BUTTONS = {
     'left': [pg.K_LEFT, pg.K_a, pg.K_KP4],
     'right': [pg.K_RIGHT, pg.K_d, pg.K_KP6],
@@ -42,19 +55,28 @@ V_BUTTONS = {
     'next': [pg.K_RETURN],
     'close': [pg.K_SPACE]
 }
-# end key mappings
 
-JOYSTICK_THRESHOLD = 0.1
-J_BUTTONS = {
-    'A': 0,
-    'B': 1,
-    'X': 2,
-    'Y': 3,
-    'LB': 4,
-    'RB': 5,
-    'Back': 6,
-    'Start': 7,
-    'Guide': 8,
-    'RStick': 9,
-    'LStick': 10
-}
+# Reads from user settings
+config = configparser.ConfigParser()
+config.read('user_settings.cfg')
+SFX_VOLUME = config['SOUND'].getfloat('SFX_VOLUME')
+MUSIC_VOLUME = config['SOUND'].getfloat('MUSIC_VOLUME')
+MASTER_VOLUME = config['SOUND'].getfloat('MASTER_VOLUME')
+
+FPS = config['ENGINE'].getfloat('FPS')
+TYPING_SPEED = config['ENGINE'].getfloat('TYPING_SPEED')
+LIMIT_FOV_FOR_STATIC_SPRITES = config['ENGINE'].getboolean('LIMIT_FOV_FOR_STATIC_SPRITES')
+
+JOYSTICK_THRESHOLD = config['JOYSTICK'].getfloat('JOYSTICK_THRESHOLD')
+# Loads joystick/gamepad bindings
+for __key in J_BUTTONS:
+    J_BUTTONS[__key] = config['JOYSTICK'].getint(__key)
+
+# Loads key bindings
+for __key in V_BUTTONS:
+    __values = re.split('\s*,*', config['KEYBOARD'][__key])
+    V_BUTTONS[__key] = []
+    for __value in __values:
+        __real_value = getattr(pg, __value, None)
+        if __real_value is not None:
+            V_BUTTONS[__key].append(int(__real_value))
