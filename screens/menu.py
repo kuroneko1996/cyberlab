@@ -2,6 +2,8 @@ import time
 import pygame as pg
 import sys
 from game import Game
+from screens.settings import SettingsScreen
+from screens.game_screen import GameScreen
 from settings import *
 
 OPTION_COLOR = (128, 135, 239)
@@ -13,26 +15,12 @@ INITIAL_V_GAP = 140
 V_SPACING = 5
 
 
-class Menu:
+class Menu(GameScreen):
     def __init__(self, menu, display):
-        self.clock = pg.time.Clock()
-        self.dt = 0.0
-        self.playing = True
-        self.display = display
-        self.clock = pg.time.Clock()
-        pg.display.set_caption(WINDOW_TITLE)
-        self.font = pg.font.Font(*FONT_BIGGER)
-
-        self.updated = True
+        super().__init__(display)
 
         self.menu = menu
         self.menu_rects = {}
-
-        self.joysticks = [pg.joystick.Joystick(x) for x in range(pg.joystick.get_count())]
-        self.joystick = None
-        if len(self.joysticks) > 0:
-            self.joystick = self.joysticks[0]
-            self.joystick.init()
 
         self.last_axis_motion = 0.0
 
@@ -63,14 +51,17 @@ class Menu:
                     action = 'enter'
             # mouse
             if event.type == pg.MOUSEMOTION:
-                mousex, mousey = pg.mouse.get_pos()
+                self.mousex, self.mousey = pg.mouse.get_pos()
                 for i in range(len(self.menu_rects.items())):
-                    if self.menu_rects[i].collidepoint(mousex, mousey):
+                    if self.menu_rects[i].collidepoint(self.mousex, self.mousey):
                         self.menu['selected_option'] = i
                         self.updated = True
                         break
             if event.type == pg.MOUSEBUTTONDOWN:
-                action = 'enter'
+                for i in range(len(self.menu_rects.items())):
+                    if self.menu_rects[i].collidepoint(self.mousex, self.mousey):
+                        action = 'enter'
+                        break
             # joystick
             if event.type == pg.JOYBUTTONDOWN:
                 if event.button == J_BUTTONS['A']:
@@ -130,7 +121,7 @@ class Menu:
             count += 1
 
     def draw_game_title(self):
-        surface = self.font.render('¥ CYBERLAB ¥', True, (255, 255, 255))
+        surface = self.font.render(GAME_TITLE, True, (255, 255, 255))
         x = SCREEN_WIDTH // 2 - surface.get_width() // 2
         y = 40
         self.display.blit(surface, (x, y))
@@ -156,7 +147,8 @@ def load_game(self):
 
 def settings(self):
     print("SETTINGS")
-    # TODO: finish settings option
+    SettingsScreen(self.display).run()
+    self.updated = True
 
 
 def main_menu(display):

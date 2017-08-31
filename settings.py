@@ -5,6 +5,7 @@ import re
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
 WINDOW_TITLE = "Cyberpunk Laboratory"
+GAME_TITLE = "¥ CYBERLAB ¥"
 
 FPS = 60
 

@@ -1,6 +1,6 @@
 import pygame
 from settings import *
-from menu import main_menu
+from screens.menu import main_menu
 
 
 def main():
