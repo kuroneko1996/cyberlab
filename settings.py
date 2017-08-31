@@ -1,6 +1,8 @@
 import pygame as pg
 import configparser
 import re
+import os
+import shutil
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
@@ -58,6 +60,9 @@ V_BUTTONS = {
 }
 
 # Reads from user settings
+if not (os.path.isfile('user_settings.cfg')):
+    shutil.copy2('default_settings.cfg', 'user_settings.cfg')
+
 config = configparser.ConfigParser()
 config.read('user_settings.cfg')
 SFX_VOLUME = config['SOUND'].getfloat('SFX_VOLUME')
