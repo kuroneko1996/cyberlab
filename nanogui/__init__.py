@@ -7,7 +7,7 @@ class Nanogui:
         self.display = display
         self.mousex = 0
         self.mousey = 0
-        self.mousedown = 0
+        self.mousedown = False
         self.jdelay = 0
         self.hot_item = 0
         self.active_item = 0
@@ -135,3 +135,66 @@ class Nanogui:
             return True
 
         return False
+
+    def slider(self, id, value, min, max, x, y, w=256, h=32, handler_size=16):
+        xpos = ((w-handler_size) * value) / max
+        step = max / 10
+
+        if self.region_hit(x, y, w + handler_size, h):
+            self.hot_item = id
+            if self.active_item == 0 and self.mousedown is True:
+                self.active_item = id
+
+        # keyboard focus
+        if self.kbd_item == 0:
+            self.kbd_item = id
+
+        if not (id in self.draw_elements):
+            def draw_func():
+                pg.draw.rect(self.display, (255, 255, 255), pg.Rect(x, y, w + handler_size, h))
+
+                # drawing handler
+                if self.active_item == id or self.hot_item == id:
+                    pg.draw.rect(self.display, (200, 200, 200), pg.Rect(x + 8 + xpos, y + 8, handler_size, h))
+                else:
+                    pg.draw.rect(self.display, (100, 100, 100), pg.Rect(x + 8 + xpos, y + 8, handler_size, h))
+
+                if self.kbd_item == id:  # show keyboard focus
+                    pass
+
+            self.draw_elements[id] = draw_func
+
+        # value set
+        new_value = value
+        # mouse
+        if self.active_item == id:
+            mouse_posx = self.mousex - (x + 8)
+            if mouse_posx < 0:
+                mouse_posx = 0
+            elif mouse_posx > w:
+                mouse_posx = w
+            new_value = (mouse_posx * max) / w
+
+        # keyboard
+        if self.kbd_item == id:
+            if not(self.focus_change()):
+                if self.key_entered == pg.K_LEFT:
+                    if value > 0:
+                        new_value = value - step
+                    self.key_entered = 0
+                elif self.key_entered == pg.K_RIGHT:
+                    if value < max:
+                        new_value = value + step
+                    self.key_entered = 0
+
+        self.last_widget = id
+
+        if new_value > max:
+            new_value = max
+        elif new_value < min:
+            new_value = min
+
+        if new_value != value:
+            return 1, new_value
+        else:
+            return 0, value

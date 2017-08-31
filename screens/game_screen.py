@@ -49,3 +49,12 @@ class GameScreen:
     def quit_game(self):
         pg.quit()
         sys.exit()
+
+    def draw_text(self, x, y, text, color):
+        surface = self.font.render(text, True, color)
+        self.display.blit(surface, (x, y))
+
+    def draw_text_centered(self, x, y, text, color):
+        surface = self.font.render(text, True, color)
+        xpos = SCREEN_WIDTH // 2 - surface.get_width() // 2
+        self.display.blit(surface, (xpos, y))
