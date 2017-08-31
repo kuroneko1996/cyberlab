@@ -2,7 +2,7 @@ import time
 import pygame as pg
 import sys
 from game import Game
-from screens.settings import SettingsScreen
+from screens.settings_screen import SettingsScreen
 from screens.game_screen import GameScreen
 from settings import *
 

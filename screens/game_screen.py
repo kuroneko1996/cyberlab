@@ -19,6 +19,7 @@ class GameScreen:
             self.joystick = self.joysticks[0]
             self.joystick.init()
 
+        self.mousedown = False
         self.mousex = 0.0
         self.mousey = 0.0
 
@@ -39,6 +40,10 @@ class GameScreen:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 self.quit_game()
+            if event.type == pg.MOUSEBUTTONDOWN:
+                self.mousedown = True
+            if event.type == pg.MOUSEBUTTONUP:
+                self.mousedown = False
 
     def update(self):
         pass

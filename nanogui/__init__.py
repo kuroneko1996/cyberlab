@@ -29,14 +29,10 @@ class Nanogui:
         for key, value in self.draw_elements.items():
             value()
 
-    def pre(self, joystick):
+    def pre(self, joystick, mousedown=False):
         # called in update
         self.mousex, self.mousey = pg.mouse.get_pos()
-        m_button1, _, _ = pg.mouse.get_pressed()
-        if m_button1:
-            self.mousedown = True
-        else:
-            self.mousedown = False
+        self.mousedown = bool(mousedown)
 
         self.draw_elements.clear()
 
@@ -85,7 +81,7 @@ class Nanogui:
     def button(self, id, text, x, y, w=64, h=48):
         if self.region_hit(x, y, w, h):
             self.hot_item = id
-            if self.active_item == 0 and self.mousedown == True:
+            if self.active_item == 0 and self.mousedown is True:
                 self.active_item = id
 
         # keyboard focus
