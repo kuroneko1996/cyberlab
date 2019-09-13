@@ -80,7 +80,7 @@ for __key in J_BUTTONS:
 
 # Loads key bindings
 for __key in V_BUTTONS:
-    __values = re.split('\s*,*', config['KEYBOARD'][__key])
+    __values = re.split('\s', config['KEYBOARD'][__key])
     V_BUTTONS[__key] = []
     for __value in __values:
         __real_value = getattr(pg, __value, None)
